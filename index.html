@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" data-theme="dark">
+<html lang="fa" dir="rtl" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" id="mtc" content="#090e1a">
+<meta name="theme-color" id="mtc" content="#eff6ff">
 <title>PX اپتیمایزر | استودیوی بهینه‌سازی کانفیگ</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M10 16l4 4 8-8' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script>try{if(localStorage.getItem('px_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
+<script>try{if(localStorage.getItem('px_theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <style>
 :root{
   --r:8px;--r2:6px;--r3:4px;--pill:999px;
@@ -104,7 +104,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 .hdr-title h1{
   font-size:22px;font-weight:700;letter-spacing:-.01em;color:var(--tx);
 }
-.hdr-title small{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--tx2);font-weight:500;margin-top:2px}
+.hdr-title small{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--tx2);font-weight:600;margin-top:2px}
 .status-dot{width:8px;height:8px;border-radius:50%;background:var(--ac2);display:inline-block}
 /* ── Header Social Icons (Colored Only) + Theme Button ── */
 .hdr-actions{display:flex;align-items:center;gap:8px}
@@ -223,6 +223,26 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 .ip-pill:hover{color:var(--tx);border-color:var(--ac);background:var(--ac0)}
 .ip-pill.active{color:var(--tx);background:var(--ac0);border-color:var(--ac)}
+/* ── Custom Switch & Checkboxes (New Capability v3.1) ── */
+.check-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px;border-radius:var(--r2);background:var(--s1);
+  border:1px solid var(--ln);cursor:pointer;user-select:none;
+}
+.check-row:hover{background:var(--s2)}
+.check-lbl{display:flex;flex-direction:column;gap:2px}
+.check-lbl b{font-size:13px;font-weight:700;color:var(--tx)}
+.check-lbl small{font-size:11.5px;color:var(--tx3)}
+.switch-inp{
+  width:38px;height:22px;border-radius:var(--pill);background:var(--ln2);
+  position:relative;transition:background var(--t2) var(--e);flex:none;
+}
+.switch-inp::after{
+  content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;
+  border-radius:50%;background:#fff;transition:transform var(--t2) var(--e);
+}
+.check-row.checked .switch-inp{background:var(--ac)}
+.check-row.checked .switch-inp::after{transform:translateX(16px)}
 /* ── Advanced JSON Toggle Card ── */
 .json-btn{
   width:100%;display:flex;align-items:center;justify-content:space-between;
@@ -235,6 +255,27 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 .json-content{display:none;padding-top:12px;flex-direction:column;gap:12px;border-top:1px solid var(--ln)}
 .json-drawer.open .json-content{display:flex}
 .hint-sub{font-size:11.5px;color:var(--tx3)}
+/* ── QR Code Modal (New Capability v3.1) ── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:99999;background:rgba(9,14,26,.65);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:none;place-items:center;padding:20px;
+}
+.modal-overlay.open{display:grid}
+.modal-box{
+  width:100%;max-width:380px;background:var(--bg);border:1px solid var(--ln2);
+  border-radius:var(--r);padding:22px;display:flex;flex-direction:column;
+  gap:16px;text-align:center;position:relative;
+}
+.modal-hd{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.modal-hd h3{font-size:16px;font-weight:700;color:var(--tx)}
+.qr-container{
+  width:220px;height:220px;margin:0 auto;background:#fff;
+  padding:12px;border-radius:var(--r2);border:1px solid var(--ln);
+  display:grid;place-items:center;
+}
+.qr-container img{width:100%;height:100%;display:block}
+.qr-info{font-size:12.5px;color:var(--tx2);line-height:1.6}
 /* ── Toast & Output ── */
 .err-list{display:flex;flex-direction:column;gap:8px}.err-list:empty{display:none}
 .err-item{
@@ -273,9 +314,9 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   <div class="notice-bar">
     <span class="notice-badge">
       <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-      اطلاعیه
+      اطلاعیه نسخه ۳.۱
     </span>
-    <p class="notice-text">موتور هوشمند PX اپتیمایزر به نسخه ۳.۰ ارتقا یافت — پشتیبانی کامل از پروتکل‌های VLESS، Trojan و VMess با پردازش محلی، بدون ارسال اطلاعات به سرور.</p>
+    <p class="notice-text">موتور PX اپتیمایزر به <b>نسخه ۳.۱</b> ارتقا یافت — اضافه شدن ابزار هوشمند پاک‌سازی خطوط تبلیغاتی ساب، فیلتر پروتکل و ساخت QR کد زنده برای اسکن با گوشی.</p>
   </div>
   <!-- ── 1. HEADER WITH COLORED SOCIAL ICON BUTTONS & THEME TOGGLE ── -->
   <header class="hdr">
@@ -283,7 +324,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
       <div class="hdr-logo">PX</div>
       <div class="hdr-title">
         <h1>PX OPTIMIZER STUDIO</h1>
-        <small><span class="status-dot"></span> استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی</small>
+        <small><span class="status-dot"></span> استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۳.۱</small>
       </div>
     </div>
     <div class="hdr-actions">
@@ -371,6 +412,40 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
     </div>
     <!-- RIGHT COLUMN: MODULAR LIGHTWEIGHT SETTINGS CARDS (SEPARATED) -->
     <div class="col-stack">
+      <!-- NEW FEATURE CARD v3.1: Smart Cleaner & Protocol Filter -->
+      <div class="glass-box card-mod">
+        <div class="card-hd">
+          <h2>
+            <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg></span>
+            ابزار هوشمند پاک‌سازی و فیلتر (نسخه ۳.۱)
+          </h2>
+          <span class="lbl-tag" style="color:var(--ac);border-color:var(--ac1)">قابلیت جدید</span>
+        </div>
+        <!-- Toggle 1: Strip Junk & Expired Sub Ads -->
+        <div class="check-row checked" id="stripAdsToggle" role="checkbox" aria-checked="true">
+          <div class="check-lbl">
+            <b>حذف خودکار خطوط تبلیغاتی و منقضی ساب</b>
+            <small>حذف خطوط ترافیک، Expired و لینک‌های غیرفعال کانال از خروجی</small>
+          </div>
+          <div class="switch-inp"></div>
+        </div>
+        <!-- Select: Protocol Filtering -->
+        <div class="field">
+          <div class="field-lbl">
+            <span>فیلتر پروتکل در خروجی</span>
+            <span class="lbl-tag">جداسازی سریع</span>
+          </div>
+          <div class="select-wrap">
+            <select class="in" id="protoFilter">
+              <option value="all">نمایش همه کانفیگ‌ها (پیش‌فرض)</option>
+              <option value="vless">فقط کانفیگ‌های VLESS</option>
+              <option value="trojan">فقط کانفیگ‌های Trojan</option>
+              <option value="vmess">فقط کانفیگ‌های VMess</option>
+            </select>
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+      </div>
       <!-- Lightweight Card A: Server Address & Clean IP Presets -->
       <div class="glass-box card-mod">
         <div class="card-hd">
@@ -492,6 +567,11 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
           کپی همه کانفیگ‌ها
         </button>
+        <!-- NEW CAPABILITY v3.1: Live QR Code Button -->
+        <button class="btn btn-sm" id="qrBtn" type="button" disabled style="color:var(--ac)">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          📱 ساخت QR کد
+        </button>
         <button class="btn btn-sm" id="dl" type="button" disabled>
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           دانلود فایل .txt
@@ -507,8 +587,21 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   </section>
   <!-- ── 4. MINIMAL FOOTER WITH PIXON ATTRIBUTION ── -->
   <footer class="foot-clean">
-    <span>© <span id="yr"></span> PX OPTIMIZER STUDIO — ساخته شده توسط <b>PIXON</b> — تمامی پردازش‌ها به‌صورت ۱۰۰٪ محلی در مرورگر انجام می‌شود.</span>
+    <span>© <span id="yr"></span> PX OPTIMIZER STUDIO — ساخته شده توسط <b>PIXON</b>.</span>
   </footer>
+</div>
+<!-- QR CODE SCANNER MODAL (NEW CAPABILITY v3.1) -->
+<div class="modal-overlay" id="qrModal">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <h3>اسکن QR کد کانفیگ</h3>
+      <button class="btn btn-sm" id="closeQr" type="button" style="color:var(--rd)">بستن</button>
+    </div>
+    <div class="qr-container" id="qrImgWrap">
+      <img id="qrImage" alt="QR Code" src="">
+    </div>
+    <p class="qr-info" id="qrText">برای اسکن در برنامه v2rayNG از دوربین گوشی استفاده کنید.</p>
+  </div>
 </div>
 <!-- TOAST NOTIFICATION -->
 <div class="toast-msg" id="toast">
@@ -518,13 +611,14 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 <script>
 (function(){
 'use strict';
+var PX_VERSION='3.1';
 var FM_STR='{"tcp":[{"type":"fragment","settings":{"packets":"tlshello","lengths":["5","94","1"],"delays":["0"],"maxSplit":"0"}},{"type":"fragment","settings":{"packets":"1-1","lengths":["109","1"],"delays":["1"],"maxSplit":"355"}}]}';
 var CS_STR=['TLS_AES_256_GCM_SHA384','TLS_CHACHA20_POLY1305_SHA256','TLS_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256','TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256'].join(':');
-var DEF={adr:'',fp:'unsafe',cs:CS_STR,fm:FM_STR,alpn:'',pfx:'[PX] '};
+var DEF={adr:'',fp:'unsafe',cs:CS_STR,fm:FM_STR,alpn:'',pfx:'[PX] ',stripAds:true,protoFilter:'all'};
 var ORDER=['cs','path','security','alpn','encryption','fm','insecure','host','fp','type','allowInsecure','sni'];
 var UUID_RE=/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 var PROTO_START=/^(vless|vmess|trojan|ss|hysteria2?|tuic|naive\+https?|wireguard):\/\//i;
-var SKEY='px_opt_v3_sets',TKEY='px_theme';
+var SKEY='px_opt_v31_sets',TKEY='px_theme';
 function $(id){return document.getElementById(id);}
 function fa(n){return String(n).replace(/\d/g,function(d){return'۰۱۲۳۴۵۶۷۸۹'[+d];});}
 function dec(s){try{return decodeURIComponent(s);}catch(e){return s;}}
@@ -633,24 +727,47 @@ function applyParams(c,o){
   setParam(c.p,'fm',fmOf(o.fm));
   if(o.alpn)setParam(c.p,'alpn',o.alpn);
 }
+function isJunkConfig(line){
+  var lower=line.toLowerCase();
+  var junkWords=['expired','traffic','ترافیک','اعتبار','باقی‌مانده','مهلت','expire','remaining','gb','تست','channel','کانال'];
+  for(var i=0;i<junkWords.length;i++){
+    if(lower.indexOf(junkWords[i])>=0)return true;
+  }
+  return false;
+}
 function optimize(raw,o){
   var l=String(raw||'').trim();
-  if(/^vless:\/\//i.test(l)){var cv=parseVless(l);applyParams(cv,o);return buildVless(cv,o.pfx);}
-  if(/^trojan:\/\//i.test(l)){var ct=parseTrojan(l);applyParams(ct,o);return buildTrojan(ct,o.pfx);}
-  if(/^vmess:\/\//i.test(l)){return optimizeVmess(l,o);}
-  if(PROTO_START.test(l)){
+  if(o.stripAds&&isJunkConfig(l))throw new Error('خط اطلاعاتی/منقضی حذف شد');
+  var r='';
+  if(/^vless:\/\//i.test(l)){
+    if(o.protoFilter!=='all'&&o.protoFilter!=='vless')throw new Error('فیلتر پروتکل (غیر VLESS)');
+    var cv=parseVless(l);applyParams(cv,o);r=buildVless(cv,o.pfx);
+  }
+  else if(/^trojan:\/\//i.test(l)){
+    if(o.protoFilter!=='all'&&o.protoFilter!=='trojan')throw new Error('فیلتر پروتکل (غیر Trojan)');
+    var ct=parseTrojan(l);applyParams(ct,o);r=buildTrojan(ct,o.pfx);
+  }
+  else if(/^vmess:\/\//i.test(l)){
+    if(o.protoFilter!=='all'&&o.protoFilter!=='vmess')throw new Error('فیلتر پروتکل (غیر VMess)');
+    r=optimizeVmess(l,o);
+  }
+  else if(PROTO_START.test(l)){
+    if(o.protoFilter!=='all')throw new Error('فیلتر پروتکل');
     if(o.pfx){
       var hi=l.indexOf('#');
       if(hi>=0){
-        var r=dec(l.slice(hi+1));
-        if(r.indexOf(o.pfx)!==0)return l.slice(0,hi)+'#'+encodeURIComponent(o.pfx+r);
+        var rmk=dec(l.slice(hi+1));
+        if(rmk.indexOf(o.pfx)!==0)r=l.slice(0,hi)+'#'+encodeURIComponent(o.pfx+rmk);
+        else r=l;
       }else{
-        return l+'#'+encodeURIComponent(o.pfx+'Config');
+        r=l+'#'+encodeURIComponent(o.pfx+'Config');
       }
-    }
-    return l;
+    }else{r=l;}
   }
-  throw new Error('پروتکل ناشناخته');
+  else{
+    throw new Error('پروتکل ناشناخته');
+  }
+  return r;
 }
 function b64encode(s){
   try{return btoa(unescape(encodeURIComponent(s)));}catch(e){return'';}
@@ -722,7 +839,9 @@ function loadSettings(){
     cs:s.cs||DEF.cs,
     fm:fm,
     alpn:s.alpn||DEF.alpn,
-    pfx:(s.pfx!==undefined)?s.pfx:DEF.pfx
+    pfx:(s.pfx!==undefined)?s.pfx:DEF.pfx,
+    stripAds:(s.stripAds!==undefined)?s.stripAds:DEF.stripAds,
+    protoFilter:s.protoFilter||DEF.protoFilter
   };
 }
 function saveSettings(o){try{localStorage.setItem(SKEY,JSON.stringify(o));}catch(e){}}
@@ -741,16 +860,21 @@ function legacyCopy(t){
 var inp=$('inp'),out=$('out'),res=$('res'),sumEl=$('sum'),errs=$('errs'),
     cnt=$('cnt'),protoCnt=$('protoCnt'),ocnt=$('ocnt'),
     adr=$('adr'),fp=$('fp'),cs=$('cs'),fm=$('fm'),fmh=$('fmh'),
-    alpn=$('alpn'),pfx=$('pfx'),
-    go=$('go'),dz=$('dz'),cpy=$('cpy'),dl=$('dl');
+    alpn=$('alpn'),pfx=$('pfx'),protoFilter=$('protoFilter'),
+    stripAdsToggle=$('stripAdsToggle'),
+    go=$('go'),dz=$('dz'),cpy=$('cpy'),dl=$('dl'),qrBtn=$('qrBtn');
 var st=loadSettings();
 adr.value=st.adr;fp.value=st.fp;cs.value=st.cs;fm.value=st.fm;alpn.value=st.alpn;pfx.value=st.pfx;
+protoFilter.value=st.protoFilter;
+stripAdsToggle.classList.toggle('checked',st.stripAds);
 $('yr').textContent=fa(new Date().getFullYear());
 function getOpts(){
   return{
     adr:adr.value.trim(),fp:fp.value,
     cs:cs.value.trim()||DEF.cs,fm:fm.value.trim()||DEF.fm,
-    alpn:alpn.value.trim(),pfx:pfx.value
+    alpn:alpn.value.trim(),pfx:pfx.value,
+    stripAds:stripAdsToggle.classList.contains('checked'),
+    protoFilter:protoFilter.value
   };
 }
 function persist(){
@@ -788,12 +912,17 @@ function updateCount(){
     protoCnt.hidden=true;
   }
 }
-function setOutputBtns(en){cpy.disabled=dl.disabled=!en;}
+function setOutputBtns(en){cpy.disabled=dl.disabled=qrBtn.disabled=!en;}
 [adr,cs,pfx].forEach(function(el){el.addEventListener('input',persist);});
-[fp,alpn].forEach(function(el){el.addEventListener('change',persist);});
+[fp,alpn,protoFilter].forEach(function(el){el.addEventListener('change',persist);});
 fm.addEventListener('input',function(){validateFm();persist();});
 inp.addEventListener('input',updateCount);
 validateFm();updateCount();updateIpPills();
+stripAdsToggle.addEventListener('click',function(){
+  this.classList.toggle('checked');
+  persist();
+  showToast(this.classList.contains('checked')?'حذف خودکار تبلیغات و خطوط منقضی فعال شد':'حذف خودکار تبلیغات غیرفعال شد','ok');
+});
 document.querySelectorAll('.ip-pill').forEach(function(btn){
   btn.addEventListener('click',function(){
     adr.value=this.getAttribute('data-ip');
@@ -815,6 +944,7 @@ $('jsonToggle').addEventListener('click',function(){
 });
 $('rst').addEventListener('click',function(){
   adr.value=DEF.adr;fp.value=DEF.fp;cs.value=DEF.cs;fm.value=DEF.fm;alpn.value=DEF.alpn;pfx.value=DEF.pfx;
+  protoFilter.value=DEF.protoFilter;stripAdsToggle.classList.toggle('checked',DEF.stripAds);
   validateFm();persist();
   showToast('تمامی تنظیمات به حالت پیش‌فرض بازگشت','ok');
 });
@@ -883,10 +1013,21 @@ cpy.addEventListener('click',function(){
     showToast(ok?'تمامی کانفیگ‌های بهینه‌شده کپی شد':'کپی خودکار پشتیبانی نمی‌شود — دستی کپی کنید',ok?'ok':'err');
   });
 });
+qrBtn.addEventListener('click',function(){
+  var lines=out.value.split(/\r?\n/).filter(function(l){return l.trim();});
+  if(!lines.length){showToast('ابتدا کانفیگ‌ها را بهینه‌سازی کنید','err');return;}
+  var first=lines[0];
+  var url='https://api.qrserver.com/v1/create-qr-code/?size=240x240&data='+encodeURIComponent(first);
+  $('qrImage').src=url;
+  $('qrText').textContent='کانفیگ اول ('+fa(lines.length)+' کانفیگ در لیست) — با دوربین گوشی در برنامه v2rayNG اسکن کنید.';
+  $('qrModal').classList.add('open');
+});
+$('closeQr').addEventListener('click',function(){$('qrModal').classList.remove('open');});
+$('qrModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
 dl.addEventListener('click',function(){
   if(!out.value)return;
   var blob=new Blob([out.value+'\n'],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob);
-  var a=document.createElement('a');a.href=url;a.download='PX-Configs-'+Date.now()+'.txt';
+  var a=document.createElement('a');a.href=url;a.download='PX-Configs-v3.1-'+Date.now()+'.txt';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(function(){URL.revokeObjectURL(url);},1500);
   showToast('فایل کانفیگ‌ها دانلود شد','ok');
