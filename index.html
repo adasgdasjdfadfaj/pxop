@@ -4,26 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" id="mtc" content="#eff6ff">
-<title>PX اپتیمایزر | استودیوی بهینه‌سازی کانفیگ</title>
+<title>PX اپتیمایزر | استودیوی بهینه‌سازی هوشمند کانفیگ</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M10 16l4 4 8-8' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <script>try{if(localStorage.getItem('px_theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <style>
 :root{
   --r:8px;--r2:6px;--r3:4px;--pill:999px;
   --e:cubic-bezier(.4,0,.2,1);--e2:cubic-bezier(.22,1,.36,1);
   --t1:.15s;--t2:.25s;--t3:.4s;
-  --mono:'JetBrains Mono',monospace;--sans:'Changa',system-ui,sans-serif;
+  --mono:'JetBrains Mono','Fira Code',monospace;
+  --sans:'Alexandria','Vazirmatn',system-ui,-apple-system,sans-serif;
 }
 html[data-theme=dark]{
   --bg-grad:linear-gradient(145deg,#090e1a 0%,#0e172a 50%,#111d38 100%);
   --bg:#090e1a;--tx:#f1f5f9;--tx2:#93c5fd;--tx3:#64748b;
-  --glass-bg:rgba(15,23,42,.65);--glass-bg2:rgba(18,28,51,.75);
-  --glass-bd:rgba(59,130,246,.22);--glass-bd-hv:rgba(59,130,246,.45);
-  --s1:rgba(255,255,255,.04);--s2:rgba(30,58,138,.25);--s3:rgba(59,130,246,.18);
-  --ln:rgba(59,130,246,.18);--ln2:rgba(59,130,246,.35);
+  --glass-bg:rgba(15,23,42,.68);--glass-bg2:rgba(18,28,51,.78);
+  --glass-bd:rgba(59,130,246,.24);--glass-bd-hv:rgba(59,130,246,.48);
+  --s1:rgba(255,255,255,.04);--s2:rgba(30,58,138,.28);--s3:rgba(59,130,246,.2);
+  --ln:rgba(59,130,246,.2);--ln2:rgba(59,130,246,.38);
   --ac:#3b82f6;--ac2:#60a5fa;
   --ac0:rgba(59,130,246,.12);--ac1:rgba(59,130,246,.25);
   --rd:#f87171;--rd0:rgba(248,113,113,.12);--rd1:rgba(248,113,113,.25);
@@ -31,17 +32,17 @@ html[data-theme=dark]{
 html[data-theme=light]{
   --bg-grad:linear-gradient(145deg,#eff6ff 0%,#f1f5f9 50%,#e2e8f0 100%);
   --bg:#eff6ff;--tx:#0f172a;--tx2:#1d4ed8;--tx3:#64748b;
-  --glass-bg:rgba(255,255,255,.75);--glass-bg2:rgba(255,255,255,.88);
-  --glass-bd:rgba(37,99,235,.2);--glass-bd-hv:rgba(37,99,235,.45);
-  --s1:rgba(255,255,255,.9);--s2:rgba(219,234,254,.7);--s3:rgba(191,219,254,.8);
-  --ln:rgba(37,99,235,.18);--ln2:rgba(37,99,235,.35);
+  --glass-bg:rgba(255,255,255,.78);--glass-bg2:rgba(255,255,255,.9);
+  --glass-bd:rgba(37,99,235,.22);--glass-bd-hv:rgba(37,99,235,.48);
+  --s1:rgba(255,255,255,.9);--s2:rgba(219,234,254,.75);--s3:rgba(191,219,254,.85);
+  --ln:rgba(37,99,235,.2);--ln2:rgba(37,99,235,.38);
   --ac:#2563eb;--ac2:#1d4ed8;
   --ac0:rgba(37,99,235,.1);--ac1:rgba(37,99,235,.2);
   --rd:#dc2626;--rd0:rgba(220,38,38,.1);--rd1:rgba(220,38,38,.2);
 }
 *,*::before,*::after{box-sizing:border-box;box-shadow:none!important;text-shadow:none!important}
 body{
-  margin:0;min-height:100vh;font-family:var(--sans);font-size:14.5px;line-height:1.7;
+  margin:0;min-height:100vh;font-family:var(--sans);font-size:14.5px;line-height:1.75;
   color:var(--tx);background:var(--bg);background-image:var(--bg-grad);
   overflow-x:hidden;-webkit-font-smoothing:antialiased;
 }
@@ -86,6 +87,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 .notice-text{
   font-size:13.5px;color:var(--tx);font-weight:500;line-height:1.6;flex:1;min-width:240px;
 }
+.notice-text b{font-weight:700}
 /* ── Header ── */
 .hdr{
   display:flex;align-items:center;justify-content:space-between;gap:16px;
@@ -98,11 +100,11 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 .hdr-logo{
   width:44px;height:44px;border-radius:var(--r2);
   background:var(--ac);
-  display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px;
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;
   flex:none;
 }
 .hdr-title h1{
-  font-size:22px;font-weight:700;letter-spacing:-.01em;color:var(--tx);
+  font-size:22px;font-weight:800;letter-spacing:-.01em;color:var(--tx);
 }
 .hdr-title small{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--tx2);font-weight:600;margin-top:2px}
 .status-dot{width:8px;height:8px;border-radius:50%;background:var(--ac2);display:inline-block}
@@ -186,9 +188,9 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   transition:border-color var(--t1) var(--e);
 }
 .ta:focus{outline:none;border-color:var(--ac);background:var(--s2)}
-#inp{min-height:210px}
+#inp{min-height:220px}
 #inp::placeholder{font-family:var(--sans);font-size:13.5px;color:var(--tx3);direction:rtl;text-align:right}
-#out{min-height:190px;border-color:var(--ac1)}
+#out{min-height:200px;border-color:var(--ac1)}
 .drag-over{border-color:var(--ac)!important;background:var(--ac0)!important}
 .proto-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:2px 0}
 .proto-tag{
@@ -201,9 +203,29 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
 }
 .hint-text{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2)}
+/* ── Guide / Pro Tips Card (Filling Gaps in Left Column) ── */
+.guide-grid{
+  display:grid;grid-template-columns:1fr;gap:10px;
+}
+@media(min-width:640px){
+  .guide-grid{grid-template-columns:1fr 1fr}
+}
+.guide-item{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:10px 12px;border-radius:var(--r2);
+  background:var(--s1);border:1px solid var(--ln);
+}
+.guide-ico{
+  width:26px;height:26px;border-radius:var(--r3);
+  background:var(--ac0);color:var(--ac2);
+  display:grid;place-items:center;flex:none;font-weight:700;font-size:12px;
+}
+.guide-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.guide-txt b{font-size:13px;font-weight:700;color:var(--tx)}
+.guide-txt p{font-size:11.8px;color:var(--tx3);line-height:1.55;margin:0}
 /* ── Form Fields & Inputs ── */
 .field{display:flex;flex-direction:column;gap:7px}
-.field-lbl{display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:600;color:var(--tx)}
+.field-lbl{display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:700;color:var(--tx)}
 .lbl-tag{font-size:10.5px;padding:1px 8px;border-radius:var(--r3);background:var(--s2);color:var(--tx3);border:1px solid var(--ln)}
 .in{
   width:100%;height:38px;padding:0 14px;border-radius:var(--r2);
@@ -223,7 +245,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 .ip-pill:hover{color:var(--tx);border-color:var(--ac);background:var(--ac0)}
 .ip-pill.active{color:var(--tx);background:var(--ac0);border-color:var(--ac)}
-/* ── Custom Switch & Checkboxes (New Capability v3.1) ── */
+/* ── Custom Switch & Checkboxes (Feature v3.2) ── */
 .check-row{
   display:flex;align-items:center;justify-content:space-between;
   padding:10px 14px;border-radius:var(--r2);background:var(--s1);
@@ -255,7 +277,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 .json-content{display:none;padding-top:12px;flex-direction:column;gap:12px;border-top:1px solid var(--ln)}
 .json-drawer.open .json-content{display:flex}
 .hint-sub{font-size:11.5px;color:var(--tx3)}
-/* ── QR Code Modal (New Capability v3.1) ── */
+/* ── QR Code Modal (Feature v3.2) ── */
 .modal-overlay{
   position:fixed;inset:0;z-index:99999;background:rgba(9,14,26,.65);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
@@ -314,9 +336,9 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   <div class="notice-bar">
     <span class="notice-badge">
       <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-      اطلاعیه نسخه ۳.۱
+      اطلاعیه نسخه ۳.۲
     </span>
-    <p class="notice-text">موتور PX اپتیمایزر به <b>نسخه ۳.۱</b> ارتقا یافت — اضافه شدن ابزار هوشمند پاک‌سازی خطوط تبلیغاتی ساب، فیلتر پروتکل و ساخت QR کد زنده برای اسکن با گوشی.</p>
+    <p class="notice-text">موتور PX اپتیمایزر به <b>نسخه ۳.۲</b> ارتقا یافت — طراحی با تایپوگرافی مدرن <b>Alexandria + Vazirmatn</b>، اضافه شدن راهنمای زنده و ۷ پریست IP کلودفلر.</p>
   </div>
   <!-- ── 1. HEADER WITH COLORED SOCIAL ICON BUTTONS & THEME TOGGLE ── -->
   <header class="hdr">
@@ -324,7 +346,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
       <div class="hdr-logo">PX</div>
       <div class="hdr-title">
         <h1>PX OPTIMIZER STUDIO</h1>
-        <small><span class="status-dot"></span> استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۳.۱</small>
+        <small><span class="status-dot"></span> استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۳.۲</small>
       </div>
     </div>
     <div class="hdr-actions">
@@ -349,7 +371,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   </header>
   <!-- ── 2. MODULAR 2-COLUMN GRID (SEPARATED LIGHTWEIGHT CARDS) ── -->
   <div class="grid-main">
-    <!-- LEFT COLUMN: INPUT STUDIO & OPTIMIZATION CTA -->
+    <!-- LEFT COLUMN: INPUT STUDIO & OPTIMIZATION CTA & QUICK GUIDE (FILLING GAPS) -->
     <div class="col-stack">
       <!-- Lightweight Card 1: Editor Box -->
       <div class="glass-box card-mod" id="dz">
@@ -409,17 +431,57 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
           </button>
         </div>
       </div>
+      <!-- Lightweight Card 3 (NEW - FILLING EMPTY SPACE): Quick Guide & Pro Shortcuts -->
+      <div class="glass-box card-mod">
+        <div class="card-hd">
+          <h2>
+            <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
+            راهنمای سریع و کلیدهای میانبر
+          </h2>
+          <span class="lbl-tag">نکات حرفه‌ای</span>
+        </div>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <span class="guide-ico">۱</span>
+            <div class="guide-txt">
+              <b>کلیدهای میانبر سریع</b>
+              <p>با کلید ترکیبی <code>Ctrl + Enter</code> در هر لحظه عملیات بهینه‌سازی را اجرا کنید.</p>
+            </div>
+          </div>
+          <div class="guide-item">
+            <span class="guide-ico">۲</span>
+            <div class="guide-txt">
+              <b>پشتیبانی از لینک ساب</b>
+              <p>لینک اشتراک خود را قرار دهید تا کانفیگ‌ها به‌صورت خودکار استخراج و تفکیک شوند.</p>
+            </div>
+          </div>
+          <div class="guide-item">
+            <span class="guide-ico">۳</span>
+            <div class="guide-txt">
+              <b>سازگاری کامل با v2rayNG</b>
+              <p>پارامترهای <code>cs</code> و <code>fm</code> و <code>alpn</code> مخصوص کلاینت‌های جدید تنظیم شده‌اند.</p>
+            </div>
+          </div>
+          <div class="guide-item">
+            <span class="guide-ico">۴</span>
+            <div class="guide-txt">
+              <b>حریم خصوصی ۱۰۰٪ محلی</b>
+              <p>هیچ کانفیگی در سرور ذخیره نمی‌شود و تمام عملیات درون مرورگر صورت می‌گیرد.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- RIGHT COLUMN: MODULAR LIGHTWEIGHT SETTINGS CARDS (SEPARATED) -->
     <div class="col-stack">
-      <!-- NEW FEATURE CARD v3.1: Smart Cleaner & Protocol Filter -->
+      <!-- NEW FEATURE CARD v3.2: Smart Cleaner & Protocol Filter -->
       <div class="glass-box card-mod">
         <div class="card-hd">
           <h2>
             <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg></span>
-            ابزار هوشمند پاک‌سازی و فیلتر (نسخه ۳.۱)
+            ابزار هوشمند پاک‌سازی و فیلتر (نسخه ۳.۲)
           </h2>
-          <span class="lbl-tag" style="color:var(--ac);border-color:var(--ac1)">قابلیت جدید</span>
+          <span class="lbl-tag" style="color:var(--ac);border-color:var(--ac1)">قابلیت ویژه</span>
         </div>
         <!-- Toggle 1: Strip Junk & Expired Sub Ads -->
         <div class="check-row checked" id="stripAdsToggle" role="checkbox" aria-checked="true">
@@ -446,7 +508,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
           </div>
         </div>
       </div>
-      <!-- Lightweight Card A: Server Address & Clean IP Presets -->
+      <!-- Lightweight Card A: Server Address & Clean IP Presets (7 Presets) -->
       <div class="glass-box card-mod">
         <div class="card-hd">
           <h2>
@@ -465,8 +527,10 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
             <span class="ip-pill" data-ip="">بدون تغییر</span>
             <span class="ip-pill" data-ip="188.114.97.6">Cloudflare 188.114</span>
             <span class="ip-pill" data-ip="162.159.192.1">Cloudflare 162.159</span>
+            <span class="ip-pill" data-ip="104.16.20.1">Cloudflare 104.16</span>
             <span class="ip-pill" data-ip="icook.hk">icook.hk</span>
             <span class="ip-pill" data-ip="www.speedtest.net">Speedtest</span>
+            <span class="ip-pill" data-ip="ir.speedtest.cl">IR CDN</span>
           </div>
         </div>
       </div>
@@ -485,12 +549,12 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
           </div>
           <div class="select-wrap">
             <select class="in" id="fp">
-              <option value="unsafe">unsafe (پیش‌فرض سریع)</option>
-              <option value="chrome">chrome (مرورگر کروم)</option>
-              <option value="firefox">firefox (مرورگر فایرفاکس)</option>
-              <option value="safari">safari (مرورگر سافاری)</option>
-              <option value="edge">edge (مرورگر اج)</option>
-              <option value="random">random (انتخاب تصادفی)</option>
+              <option value="unsafe">unsafe (پیش‌فرض سریع - عبور مستقیم)</option>
+              <option value="chrome">chrome (مرورگر گوگل کروم - پایدارترین)</option>
+              <option value="firefox">firefox (مرورگر فایرفاکس - امنیت بالا)</option>
+              <option value="safari">safari (مرورگر سافاری - اپل)</option>
+              <option value="edge">edge (مرورگر مایکروسافت اج)</option>
+              <option value="random">random (انتخاب تصادفی شناسه)</option>
             </select>
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
           </div>
@@ -504,8 +568,8 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
             <select class="in" id="alpn">
               <option value="">بدون تغییر (پیش‌فرض کانفیگ)</option>
               <option value="h2,http/1.1">h2,http/1.1 (پیشنهادی برای Reality)</option>
-              <option value="h2">h2 (فقط HTTP/2)</option>
-              <option value="http/1.1">http/1.1 (کلاسیک)</option>
+              <option value="h2">h2 (فقط HTTP/2 - سرعت بالا)</option>
+              <option value="http/1.1">http/1.1 (کلاسیک - سازگاری حداکثری)</option>
             </select>
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
           </div>
@@ -567,7 +631,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
           کپی همه کانفیگ‌ها
         </button>
-        <!-- NEW CAPABILITY v3.1: Live QR Code Button -->
+        <!-- CAPABILITY v3.2: Live QR Code Button -->
         <button class="btn btn-sm" id="qrBtn" type="button" disabled style="color:var(--ac)">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
           📱 ساخت QR کد
@@ -587,10 +651,10 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   </section>
   <!-- ── 4. MINIMAL FOOTER WITH PIXON ATTRIBUTION ── -->
   <footer class="foot-clean">
-    <span>© <span id="yr"></span> PX OPTIMIZER STUDIO — ساخته شده توسط <b>PIXON</b>.</span>
+    <span>© <span id="yr"></span> PX OPTIMIZER STUDIO — ساخته شده توسط <b>PIXON</b> — تمامی پردازش‌ها به‌صورت ۱۰۰٪ محلی در مرورگر انجام می‌شود.</span>
   </footer>
 </div>
-<!-- QR CODE SCANNER MODAL (NEW CAPABILITY v3.1) -->
+<!-- QR CODE SCANNER MODAL (FEATURE v3.2) -->
 <div class="modal-overlay" id="qrModal">
   <div class="modal-box">
     <div class="modal-hd">
@@ -611,14 +675,14 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 <script>
 (function(){
 'use strict';
-var PX_VERSION='3.1';
+var PX_VERSION='3.2';
 var FM_STR='{"tcp":[{"type":"fragment","settings":{"packets":"tlshello","lengths":["5","94","1"],"delays":["0"],"maxSplit":"0"}},{"type":"fragment","settings":{"packets":"1-1","lengths":["109","1"],"delays":["1"],"maxSplit":"355"}}]}';
 var CS_STR=['TLS_AES_256_GCM_SHA384','TLS_CHACHA20_POLY1305_SHA256','TLS_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256','TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256'].join(':');
 var DEF={adr:'',fp:'unsafe',cs:CS_STR,fm:FM_STR,alpn:'',pfx:'[PX] ',stripAds:true,protoFilter:'all'};
 var ORDER=['cs','path','security','alpn','encryption','fm','insecure','host','fp','type','allowInsecure','sni'];
 var UUID_RE=/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 var PROTO_START=/^(vless|vmess|trojan|ss|hysteria2?|tuic|naive\+https?|wireguard):\/\//i;
-var SKEY='px_opt_v31_sets',TKEY='px_theme';
+var SKEY='px_opt_v32_sets',TKEY='px_theme';
 function $(id){return document.getElementById(id);}
 function fa(n){return String(n).replace(/\d/g,function(d){return'۰۱۲۳۴۵۶۷۸۹'[+d];});}
 function dec(s){try{return decodeURIComponent(s);}catch(e){return s;}}
@@ -1027,7 +1091,7 @@ $('qrModal').addEventListener('click',function(e){if(e.target===this)this.classL
 dl.addEventListener('click',function(){
   if(!out.value)return;
   var blob=new Blob([out.value+'\n'],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob);
-  var a=document.createElement('a');a.href=url;a.download='PX-Configs-v3.1-'+Date.now()+'.txt';
+  var a=document.createElement('a');a.href=url;a.download='PX-Configs-v3.2-'+Date.now()+'.txt';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(function(){URL.revokeObjectURL(url);},1500);
   showToast('فایل کانفیگ‌ها دانلود شد','ok');
