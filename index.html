@@ -20,7 +20,7 @@
 html[data-theme=dark]{
   --bg-grad:linear-gradient(145deg,#090e1a 0%,#0e172a 50%,#111d38 100%);
   --bg:#090e1a;--tx:#f1f5f9;--tx2:#93c5fd;--tx3:#64748b;
-  --glass-bg:rgba(15,23,42,.65);--glass-bg2:rgba(18,28,51,.7);
+  --glass-bg:rgba(15,23,42,.65);--glass-bg2:rgba(18,28,51,.75);
   --glass-bd:rgba(59,130,246,.22);--glass-bd-hv:rgba(59,130,246,.45);
   --s1:rgba(255,255,255,.04);--s2:rgba(30,58,138,.25);--s3:rgba(59,130,246,.18);
   --ln:rgba(59,130,246,.18);--ln2:rgba(59,130,246,.35);
@@ -31,7 +31,7 @@ html[data-theme=dark]{
 html[data-theme=light]{
   --bg-grad:linear-gradient(145deg,#eff6ff 0%,#f1f5f9 50%,#e2e8f0 100%);
   --bg:#eff6ff;--tx:#0f172a;--tx2:#1d4ed8;--tx3:#64748b;
-  --glass-bg:rgba(255,255,255,.75);--glass-bg2:rgba(255,255,255,.85);
+  --glass-bg:rgba(255,255,255,.75);--glass-bg2:rgba(255,255,255,.88);
   --glass-bd:rgba(37,99,235,.2);--glass-bd-hv:rgba(37,99,235,.45);
   --s1:rgba(255,255,255,.9);--s2:rgba(219,234,254,.7);--s3:rgba(191,219,254,.8);
   --ln:rgba(37,99,235,.18);--ln2:rgba(37,99,235,.35);
@@ -57,18 +57,18 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--s2);border-radius:8px;border:2px solid transparent;background-clip:content-box}
 ::-webkit-scrollbar-thumb:hover{background:var(--tx3)}
-/* ── Container & Grid Layout ── */
+/* ── App Container ── */
 .app-wrap{
-  width:100%;max-width:1160px;margin:0 auto;padding:18px 18px 56px;
+  width:100%;max-width:1160px;margin:0 auto;padding:16px 18px 56px;
   display:flex;flex-direction:column;gap:16px;
 }
-.card{
+.glass-box{
   background:var(--glass-bg);border:1px solid var(--glass-bd);
   border-radius:var(--r);
   backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
-  transition:all var(--t2) var(--e);
+  transition:border-color var(--t2) var(--e);
 }
-.card:hover{border-color:var(--glass-bd-hv)}
+.glass-box:hover{border-color:var(--glass-bd-hv)}
 /* ── Announcement Notice Bar (اطلاعیه) ── */
 .notice-bar{
   display:flex;align-items:center;gap:12px;
@@ -102,59 +102,51 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   flex:none;
 }
 .hdr-title h1{
-  font-size:22px;font-weight:700;letter-spacing:-.01em;
-  color:var(--tx);
+  font-size:22px;font-weight:700;letter-spacing:-.01em;color:var(--tx);
 }
 .hdr-title small{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--tx2);font-weight:500;margin-top:2px}
 .status-dot{width:8px;height:8px;border-radius:50%;background:var(--ac2);display:inline-block}
-.hdr-actions{display:flex;align-items:center;gap:10px}
-.badge-pro{
-  font-size:11.5px;font-weight:600;padding:4px 12px;border-radius:var(--r3);
-  color:var(--ac2);background:var(--ac0);border:1px solid var(--ac1);
-  display:flex;align-items:center;gap:6px;
+/* ── Header Social Icons (Colored Only) + Theme Button ── */
+.hdr-actions{display:flex;align-items:center;gap:8px}
+.social-icon{
+  width:38px;height:38px;display:grid;place-items:center;border-radius:var(--r2);
+  background:var(--s1);border:1px solid var(--ln);
+  transition:all var(--t1) var(--e);
 }
-/* ── Buttons & Icons ── */
+.social-icon:hover{background:var(--s2);border-color:var(--ln2)}
+.social-icon:active{transform:scale(.95)}
+.tg-icon{fill:#2aa8e9}
+.yt-icon{fill:#ef4444}
+.gh-icon{fill:var(--tx)}
 .ib{
-  width:40px;height:40px;display:grid;place-items:center;border-radius:var(--r2);
+  width:38px;height:38px;display:grid;place-items:center;border-radius:var(--r2);
   color:var(--tx2);background:var(--s2);border:1px solid var(--ln);
   transition:all var(--t1) var(--e);
 }
 .ib:hover{color:var(--tx);background:var(--s3);border-color:var(--ac)}
 .mn{display:none}html[data-theme=light] .sn{display:none}html[data-theme=light] .mn{display:block}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  height:38px;padding:0 16px;border-radius:var(--r2);
-  font-size:13.5px;font-weight:600;color:var(--tx2);
-  background:var(--s2);border:1px solid var(--ln);
-  white-space:nowrap;transition:all var(--t1) var(--e);cursor:pointer;
-}
-.btn:hover{background:var(--s3);border-color:var(--ln2);color:var(--tx)}
-.btn:active{transform:scale(.98)}
-.btn-sm{height:30px;padding:0 11px;font-size:12px;border-radius:var(--r3)}
-.btn-primary{
-  height:44px;padding:0 26px;font-size:15px;font-weight:700;
-  color:#fff!important;background:var(--ac)!important;
-  border:1px solid var(--ac2)!important;
-}
-.btn-primary:hover{background:var(--ac2)!important;border-color:var(--ac2)!important}
-.btn-primary:active{transform:scale(.98)}
-.btn-ok{color:#fff!important;background:var(--ac)!important;border-color:var(--ac)!important}
-.btn-err{color:var(--rd)!important;background:var(--rd0)!important;border-color:var(--rd1)!important}
-/* ── Main Dashboard 2-Column Grid ── */
+/* ── Modular 2-Column Grid (Lightweight & Separate Cards) ── */
 .grid-main{
   display:grid;grid-template-columns:1fr;gap:16px;align-items:start;
 }
 @media(min-width:920px){
   .grid-main{grid-template-columns:1.25fr 1fr}
 }
-/* ── Left Column: Config Studio ── */
-.panel{padding:20px 22px;display:flex;flex-direction:column;gap:15px}
-.panel-hd{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.panel-hd h2{font-size:16px;font-weight:700;display:flex;align-items:center;gap:9px}
+/* ── Column Containers (Stacked lightweight modular cards) ── */
+.col-stack{display:flex;flex-direction:column;gap:14px}
+.card-mod{
+  padding:18px 20px;display:flex;flex-direction:column;gap:14px;
+}
+.card-hd{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+}
+.card-hd h2{
+  font-size:15px;font-weight:700;display:flex;align-items:center;gap:9px;color:var(--tx);
+}
 .hd-icon{
-  width:32px;height:32px;border-radius:var(--r2);
+  width:30px;height:30px;border-radius:var(--r2);
   background:var(--ac0);border:1px solid var(--ac1);
-  color:var(--ac2);display:grid;place-items:center;
+  color:var(--ac2);display:grid;place-items:center;flex:none;
 }
 .stats-badges{display:flex;gap:6px;flex-wrap:wrap}
 .stat-pill{
@@ -162,45 +154,67 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   color:var(--tx2);background:var(--s2);border:1px solid var(--ln);
 }
 .stat-pill.active{color:var(--tx);background:var(--ac0);border-color:var(--ac1)}
+/* ── Toolbar & Buttons ── */
 .editor-toolbar{
   display:flex;align-items:center;justify-content:space-between;gap:8px;
   padding:8px 12px;background:var(--s1);border:1px solid var(--ln);
   border-radius:var(--r2);flex-wrap:wrap;
 }
 .toolbar-left,.toolbar-right{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:36px;padding:0 14px;border-radius:var(--r2);
+  font-size:13px;font-weight:600;color:var(--tx2);
+  background:var(--s2);border:1px solid var(--ln);
+  white-space:nowrap;transition:all var(--t1) var(--e);cursor:pointer;
+}
+.btn:hover{background:var(--s3);border-color:var(--ln2);color:var(--tx)}
+.btn:active{transform:scale(.98)}
+.btn-sm{height:28px;padding:0 10px;font-size:12px;border-radius:var(--r3)}
+.btn-primary{
+  height:44px;padding:0 24px;font-size:15px;font-weight:700;
+  color:#fff!important;background:var(--ac)!important;
+  border:1px solid var(--ac2)!important;
+}
+.btn-primary:hover{background:var(--ac2)!important;border-color:var(--ac2)!important}
+.btn-primary:active{transform:scale(.98)}
 .textarea-wrap{position:relative}
 .ta{
   width:100%;border-radius:var(--r2);background:var(--s1);border:1px solid var(--ln);
   color:var(--tx);padding:14px;resize:vertical;font-family:var(--mono);
   font-size:12.5px;line-height:1.75;word-break:break-all;direction:ltr;text-align:left;
-  transition:all var(--t1) var(--e);
+  transition:border-color var(--t1) var(--e);
 }
 .ta:focus{outline:none;border-color:var(--ac);background:var(--s2)}
-#inp{min-height:220px}
+#inp{min-height:210px}
 #inp::placeholder{font-family:var(--sans);font-size:13.5px;color:var(--tx3);direction:rtl;text-align:right}
-#out{min-height:200px;border-color:var(--ac1)}
+#out{min-height:190px;border-color:var(--ac1)}
 .drag-over{border-color:var(--ac)!important;background:var(--ac0)!important}
+.proto-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:2px 0}
+.proto-tag{
+  font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:var(--r2);
+  background:var(--s2);border:1px solid var(--ln);color:var(--tx2);
+  display:inline-flex;align-items:center;gap:5px;
+}
+.proto-tag.active{color:var(--tx);background:var(--ac0);border-color:var(--ac1)}
 .action-row{
   display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-  padding-top:4px;
 }
 .hint-text{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2)}
-/* ── Right Column: Settings Control Center ── */
-.sec-group{display:flex;flex-direction:column;gap:14px}
+/* ── Form Fields & Inputs ── */
 .field{display:flex;flex-direction:column;gap:7px}
 .field-lbl{display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:600;color:var(--tx)}
 .lbl-tag{font-size:10.5px;padding:1px 8px;border-radius:var(--r3);background:var(--s2);color:var(--tx3);border:1px solid var(--ln)}
 .in{
-  width:100%;height:40px;padding:0 14px;border-radius:var(--r2);
+  width:100%;height:38px;padding:0 14px;border-radius:var(--r2);
   background:var(--s1);border:1px solid var(--ln);color:var(--tx);
-  font-size:13.5px;transition:all var(--t1) var(--e);
+  font-size:13.5px;transition:border-color var(--t1) var(--e);
 }
 .in:focus{outline:none;border-color:var(--ac);background:var(--s2)}
 .in::placeholder{color:var(--tx3)}
 .select-wrap{position:relative}
 .select-wrap .in{appearance:none;-webkit-appearance:none;padding-left:36px;cursor:pointer}
 .select-wrap>svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--tx3);pointer-events:none}
-/* ── Interactive IP Presets ── */
 .ip-presets{display:flex;gap:6px;flex-wrap:wrap}
 .ip-pill{
   font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:var(--r3);
@@ -209,31 +223,19 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 .ip-pill:hover{color:var(--tx);border-color:var(--ac);background:var(--ac0)}
 .ip-pill.active{color:var(--tx);background:var(--ac0);border-color:var(--ac)}
-/* ── Advanced JSON Drawer ── */
-.json-drawer{
-  border:1px solid var(--ln);border-radius:var(--r2);background:var(--s1);
-  overflow:hidden;transition:all var(--t2) var(--e);
-}
+/* ── Advanced JSON Toggle Card ── */
 .json-btn{
   width:100%;display:flex;align-items:center;justify-content:space-between;
-  padding:12px 16px;font-size:13px;font-weight:600;color:var(--tx2);
+  padding:4px 0;font-size:13.5px;font-weight:700;color:var(--tx);
   cursor:pointer;background:none;border:0;
 }
-.json-btn:hover{color:var(--tx);background:var(--s2)}
+.json-btn:hover{color:var(--ac2)}
 .json-btn svg{transition:transform var(--t2) var(--e)}
 .json-drawer.open .json-btn svg{transform:rotate(180deg)}
-.json-content{display:none;padding:0 16px 16px;flex-direction:column;gap:12px}
+.json-content{display:none;padding-top:12px;flex-direction:column;gap:12px;border-top:1px solid var(--ln)}
 .json-drawer.open .json-content{display:flex}
 .hint-sub{font-size:11.5px;color:var(--tx3)}
-/* ── Protocol Badges Bar ── */
-.proto-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:4px 0}
-.proto-tag{
-  font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:var(--r2);
-  background:var(--s2);border:1px solid var(--ln);color:var(--tx2);
-  display:inline-flex;align-items:center;gap:5px;
-}
-.proto-tag.active{color:var(--tx);background:var(--ac0);border-color:var(--ac1)}
-/* ── Output Box & Toast ── */
+/* ── Toast & Output ── */
 .err-list{display:flex;flex-direction:column;gap:8px}.err-list:empty{display:none}
 .err-item{
   font-size:12.5px;color:var(--rd);background:var(--rd0);
@@ -251,14 +253,15 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   transition:all var(--t2) var(--e);
 }
 .toast-msg.show{transform:translateY(0);opacity:1}
-/* ── Minimalist Clean Footer ── */
+/* ── Footer ── */
 .foot-clean{
   display:flex;align-items:center;justify-content:center;
-  padding:16px 0 8px;text-align:center;font-size:12.5px;color:var(--tx3);font-weight:500;
+  padding:16px 0 8px;text-align:center;font-size:13px;color:var(--tx2);font-weight:600;
 }
+.foot-clean b{color:var(--tx);font-weight:700}
 @media(max-width:640px){
   .hdr{padding:14px 16px}
-  .panel{padding:16px}
+  .card-mod{padding:16px}
   .hdr-title h1{font-size:19px}
   .btn-primary{width:100%}
 }
@@ -274,101 +277,112 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
     </span>
     <p class="notice-text">موتور هوشمند PX اپتیمایزر به نسخه ۳.۰ ارتقا یافت — پشتیبانی کامل از پروتکل‌های VLESS، Trojan و VMess با پردازش محلی، بدون ارسال اطلاعات به سرور.</p>
   </div>
-  <!-- ── 1. HEADER ── -->
+  <!-- ── 1. HEADER WITH COLORED SOCIAL ICON BUTTONS & THEME TOGGLE ── -->
   <header class="hdr">
     <div class="hdr-left">
       <div class="hdr-logo">PX</div>
       <div class="hdr-title">
         <h1>PX OPTIMIZER STUDIO</h1>
-        <small><span class="status-dot"></span> استودیوی بهینه‌سازی و مدیریت کانفیگ V2Ray • پردازش محلی</small>
+        <small><span class="status-dot"></span> استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی</small>
       </div>
     </div>
     <div class="hdr-actions">
-      <span class="badge-pro">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        تم آبی کلاسیک
-      </span>
+      <!-- Telegram Colored Icon -->
+      <a href="https://t.me/logic_sec" target="_blank" rel="noopener" class="social-icon" title="کانال تلگرام logic_sec" aria-label="تلگرام">
+        <svg viewBox="0 0 24 24" width="20" height="20" class="tg-icon"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+      </a>
+      <!-- YouTube Colored Icon -->
+      <a href="https://www.youtube.com/@LogicSec_YT" target="_blank" rel="noopener" class="social-icon" title="کانال یوتیوب LogicSec_YT" aria-label="یوتیوب">
+        <svg viewBox="0 0 24 24" width="20" height="20" class="yt-icon"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <!-- GitHub Colored Icon -->
+      <a href="https://github.com/adasgdasjdfadfaj/pxop/" target="_blank" rel="noopener" class="social-icon" title="گیت‌هاب pxop" aria-label="گیت‌هاب">
+        <svg viewBox="0 0 24 24" width="20" height="20" class="gh-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </a>
+      <!-- Theme Switcher -->
       <button class="ib" id="th" type="button" aria-label="تغییر تم روشن/تاریک" title="تغییر تم">
         <svg class="sn" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="mn" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
       </button>
     </div>
   </header>
-  <!-- ── 2. TWO-COLUMN WORKSPACE ── -->
+  <!-- ── 2. MODULAR 2-COLUMN GRID (SEPARATED LIGHTWEIGHT CARDS) ── -->
   <div class="grid-main">
-    <!-- LEFT COLUMN: INPUT & PROCESSING HUB -->
-    <div class="card panel" id="dz">
-      <div class="panel-hd">
-        <h2>
-          <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
-          مرکز ورودی کانفیگ‌ها و ساب‌اسکرایب
-        </h2>
-        <div class="stats-badges">
-          <span class="stat-pill" id="cnt">۰ خط</span>
-          <span class="stat-pill" id="protoCnt" hidden>تعداد پروتکل‌ها</span>
+    <!-- LEFT COLUMN: INPUT STUDIO & OPTIMIZATION CTA -->
+    <div class="col-stack">
+      <!-- Lightweight Card 1: Editor Box -->
+      <div class="glass-box card-mod" id="dz">
+        <div class="card-hd">
+          <h2>
+            <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+            ورودی کانفیگ‌ها و لینک ساب‌اسکرایب
+          </h2>
+          <div class="stats-badges">
+            <span class="stat-pill" id="cnt">۰ خط</span>
+            <span class="stat-pill" id="protoCnt" hidden>تعداد پروتکل‌ها</span>
+          </div>
+        </div>
+        <div class="editor-toolbar">
+          <div class="toolbar-left">
+            <button class="btn btn-sm" id="pst" type="button">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+              چسباندن (Paste)
+            </button>
+            <button class="btn btn-sm" id="fbt" type="button">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+              فایل .txt
+            </button>
+            <button class="btn btn-sm" id="sampleBtn" type="button">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              تست نمونه
+            </button>
+          </div>
+          <div class="toolbar-right">
+            <button class="btn btn-sm" id="clr" type="button" style="color:var(--rd)">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+              پاک کردن
+            </button>
+          </div>
+        </div>
+        <div class="textarea-wrap">
+          <textarea class="ta" id="inp" spellcheck="false" placeholder="کانفیگ مستقیم (VLESS / Trojan / VMess) · لینک ساب‌اسکرایب · فرمت ZEUS · کد Base64 را اینجا قرار دهید... (پشتیبانی از Drag & Drop)"></textarea>
+          <input type="file" id="fin" accept=".txt,text/plain" hidden>
+        </div>
+        <div class="proto-bar">
+          <span class="proto-tag active">VLESS ✦ کامل</span>
+          <span class="proto-tag active">Trojan ✦ کامل</span>
+          <span class="proto-tag active">VMess ✦ Base64</span>
+          <span class="proto-tag">سایر پروتکل‌ها ✦ عبور</span>
         </div>
       </div>
-      <!-- Quick Action Toolbar -->
-      <div class="editor-toolbar">
-        <div class="toolbar-left">
-          <button class="btn btn-sm" id="pst" type="button">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
-            چسباندن (Paste)
-          </button>
-          <button class="btn btn-sm" id="fbt" type="button">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-            فایل .txt
-          </button>
-          <button class="btn btn-sm" id="sampleBtn" type="button">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            تست نمونه
+      <!-- Lightweight Card 2: Action / Optimization Bar -->
+      <div class="glass-box card-mod">
+        <div class="action-row">
+          <span class="hint-text">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            حذف خودکار تکراری‌ها + اعمال هوشمند Fragment و Cipher
+          </span>
+          <button class="btn btn-primary" id="go" type="button">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            بهینه‌سازی کانفیگ‌ها
           </button>
         </div>
-        <div class="toolbar-right">
-          <button class="btn btn-sm" id="clr" type="button" style="color:var(--rd)">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
-            پاک کردن
-          </button>
-        </div>
-      </div>
-      <!-- Textarea -->
-      <div class="textarea-wrap">
-        <textarea class="ta" id="inp" spellcheck="false" placeholder="کانفیگ مستقیم (VLESS / Trojan / VMess) · لینک ساب‌اسکرایب · فرمت ZEUS · کد Base64 را اینجا قرار دهید... (پشتیبانی از Drag & Drop)"></textarea>
-        <input type="file" id="fin" accept=".txt,text/plain" hidden>
-      </div>
-      <!-- Protocol tags preview -->
-      <div class="proto-bar">
-        <span class="proto-tag active">VLESS ✦ بهینه‌سازی کامل</span>
-        <span class="proto-tag active">Trojan ✦ بهینه‌سازی کامل</span>
-        <span class="proto-tag active">VMess ✦ Base64 Engine</span>
-        <span class="proto-tag">سایر پروتکل‌ها ✦ عبور پایدار</span>
-      </div>
-      <!-- Action Button -->
-      <div class="action-row">
-        <span class="hint-text">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          حذف خودکار تکراری‌ها + اعمال Fragment و Cipher
-        </span>
-        <button class="btn btn-primary" id="go" type="button">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          بهینه‌سازی کانفیگ‌ها
-        </button>
       </div>
     </div>
-    <!-- RIGHT COLUMN: ADVANCED CONTROL CENTER -->
-    <div class="card panel">
-      <div class="panel-hd">
-        <h2>
-          <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span>
-          تنظیمات پیشرفته سیستم
-        </h2>
-        <button class="btn btn-sm" id="rst" type="button" style="color:var(--tx2)">بازنشانی پیش‌فرض</button>
-      </div>
-      <div class="sec-group">
-        <!-- Server Address -->
+    <!-- RIGHT COLUMN: MODULAR LIGHTWEIGHT SETTINGS CARDS (SEPARATED) -->
+    <div class="col-stack">
+      <!-- Lightweight Card A: Server Address & Clean IP Presets -->
+      <div class="glass-box card-mod">
+        <div class="card-hd">
+          <h2>
+            <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+            آدرس سرور و IP تمیز
+          </h2>
+          <button class="btn btn-sm" id="rst" type="button" style="color:var(--tx2)">بازنشانی</button>
+        </div>
         <div class="field">
           <div class="field-lbl">
-            <span>آدرس سرور (IP تمیز یا دامنه جایگزین)</span>
+            <span>آدرس جایگزین (IP کلودفلر یا دامنه)</span>
             <span class="lbl-tag">اختیاری</span>
           </div>
           <input class="in" id="adr" spellcheck="false" placeholder="خالی = آدرس سرور اصلی حفظ می‌شود">
@@ -380,11 +394,19 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
             <span class="ip-pill" data-ip="www.speedtest.net">Speedtest</span>
           </div>
         </div>
-        <!-- Fingerprint -->
+      </div>
+      <!-- Lightweight Card B: Fingerprint & ALPN -->
+      <div class="glass-box card-mod">
+        <div class="card-hd">
+          <h2>
+            <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+            امنیت اتصالات و شناسه مرورگر
+          </h2>
+        </div>
         <div class="field">
           <div class="field-lbl">
             <span>شناسه مرورگر (Fingerprint)</span>
-            <span class="lbl-tag">پیشنهادی: Chrome / Firefox</span>
+            <span class="lbl-tag">پیشنهادی: chrome / firefox</span>
           </div>
           <div class="select-wrap">
             <select class="in" id="fp">
@@ -398,11 +420,10 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
           </div>
         </div>
-        <!-- ALPN -->
         <div class="field">
           <div class="field-lbl">
             <span>پروتکل لایه کاربرد (ALPN)</span>
-            <span class="lbl-tag">تثبیت اتصال TLS</span>
+            <span class="lbl-tag">تثبیت TLS</span>
           </div>
           <div class="select-wrap">
             <select class="in" id="alpn">
@@ -414,38 +435,46 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
           </div>
         </div>
-        <!-- Config Name Prefix -->
+      </div>
+      <!-- Lightweight Card C: Config Prefix -->
+      <div class="glass-box card-mod">
+        <div class="card-hd">
+          <h2>
+            <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+            برچسب‌گذاری و نام‌گذاری
+          </h2>
+        </div>
         <div class="field">
           <div class="field-lbl">
             <span>پیشوند نام کانفیگ‌ها در خروجی</span>
-            <span class="lbl-tag">برچسب‌گذاری در v2rayNG</span>
+            <span class="lbl-tag">مرتب‌سازی در v2rayNG</span>
           </div>
           <input class="in" id="pfx" spellcheck="false" placeholder="مثال: [PX] ">
         </div>
-        <!-- Advanced JSON drawer for Cipher & FinalMask -->
-        <div class="json-drawer" id="jsonDrawer">
-          <button class="json-btn" id="jsonToggle" type="button">
-            <span>تنظیمات پیشرفته Cipher Suites و FinalMask</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="json-content">
-            <div class="field">
-              <div class="field-lbl"><span>Cipher Suites <code>cs</code></span></div>
-              <textarea class="ta" id="cs" rows="2" spellcheck="false"></textarea>
-            </div>
-            <div class="field">
-              <div class="field-lbl"><span>FinalMask JSON <code>fm</code></span><span class="lbl-tag" id="fmh">معتبر</span></div>
-              <textarea class="ta" id="fm" rows="3" spellcheck="false"></textarea>
-              <span class="hint-sub">پارامترهای Fragment برای عبور از فیلترینگ و اختلال TLS Hello.</span>
-            </div>
+      </div>
+      <!-- Lightweight Card D: Advanced JSON Drawer (Cipher & FinalMask) -->
+      <div class="glass-box card-mod json-drawer" id="jsonDrawer">
+        <button class="json-btn" id="jsonToggle" type="button">
+          <span>تنظیمات پیشرفته Cipher Suites و FinalMask JSON</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="json-content">
+          <div class="field">
+            <div class="field-lbl"><span>Cipher Suites <code>cs</code></span></div>
+            <textarea class="ta" id="cs" rows="2" spellcheck="false"></textarea>
+          </div>
+          <div class="field">
+            <div class="field-lbl"><span>FinalMask JSON <code>fm</code></span><span class="lbl-tag" id="fmh">معتبر</span></div>
+            <textarea class="ta" id="fm" rows="3" spellcheck="false"></textarea>
+            <span class="hint-sub">پارامترهای Fragment برای عبور از فیلترینگ و اختلال TLS Hello.</span>
           </div>
         </div>
       </div>
     </div>
   </div>
   <!-- ── 3. DYNAMIC OUTPUT SECTION ── -->
-  <section class="card panel" id="res" hidden>
-    <div class="panel-hd">
+  <section class="glass-box card-mod" id="res" hidden>
+    <div class="card-hd">
       <h2>
         <span class="hd-icon" style="color:var(--tx);background:var(--ac0)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
         خروجی بهینه‌شده کانفیگ‌ها
@@ -476,9 +505,9 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
       </div>
     </div>
   </section>
-  <!-- ── 4. MINIMAL FOOTER (NO TELEGRAM/GITHUB/ARASTEY/ZEUS) ── -->
+  <!-- ── 4. MINIMAL FOOTER WITH PIXON ATTRIBUTION ── -->
   <footer class="foot-clean">
-    <span>© <span id="yr"></span> PX OPTIMIZER STUDIO — تمامی پردازش‌ها به‌صورت ۱۰۰٪ محلی در مرورگر شما انجام می‌شود و هیچ اطلاعاتی ارسال نمی‌گردد.</span>
+    <span>© <span id="yr"></span> PX OPTIMIZER STUDIO — ساخته شده توسط <b>PIXON</b> — تمامی پردازش‌ها به‌صورت ۱۰۰٪ محلی در مرورگر انجام می‌شود.</span>
   </footer>
 </div>
 <!-- TOAST NOTIFICATION -->
