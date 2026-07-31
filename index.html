@@ -3,399 +3,515 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" id="mtc" content="#0b0b10">
-<title>بهینه‌ساز کانفیگ</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2310b981'/%3E%3Cpath d='M10 16l4 4 8-8' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<meta name="theme-color" id="mtc" content="#030816">
+<title>PX اپتیمایزر | استودیوی بهینه‌سازی هوشمند کانفیگ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230284c7'/%3E%3Cpath d='M10 16l4 4 8-8' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script>try{if(localStorage.getItem('vpn_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem('px_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
 <style>
-:root{--r:14px;--r2:11px;--r3:9px;--pill:999px;--e:cubic-bezier(.4,0,.2,1);--e2:cubic-bezier(.22,1,.36,1);--t1:.15s;--t2:.24s;--t3:.4s;--mono:'JetBrains Mono',monospace;--sans:'Vazirmatn',system-ui,sans-serif}
-html[data-theme=dark]{--bg:#0b0b10;--s1:rgba(255,255,255,.035);--s2:rgba(255,255,255,.055);--s3:rgba(255,255,255,.09);--ln:rgba(255,255,255,.08);--ln2:rgba(255,255,255,.14);--tx:#eceff5;--tx2:#9aa4b2;--tx3:#5f6a79;--ac:#10b981;--ac2:#34d399;--ac1:rgba(16,185,129,.14);--ac0:rgba(16,185,129,.07);--bl:#60a5fa;--bl1:rgba(96,165,250,.14);--bl0:rgba(96,165,250,.07);--vi:#a78bfa;--vi1:rgba(167,139,250,.14);--vi0:rgba(167,139,250,.07);--cy:#22d3ee;--cy1:rgba(34,211,238,.14);--cy0:rgba(34,211,238,.07);--am:#fbbf24;--am1:rgba(251,191,36,.14);--am0:rgba(251,191,36,.07);--rd:#f87171;--rd1:rgba(248,113,113,.13);--rd0:rgba(248,113,113,.06);--sh:0 1px 2px rgba(0,0,0,.4),0 8px 26px rgba(0,0,0,.3);--glass-bg:rgba(255,255,255,.06);--glass-bd:rgba(255,255,255,.11);--glass-hv:rgba(255,255,255,.1)}
-html[data-theme=light]{--bg:#f3f5f9;--s1:rgba(255,255,255,.8);--s2:rgba(15,23,42,.04);--s3:rgba(15,23,42,.075);--ln:rgba(15,23,42,.09);--ln2:rgba(15,23,42,.16);--tx:#111826;--tx2:#54606f;--tx3:#828d9b;--ac:#059669;--ac2:#10b981;--ac1:rgba(5,150,105,.13);--ac0:rgba(5,150,105,.06);--bl:#2563eb;--bl1:rgba(37,99,235,.14);--bl0:rgba(37,99,235,.07);--vi:#7c3aed;--vi1:rgba(124,58,237,.14);--vi0:rgba(124,58,237,.07);--cy:#0891b2;--cy1:rgba(8,145,178,.14);--cy0:rgba(8,145,178,.07);--am:#d97706;--am1:rgba(217,119,6,.15);--am0:rgba(217,119,6,.07);--rd:#dc2626;--rd1:rgba(220,38,38,.12);--rd0:rgba(220,38,38,.06);--sh:0 1px 2px rgba(15,23,42,.05),0 8px 24px rgba(15,23,42,.07);--glass-bg:rgba(255,255,255,.7);--glass-bd:rgba(15,23,42,.12);--glass-hv:rgba(255,255,255,.9)}
+:root{
+  --r:8px;--r2:6px;--r3:4px;--pill:999px;
+  --e:cubic-bezier(.4,0,.2,1);--e2:cubic-bezier(.22,1,.36,1);
+  --t1:.15s;--t2:.25s;--t3:.4s;
+  --mono:'JetBrains Mono',monospace;--sans:'Changa',system-ui,sans-serif;
+}
+html[data-theme=dark]{
+  --bg-grad:radial-gradient(circle at 15% 20%,#0c1e3e 0%,#050d1e 45%,#02060f 100%);
+  --bg:#030816;--tx:#f0f6fc;--tx2:#93c5fd;--tx3:#6083b8;
+  --glass-bg:rgba(11,27,58,.55);--glass-bg2:rgba(15,35,72,.45);
+  --glass-bd:rgba(56,189,248,.22);--glass-bd-hv:rgba(56,189,248,.45);
+  --s1:rgba(255,255,255,.04);--s2:rgba(30,58,112,.35);--s3:rgba(56,189,248,.15);
+  --ln:rgba(56,189,248,.18);--ln2:rgba(56,189,248,.35);
+  --ac:#00f2fe;--ac2:#38bdf8;--ac-glow:rgba(0,242,254,.35);
+  --ac0:rgba(0,242,254,.12);--ac1:rgba(0,242,254,.25);
+  --bl:#38bdf8;--bl0:rgba(56,189,248,.12);--bl1:rgba(56,189,248,.25);
+  --cy:#06b6d4;--cy0:rgba(6,182,212,.12);--cy1:rgba(6,182,212,.25);
+  --vi:#8b5cf6;--vi0:rgba(139,92,246,.12);--vi1:rgba(139,92,246,.25);
+  --rd:#f87171;--rd0:rgba(248,113,113,.12);--rd1:rgba(248,113,113,.25);
+  --sh:0 12px 36px rgba(0,12,32,.55);
+}
+html[data-theme=light]{
+  --bg-grad:radial-gradient(circle at 15% 20%,#e0f2fe 0%,#f0f9ff 55%,#f8fafc 100%);
+  --bg:#f0f9ff;--tx:#0f172a;--tx2:#0369a1;--tx3:#64748b;
+  --glass-bg:rgba(255,255,255,.75);--glass-bg2:rgba(255,255,255,.6);
+  --glass-bd:rgba(14,165,233,.25);--glass-bd-hv:rgba(14,165,233,.5);
+  --s1:rgba(255,255,255,.8);--s2:rgba(224,242,254,.7);--s3:rgba(186,230,253,.8);
+  --ln:rgba(14,165,233,.18);--ln2:rgba(14,165,233,.35);
+  --ac:#0284c7;--ac2:#0369a1;--ac-glow:rgba(2,132,199,.25);
+  --ac0:rgba(2,132,199,.1);--ac1:rgba(2,132,199,.2);
+  --bl:#0284c7;--bl0:rgba(2,132,199,.1);--bl1:rgba(2,132,199,.2);
+  --cy:#0891b2;--cy0:rgba(8,145,178,.1);--cy1:rgba(8,145,178,.2);
+  --vi:#7c3aed;--vi0:rgba(124,58,237,.1);--vi1:rgba(124,58,237,.2);
+  --rd:#dc2626;--rd0:rgba(220,38,38,.1);--rd1:rgba(220,38,38,.2);
+  --sh:0 12px 36px rgba(14,165,233,.12);
+}
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;min-height:100vh;font-family:var(--sans);font-size:14.5px;line-height:1.75;color:var(--tx);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{
+  margin:0;min-height:100vh;font-family:var(--sans);font-size:14.5px;line-height:1.7;
+  color:var(--tx);background:var(--bg);background-image:var(--bg-grad);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
 html.tz,html.tz *{transition:background-color var(--t3) var(--e),color var(--t3) var(--e),border-color var(--t3) var(--e)!important}
 h1,h2,h3,p{margin:0}a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit;color:inherit}
 button{background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
 svg{display:block;flex:none}
-code{font-family:var(--mono);font-size:.86em;padding:1px 5px;border-radius:5px;background:var(--s2);color:var(--tx2)}
-::selection{background:var(--ac1)}
-:focus-visible{outline:1.5px solid var(--ac);outline-offset:2px;border-radius:6px}
-::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--s3);border-radius:9px;border:2px solid transparent;background-clip:content-box}
-.bgw{position:fixed;inset:0;z-index:-1;background:var(--bg);overflow:hidden;pointer-events:none}
-.bgw i{position:absolute;width:480px;height:480px;border-radius:50%;filter:blur(130px);background:radial-gradient(circle,var(--ac),transparent 70%);opacity:.09}
-.bgw i:nth-child(1){top:-200px;right:-140px}.bgw i:nth-child(2){bottom:-220px;left:-140px;opacity:.06}
-.wrap{width:100%;max-width:940px;margin:0 auto;padding:22px 18px 56px;display:flex;flex-direction:column;gap:14px}
-.card{background:var(--s1);border:1px solid var(--ln);border-radius:var(--r);box-shadow:var(--sh);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 2px 2px}
-.bt h1{font-size:19px;font-weight:700;letter-spacing:-.01em;line-height:1.4}
-.bt small{display:block;font-size:12px;color:var(--tx3);font-weight:500;margin-top:2px}
-.ib{width:38px;height:38px;display:grid;place-items:center;border-radius:var(--r3);color:var(--tx2);background:var(--s2);border:1px solid var(--ln);transition:all var(--t1) var(--e)}
-.ib:hover{color:var(--tx);background:var(--s3)}
+code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(--r3);background:var(--s2);color:var(--tx2);border:1px solid var(--ln)}
+::selection{background:var(--ac1);color:var(--tx)}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px;border-radius:var(--r2)}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--s2);border-radius:8px;border:2px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:var(--tx3)}
+/* ── Glowing Blue Glass Ambient Background ── */
+.bg-orbs{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg-orbs i{position:absolute;border-radius:50%;filter:blur(100px);opacity:.35;transition:all 1s ease}
+.bg-orbs i:nth-child(1){top:-10%;right:15%;width:420px;height:420px;background:radial-gradient(circle,#00f2fe,transparent 70%)}
+.bg-orbs i:nth-child(2){bottom:-10%;left:10%;width:480px;height:480px;background:radial-gradient(circle,#38bdf8,transparent 70%);opacity:.28}
+.bg-orbs i:nth-child(3){top:45%;left:40%;width:350px;height:350px;background:radial-gradient(circle,#2563eb,transparent 70%);opacity:.2}
+/* ── Container & Grid Layout ── */
+.app-wrap{
+  width:100%;max-width:1160px;margin:0 auto;padding:24px 18px 56px;
+  display:flex;flex-direction:column;gap:18px;
+}
+.card{
+  background:var(--glass-bg);border:1px solid var(--glass-bd);
+  border-radius:var(--r);box-shadow:var(--sh);
+  backdrop-filter:blur(24px) saturate(190%);-webkit-backdrop-filter:blur(24px) saturate(190%);
+  transition:all var(--t2) var(--e);
+}
+.card:hover{border-color:var(--glass-bd-hv)}
+/* ── Futuristic Header ── */
+.hdr{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 22px;background:var(--glass-bg2);border:1px solid var(--glass-bd);
+  border-radius:var(--r);box-shadow:var(--sh);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  flex-wrap:wrap;
+}
+.hdr-left{display:flex;align-items:center;gap:14px}
+.hdr-logo{
+  width:44px;height:44px;border-radius:var(--r2);
+  background:linear-gradient(135deg,#0284c7,#00f2fe);
+  display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px;
+  box-shadow:0 0 18px var(--ac-glow);flex:none;
+}
+.hdr-title h1{
+  font-size:22px;font-weight:700;letter-spacing:-.01em;
+  background:linear-gradient(135deg,var(--tx) 20%,var(--ac));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hdr-title small{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--tx2);font-weight:500;margin-top:2px}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#00f2fe;box-shadow:0 0 8px #00f2fe;display:inline-block}
+.hdr-actions{display:flex;align-items:center;gap:10px}
+.badge-pro{
+  font-size:11.5px;font-weight:600;padding:4px 12px;border-radius:var(--r3);
+  color:var(--ac);background:var(--ac0);border:1px solid var(--ac1);
+  display:flex;align-items:center;gap:6px;
+}
+/* ── Buttons & Icons ── */
+.ib{
+  width:40px;height:40px;display:grid;place-items:center;border-radius:var(--r2);
+  color:var(--tx2);background:var(--s2);border:1px solid var(--ln);
+  transition:all var(--t1) var(--e);
+}
+.ib:hover{color:var(--tx);background:var(--s3);border-color:var(--ac);box-shadow:0 0 12px var(--ac-glow)}
 .mn{display:none}html[data-theme=light] .sn{display:none}html[data-theme=light] .mn{display:block}
-.feat{padding:17px;display:flex;align-items:center;gap:15px;flex-wrap:wrap}
-.fm{display:flex;align-items:center;gap:13px;flex:1 1 260px;min-width:0}
-.lg{width:48px;height:48px;flex:none;border-radius:13px;overflow:hidden;background:var(--s2);border:1px solid var(--ln);display:grid;place-items:center;font-weight:700;color:var(--tx2);font-size:19px}
-.lg img{width:100%;height:100%;object-fit:cover;display:block}
-.ft2{min-width:0;display:flex;flex-direction:column;gap:4px}
-.ft2 b{font-size:14.5px;font-weight:700;font-family:var(--mono);display:inline-flex;align-items:center;gap:9px}
-.ver{font-family:var(--sans);font-size:11px;font-weight:600;padding:2px 9px;border-radius:var(--pill);color:var(--ac);background:var(--ac0);border:1px solid var(--ac1);transition:opacity var(--t2) var(--e)}
-.ver.loading{opacity:.45}
-.ft2 small{font-size:12.3px;color:var(--tx2)}
-.fa2{display:flex;gap:8px;flex-wrap:wrap}
-.sec{padding:17px;display:flex;flex-direction:column;gap:13px}
-.st{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.st h2{font-size:14px;font-weight:600;margin-left:auto}
-.si{width:30px;height:30px;flex:none;display:grid;place-items:center;border-radius:var(--r3);color:var(--tx2);background:var(--s2);border:1px solid var(--ln)}
-.cnt{font-family:var(--sans);font-size:11.5px;font-weight:600;color:var(--tx2);background:var(--s2);border:1px solid var(--ln);padding:3px 11px;border-radius:var(--pill)}
-.acts{display:flex;gap:7px;flex-wrap:wrap}
-.b{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:38px;padding:0 15px;border-radius:var(--r2);font-size:13.5px;font-weight:600;color:var(--tx2);background:var(--s2);border:1px solid var(--ln);white-space:nowrap;transition:all var(--t1) var(--e)}
-.b svg{opacity:.9}.b:hover{background:var(--s3);border-color:var(--ln2);color:var(--tx)}.b:active{transform:scale(.98)}
-.bs{height:32px;padding:0 13px;font-size:12.5px;border-radius:var(--r3)}
-.bl{height:44px;padding:0 24px;font-size:14.5px}
-.bp{color:#04120c;background:var(--ac);border-color:var(--ac)}.bp:hover{background:var(--ac2);border-color:var(--ac2);color:#04120c}
-html[data-theme=light] .bp,html[data-theme=light] .bp:hover{color:#fff}
-#pst{color:var(--bl)}#pst:hover{background:var(--bl0);border-color:var(--bl1);color:var(--bl)}
-#fbt{color:var(--vi)}#fbt:hover{background:var(--vi0);border-color:var(--vi1);color:var(--vi)}
-#clr,#crs,#cadr{color:var(--rd)}#clr:hover,#crs:hover,#cadr:hover{background:var(--rd0);border-color:var(--rd1);color:var(--rd)}
-#dl{color:var(--cy)}#dl:hover{background:var(--cy0);border-color:var(--cy1);color:var(--cy)}
-#rst{color:var(--am)}#rst:hover{background:var(--am0);border-color:var(--am1);color:var(--am)}
-.b[disabled]{opacity:.38;pointer-events:none}
-.b.ok{color:#04120c!important;background:var(--ac)!important;border-color:var(--ac)!important}
-.b.no{color:var(--rd)!important;border-color:var(--rd1)!important;background:var(--rd0)!important}
-html[data-theme=light] .b.ok{color:#fff!important}
-.ta,.in{width:100%;border-radius:var(--r2);background:var(--s2);border:1px solid var(--ln);color:var(--tx);transition:border-color var(--t1) var(--e),background var(--t1) var(--e)}
-.ta{padding:13px;resize:vertical;font-family:var(--mono);font-size:12.2px;line-height:1.8;word-break:break-all;direction:ltr;text-align:left}
-.ta:focus,.in:focus{outline:none;border-color:var(--ac1);background:var(--s3)}
-#inp{min-height:150px}
-#inp::placeholder{font-family:var(--sans);font-size:12.8px;color:var(--tx3);unicode-bidi:plaintext;direction:rtl;text-align:right}
-#out{min-height:180px;border-color:var(--ac1)}
-#cs,#fm{direction:ltr;text-align:left}
-.in{height:40px;padding:0 13px;font-size:13.5px}.in::placeholder{color:var(--tx3)}
-.drag{border-color:var(--ac)!important;background:var(--ac0)!important}
-.f{display:flex;flex-direction:column;gap:7px;min-width:0}
-.g2{display:grid;grid-template-columns:1fr;gap:14px}
-.lb{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--tx2)}
-.opt{font-size:9.5px;font-weight:600;padding:2px 8px;border-radius:var(--pill);color:var(--tx3);background:var(--s2);border:1px solid var(--ln)}
-.hint{font-size:11.5px;color:var(--tx3)}.hint.no{color:var(--rd)}
-.nt{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--tx3)}
-.inl{display:flex;gap:8px}.inl .in{flex:1;min-width:0}
-.sw{position:relative}.sw .in{appearance:none;-webkit-appearance:none;padding-left:34px;cursor:pointer}
-.sw>svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--tx3);pointer-events:none}
-.acard{overflow:hidden}
-.ah{width:100%;display:flex;align-items:center;gap:11px;padding:15px 17px;text-align:right;transition:background var(--t1) var(--e)}
-.ah:hover{background:var(--s2)}
-.at{display:flex;flex-direction:column;gap:1px;margin-left:auto;min-width:0}
-.at b{font-size:13.5px;font-weight:600}.at small{font-size:11.5px;color:var(--tx3)}
-.cr{color:var(--tx3);transition:transform var(--t2) var(--e2)}.acard.open .cr{transform:rotate(180deg)}
-.acc{display:grid;grid-template-rows:0fr;transition:grid-template-rows var(--t3) var(--e2)}.acard.open .acc{grid-template-rows:1fr}
-.clip{overflow:hidden;min-height:0}
-.inr{padding:15px 17px 17px;display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--ln);opacity:0;transform:translateY(-4px);transition:opacity var(--t2) var(--e),transform var(--t2) var(--e2)}
-.acard.open .inr{opacity:1;transform:none;transition-delay:.05s}
-.protos{display:flex;gap:6px;flex-wrap:wrap}
-.ptag{font-size:10.5px;font-weight:600;font-style:normal;padding:2px 9px;border-radius:var(--pill);color:var(--tx3);background:var(--s2);border:1px solid var(--ln)}
-.ptag.ac{color:var(--ac);background:var(--ac0);border-color:var(--ac1)}
-.sum{font-size:12.6px;font-weight:600;color:var(--tx2)}
-.errs{display:flex;flex-direction:column;gap:7px}.errs:empty{display:none}
-.er{font-size:12px;color:var(--rd);background:var(--rd0);border:1px solid var(--rd1);border-radius:var(--r3);padding:9px 12px;word-break:break-all;direction:rtl;text-align:right}
-.qk{display:grid;grid-template-columns:1fr;gap:12px}
-.qc{display:flex;align-items:center;gap:12px;padding:15px;border-radius:var(--r);background:var(--s1);border:1px solid var(--ln);box-shadow:var(--sh);transition:all var(--t2) var(--e2)}
-.qc:hover{border-color:var(--ln2);background:var(--s2)}
-.qi{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:11px;color:var(--ac);background:var(--ac0);border:1px solid var(--ac1)}
-.q-code .qi{color:var(--vi);background:var(--vi0);border-color:var(--vi1)}
-.qt{display:flex;flex-direction:column;gap:1px;min-width:0;flex:1}
-.qt b{font-size:13.5px;font-weight:600}.qt small{font-size:11.5px;color:var(--tx3)}
-.qg{color:var(--tx3);transition:transform var(--t2) var(--e2)}.qc:hover .qg{transform:translateX(-4px)}
-.pv{display:flex;align-items:flex-start;gap:11px;padding:14px 16px}
-.pv svg{color:var(--ac);flex:none;margin-top:2px}
-.pv div{display:flex;flex-direction:column;gap:1px}
-.pv b{font-size:13px;font-weight:600;color:var(--tx)}.pv span{font-size:12.2px;color:var(--tx3)}
-.guide{padding:20px 22px;display:flex;flex-direction:column;gap:18px}
-.guide-hd{display:flex;align-items:center;gap:11px}
-.guide-hd h2{font-size:15px;font-weight:700}
-.steps{display:flex;flex-direction:column;gap:0}
-.step{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--ln)}
-.step:first-child{padding-top:0}.step:last-child{border-bottom:none;padding-bottom:0}
-.snum{width:32px;height:32px;flex:none;display:grid;place-items:center;border-radius:50%;font-size:13px;font-weight:800;color:var(--ac);background:var(--ac0);border:1px solid var(--ac1);font-family:var(--sans)}
-.sc{display:flex;flex-direction:column;gap:4px;min-width:0;padding-top:3px}
-.sc b{font-size:13.5px;font-weight:700;line-height:1.4}
-.sc p{font-size:12.5px;color:var(--tx2);line-height:1.7;margin:0}
-.sc code{font-size:11.5px}
-.gnote{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:var(--r3);background:var(--am0);border:1px solid var(--am1);font-size:12.3px;color:var(--tx2);line-height:1.7}
-.gnote svg{color:var(--am);flex:none;margin-top:2px}
-.foot{display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:8px}
-.dev{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--tx2);direction:ltr;unicode-bidi:embed}
-.dev b{color:var(--tx);font-weight:700}
-.lk{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.lk a{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 15px;border-radius:var(--pill);font-size:12.5px;font-weight:600;color:var(--tx2);background:var(--glass-bg);border:1px solid var(--glass-bd);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 8px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.07);transition:all var(--t2) var(--e2)}
-.lk a:hover{color:var(--tx);background:var(--glass-hv);border-color:var(--ln2);transform:translateY(-2px)}
-.lk a:active{transform:translateY(0)}
-.copy{font-size:11.5px;color:var(--tx3)}
-/* ── تغییرات رنگ footer ── */
-.dev-link{color:var(--cy);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(34,211,238,.3);transition:opacity var(--t1) var(--e)}
-.dev-link:hover{opacity:.75}
-.lk a.tg-lk{color:var(--cy)}
-.lk a.tg-lk:hover{color:var(--cy)}
-.lk a.gh-lk{color:#6b7280}
-.lk a.gh-lk:hover{color:#9ca3af}
-.lk a.zeus-lk{color:#f59e0b}
-.lk a.zeus-lk:hover{color:#fbbf24}
-@media(min-width:640px){.wrap{padding:28px 24px 64px;gap:16px}.sec,.feat,.guide{padding:20px 22px}.ah{padding:17px 20px}.inr{padding:17px 20px 20px}.g2{grid-template-columns:1fr 1fr;gap:16px}.qk{grid-template-columns:1fr 1fr}#inp{min-height:170px}#out{min-height:210px}.bt h1{font-size:20px}.steps{display:grid;grid-template-columns:1fr 1fr;gap:4px}.step{border-bottom:none;padding:14px 16px}.step:nth-child(odd){border-right:1px solid var(--ln)}}
-@media(min-width:900px){.wrap{padding:34px 28px 72px}.sec,.feat,.guide{padding:22px 24px}#inp{min-height:190px}#out{min-height:240px}}
-@media(max-width:430px){.wrap{padding:16px 13px 46px;gap:12px}.sec,.feat,.guide{padding:15px}.ah{padding:14px 15px}.inr{padding:15px}.bl{width:100%}.at small{display:none}.bt h1{font-size:17px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important}}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:38px;padding:0 16px;border-radius:var(--r2);
+  font-size:13.5px;font-weight:600;color:var(--tx2);
+  background:var(--s2);border:1px solid var(--ln);
+  white-space:nowrap;transition:all var(--t1) var(--e);cursor:pointer;
+}
+.btn:hover{background:var(--s3);border-color:var(--ln2);color:var(--tx)}
+.btn:active{transform:scale(.98)}
+.btn-sm{height:30px;padding:0 11px;font-size:12px;border-radius:var(--r3)}
+.btn-primary{
+  height:44px;padding:0 26px;font-size:15px;font-weight:700;
+  color:#03132e!important;background:linear-gradient(135deg,#00f2fe,#0284c7)!important;
+  border:1px solid #38bdf8!important;box-shadow:0 0 20px var(--ac-glow);
+}
+html[data-theme=light] .btn-primary{color:#fff!important}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 28px var(--ac-glow)}
+.btn-primary:active{transform:scale(.98)}
+.btn-ok{color:#03132e!important;background:#00f2fe!important;border-color:#00f2fe!important}
+.btn-err{color:var(--rd)!important;background:var(--rd0)!important;border-color:var(--rd1)!important}
+/* ── Main Dashboard 2-Column Grid ── */
+.grid-main{
+  display:grid;grid-template-columns:1fr;gap:18px;align-items:start;
+}
+@media(min-width:920px){
+  .grid-main{grid-template-columns:1.25fr 1fr}
+}
+/* ── Left Column: Config Studio ── */
+.panel{padding:20px 22px;display:flex;flex-direction:column;gap:15px}
+.panel-hd{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.panel-hd h2{font-size:16px;font-weight:700;display:flex;align-items:center;gap:9px}
+.hd-icon{
+  width:32px;height:32px;border-radius:var(--r2);
+  background:var(--ac0);border:1px solid var(--ac1);
+  color:var(--ac);display:grid;place-items:center;
+}
+.stats-badges{display:flex;gap:6px;flex-wrap:wrap}
+.stat-pill{
+  font-size:11.5px;font-weight:600;padding:2px 10px;border-radius:var(--r3);
+  color:var(--tx2);background:var(--s2);border:1px solid var(--ln);
+}
+.stat-pill.active{color:var(--ac);background:var(--ac0);border-color:var(--ac1)}
+.editor-toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:8px 12px;background:var(--s1);border:1px solid var(--ln);
+  border-radius:var(--r2);flex-wrap:wrap;
+}
+.toolbar-left,.toolbar-right{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.textarea-wrap{position:relative}
+.ta{
+  width:100%;border-radius:var(--r2);background:var(--s1);border:1px solid var(--ln);
+  color:var(--tx);padding:14px;resize:vertical;font-family:var(--mono);
+  font-size:12.5px;line-height:1.75;word-break:break-all;direction:ltr;text-align:left;
+  transition:all var(--t1) var(--e);
+}
+.ta:focus{outline:none;border-color:var(--ac);background:var(--s2);box-shadow:0 0 15px var(--ac0)}
+#inp{min-height:220px}
+#inp::placeholder{font-family:var(--sans);font-size:13.5px;color:var(--tx3);direction:rtl;text-align:right}
+#out{min-height:200px;border-color:var(--ac1)}
+.drag-over{border-color:var(--ac)!important;background:var(--ac0)!important}
+.action-row{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding-top:4px;
+}
+.hint-text{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2)}
+/* ── Right Column: Settings Control Center ── */
+.sec-group{display:flex;flex-direction:column;gap:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field-lbl{display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:600;color:var(--tx)}
+.lbl-tag{font-size:10.5px;padding:1px 8px;border-radius:var(--r3);background:var(--s2);color:var(--tx3);border:1px solid var(--ln)}
+.in{
+  width:100%;height:40px;padding:0 14px;border-radius:var(--r2);
+  background:var(--s1);border:1px solid var(--ln);color:var(--tx);
+  font-size:13.5px;transition:all var(--t1) var(--e);
+}
+.in:focus{outline:none;border-color:var(--ac);background:var(--s2);box-shadow:0 0 12px var(--ac0)}
+.in::placeholder{color:var(--tx3)}
+.select-wrap{position:relative}
+.select-wrap .in{appearance:none;-webkit-appearance:none;padding-left:36px;cursor:pointer}
+.select-wrap>svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--tx3);pointer-events:none}
+/* ── Interactive IP Presets ── */
+.ip-presets{display:flex;gap:6px;flex-wrap:wrap}
+.ip-pill{
+  font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:var(--r3);
+  background:var(--s2);border:1px solid var(--ln);color:var(--tx2);
+  cursor:pointer;transition:all var(--t1) var(--e);
+}
+.ip-pill:hover{color:var(--ac);border-color:var(--ac);background:var(--ac0);transform:translateY(-1px)}
+.ip-pill.active{color:var(--ac);background:var(--ac0);border-color:var(--ac);box-shadow:0 0 10px var(--ac-glow)}
+/* ── Advanced JSON Drawer ── */
+.json-drawer{
+  border:1px solid var(--ln);border-radius:var(--r2);background:var(--s1);
+  overflow:hidden;transition:all var(--t2) var(--e);
+}
+.json-btn{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;font-size:13px;font-weight:600;color:var(--tx2);
+  cursor:pointer;background:none;border:0;
+}
+.json-btn:hover{color:var(--tx);background:var(--s2)}
+.json-btn svg{transition:transform var(--t2) var(--e)}
+.json-drawer.open .json-btn svg{transform:rotate(180deg)}
+.json-content{display:none;padding:0 16px 16px;flex-direction:column;gap:12px}
+.json-drawer.open .json-content{display:flex}
+.hint-sub{font-size:11.5px;color:var(--tx3)}
+/* ── Protocol Badges Bar ── */
+.proto-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:4px 0}
+.proto-tag{
+  font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:var(--r2);
+  background:var(--s2);border:1px solid var(--ln);color:var(--tx2);
+  display:inline-flex;align-items:center;gap:5px;
+}
+.proto-tag.active{color:#00f2fe;background:rgba(0,242,254,.12);border-color:rgba(0,242,254,.35)}
+.proto-tag.trojan{color:#38bdf8;background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.35)}
+.proto-tag.vmess{color:#8b5cf6;background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.35)}
+/* ── Output Box & Toast ── */
+.err-list{display:flex;flex-direction:column;gap:8px}.err-list:empty{display:none}
+.err-item{
+  font-size:12.5px;color:var(--rd);background:var(--rd0);
+  border:1px solid var(--rd1);border-radius:var(--r2);
+  padding:10px 14px;word-break:break-all;direction:rtl;text-align:right;
+}
+.toast-msg{
+  position:fixed;bottom:24px;left:24px;z-index:9999;
+  padding:12px 20px;border-radius:var(--r2);
+  background:var(--glass-bg2);border:1px solid var(--ac);
+  box-shadow:0 10px 30px rgba(0,242,254,.3);
+  color:var(--tx);font-weight:600;font-size:13.5px;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  display:flex;align-items:center;gap:10px;
+  transform:translateY(80px);opacity:0;pointer-events:none;
+  transition:all var(--t2) var(--e);
+}
+.toast-msg.show{transform:translateY(0);opacity:1}
+/* ── Minimalist Clean Footer ── */
+.foot-clean{
+  display:flex;align-items:center;justify-content:center;
+  padding:16px 0 8px;text-align:center;font-size:12.5px;color:var(--tx3);font-weight:500;
+}
+@media(max-width:640px){
+  .hdr{padding:14px 16px}
+  .panel{padding:16px}
+  .hdr-title h1{font-size:19px}
+  .btn-primary{width:100%}
+}
 </style>
 </head>
 <body>
-<div class="bgw"><i></i><i></i></div>
-<div class="wrap">
-
-<header class="hd">
-  <div class="bt">
-    <h1>بهینه‌ساز کانفیگ</h1>
-    <small>افزودن Fragment و Cipher Suites به کانفیگ‌های VPN</small>
-  </div>
-  <button class="ib" id="th" type="button" aria-label="تغییر تم">
-    <svg class="sn" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    <svg class="mn" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-  </button>
-</header>
-
-<section class="card feat">
-  <div class="fm">
-    <span class="lg" id="lg"><img src="https://github.com/patterniha.png?size=200" alt="patterniha" loading="lazy" onerror="this.remove();document.getElementById('lg').textContent='P'"></span>
-    <span class="ft2">
-      <b>v2rayNG &nbsp;<span class="ver loading" id="ver">بررسی نسخه…</span></b>
-      <small>ساخت <b>patterniha</b> — تنها نسخه‌ای که <code>cs</code> و <code>fm</code> پشتیبانی می‌کند</small>
-    </span>
-  </div>
-  <div class="fa2">
-    <a class="b bp" id="dlBtn" href="https://github.com/patterniha/v2rayNG/releases/latest" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      دانلود آخرین نسخه
-    </a>
-    <a class="b" href="https://github.com/patterniha" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      صفحهٔ سازنده
-    </a>
-  </div>
-</section>
-
-<section class="card sec" id="dz">
-  <div class="st">
-    <span class="si"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
-    <h2>کانفیگ‌های ورودی</h2>
-    <span class="cnt" id="cnt">۰ خط</span>
-    <div class="acts">
-      <button class="b bs" id="pst" type="button">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
-        چسباندن
-      </button>
-      <button class="b bs" id="fbt" type="button">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-        فایل
-      </button>
-      <button class="b bs" id="clr" type="button">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
-        پاک کردن
+<div class="bg-orbs"><i></i><i></i><i></i></div>
+<div class="app-wrap">
+  <!-- ── 1. FUTURISTIC HEADER ── -->
+  <header class="hdr">
+    <div class="hdr-left">
+      <div class="hdr-logo">PX</div>
+      <div class="hdr-title">
+        <h1>PX OPTIMIZER STUDIO</h1>
+        <small><span class="status-dot"></span> موتور هوشمند بهینه‌سازی و کلاینت V2Ray • نسخه ۳.۰</small>
+      </div>
+    </div>
+    <div class="hdr-actions">
+      <span class="badge-pro">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        بهینه‌ساز پیشرفته
+      </span>
+      <button class="ib" id="th" type="button" aria-label="تغییر تم روشن/تاریک" title="تغییر تم">
+        <svg class="sn" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="mn" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
       </button>
     </div>
-  </div>
-  <textarea class="ta" id="inp" spellcheck="false" placeholder="کانفیگ · لینک ساب · فرمت ZEUS · کد base64 — همه پشتیبانی می‌شوند"></textarea>
-  <input type="file" id="fin" accept=".txt,text/plain" hidden>
-  <div class="row">
-    <span class="nt">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-      فایل .txt · لینک ساب · فرمت ZEUS · base64 · بدون محدودیت
-    </span>
-    <button class="b bp bl" id="go" type="button">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      بهینه‌سازی
-    </button>
-  </div>
-</section>
-
-<section class="card acard" id="adv">
-  <button class="ah" id="advb" type="button" aria-expanded="false">
-    <span class="si"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></span>
-    <span class="at"><b>تنظیمات پیشرفته</b><small>آدرس · Fingerprint · Cipher Suites · FinalMask</small></span>
-    <svg class="cr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-  </button>
-  <div class="acc"><div class="clip"><div class="inr">
-    <div class="g2">
-      <div class="f">
-        <label class="lb" for="adr">آدرس سرور <span class="opt">اختیاری</span></label>
-        <div class="inl">
-          <input class="in" id="adr" spellcheck="false" placeholder="خالی = آدرس دست نمی‌خورد">
-          <button class="b bs" id="cadr" type="button">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            پاک
+  </header>
+  <!-- ── 2. TWO-COLUMN WORKSPACE ── -->
+  <div class="grid-main">
+    <!-- LEFT COLUMN: INPUT & PROCESSING HUB -->
+    <div class="card panel" id="dz">
+      <div class="panel-hd">
+        <h2>
+          <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+          مرکز ورودی کانفیگ‌ها و ساب‌اسکرایب
+        </h2>
+        <div class="stats-badges">
+          <span class="stat-pill" id="cnt">۰ خط</span>
+          <span class="stat-pill" id="protoCnt" hidden>تعداد پروتکل‌ها</span>
+        </div>
+      </div>
+      <!-- Quick Action Toolbar -->
+      <div class="editor-toolbar">
+        <div class="toolbar-left">
+          <button class="btn btn-sm" id="pst" type="button">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+            چسباندن (Paste)
+          </button>
+          <button class="btn btn-sm" id="fbt" type="button">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+            فایل .txt
+          </button>
+          <button class="btn btn-sm" id="sampleBtn" type="button">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            تست نمونه
           </button>
         </div>
-        <span class="hint">پیش‌فرض خالی — IP یا دامنهٔ اصلی تغییر نمی‌کند.</span>
-      </div>
-      <div class="f">
-        <label class="lb" for="fp">Fingerprint</label>
-        <div class="sw">
-          <select class="in" id="fp">
-            <option value="unsafe">unsafe</option><option value="chrome">chrome</option>
-            <option value="firefox">firefox</option><option value="safari">safari</option>
-            <option value="edge">edge</option><option value="random">random</option>
-          </select>
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        <div class="toolbar-right">
+          <button class="btn btn-sm" id="clr" type="button" style="color:var(--rd)">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+            پاک کردن
+          </button>
         </div>
-        <span class="hint">روی همهٔ کانفیگ‌ها اعمال می‌شود.</span>
+      </div>
+      <!-- Textarea -->
+      <div class="textarea-wrap">
+        <textarea class="ta" id="inp" spellcheck="false" placeholder="کانفیگ مستقیم (VLESS / Trojan / VMess) · لینک ساب‌اسکرایب · فرمت ZEUS · کد Base64 را اینجا قرار دهید... (پشتیبانی از Drag & Drop)"></textarea>
+        <input type="file" id="fin" accept=".txt,text/plain" hidden>
+      </div>
+      <!-- Protocol tags preview -->
+      <div class="proto-bar">
+        <span class="proto-tag active">VLESS ✦ بهینه‌سازی کامل</span>
+        <span class="proto-tag trojan">Trojan ✦ بهینه‌سازی کامل</span>
+        <span class="proto-tag vmess">VMess ✦ Base64 Engine</span>
+        <span class="proto-tag">سایر پروتکل‌ها ✦ عبور پایدار</span>
+      </div>
+      <!-- Action Button -->
+      <div class="action-row">
+        <span class="hint-text">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          حذف خودکار تکراری‌ها + تنظیم هوشمند Fragment و Cipher
+        </span>
+        <button class="btn btn-primary" id="go" type="button">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          بهینه‌سازی کانفیگ‌ها
+        </button>
       </div>
     </div>
-    <div class="f"><label class="lb" for="cs">Cipher Suites &nbsp;<code>cs</code></label><textarea class="ta" id="cs" rows="4" spellcheck="false"></textarea></div>
-    <div class="f"><label class="lb" for="fm">FinalMask &nbsp;<code>fm</code></label><textarea class="ta" id="fm" rows="5" spellcheck="false"></textarea><span class="hint" id="fmh"></span></div>
-    <div class="row">
-      <div class="protos">
-        <i class="ptag ac">vless ✦ کامل</i><i class="ptag ac">trojan ✦ کامل</i>
-        <i class="ptag">vmess ✦ عبور</i><i class="ptag">ss ✦ عبور</i>
-        <i class="ptag">hysteria2 ✦ عبور</i><i class="ptag">tuic ✦ عبور</i>
+    <!-- RIGHT COLUMN: ADVANCED CONTROL CENTER -->
+    <div class="card panel">
+      <div class="panel-hd">
+        <h2>
+          <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span>
+          تنظیمات پیشرفته سیستم
+        </h2>
+        <button class="btn btn-sm" id="rst" type="button" style="color:var(--cy)">بازنشانی پیش‌فرض</button>
       </div>
-      <button class="b bs" id="rst" type="button">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 101.85-4.11L1 10"/></svg>
-        بازنشانی
-      </button>
+      <div class="sec-group">
+        <!-- Server Address -->
+        <div class="field">
+          <div class="field-lbl">
+            <span>آدرس سرور (IP تمیز یا دامنه جایگزین)</span>
+            <span class="lbl-tag">اختیاری</span>
+          </div>
+          <input class="in" id="adr" spellcheck="false" placeholder="خالی = آدرس سرور اصلی حفظ می‌شود">
+          <div class="ip-presets">
+            <span class="ip-pill" data-ip="">بدون تغییر</span>
+            <span class="ip-pill" data-ip="188.114.97.6">Cloudflare 188.114</span>
+            <span class="ip-pill" data-ip="162.159.192.1">Cloudflare 162.159</span>
+            <span class="ip-pill" data-ip="icook.hk">icook.hk</span>
+            <span class="ip-pill" data-ip="www.speedtest.net">Speedtest</span>
+          </div>
+        </div>
+        <!-- Fingerprint -->
+        <div class="field">
+          <div class="field-lbl">
+            <span>شناسه مرورگر (Fingerprint)</span>
+            <span class="lbl-tag">پیشنهادی: Chrome / Firefox</span>
+          </div>
+          <div class="select-wrap">
+            <select class="in" id="fp">
+              <option value="unsafe">unsafe (پیش‌فرض سریع)</option>
+              <option value="chrome">chrome (مرورگر کروم)</option>
+              <option value="firefox">firefox (مرورگر فایرفاکس)</option>
+              <option value="safari">safari (مرورگر سافاری)</option>
+              <option value="edge">edge (مرورگر اج)</option>
+              <option value="random">random (انتخاب تصادفی)</option>
+            </select>
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <!-- ALPN -->
+        <div class="field">
+          <div class="field-lbl">
+            <span>پروتکل لایه کاربرد (ALPN)</span>
+            <span class="lbl-tag">تثبیت اتصال TLS</span>
+          </div>
+          <div class="select-wrap">
+            <select class="in" id="alpn">
+              <option value="">بدون تغییر (پیش‌فرض کانفیگ)</option>
+              <option value="h2,http/1.1">h2,http/1.1 (پیشنهادی برای Reality)</option>
+              <option value="h2">h2 (فقط HTTP/2)</option>
+              <option value="http/1.1">http/1.1 (کلاسیک)</option>
+            </select>
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <!-- Config Name Prefix -->
+        <div class="field">
+          <div class="field-lbl">
+            <span>پیشوند نام کانفیگ‌ها در خروجی</span>
+            <span class="lbl-tag">برچسب‌گذاری در v2rayNG</span>
+          </div>
+          <input class="in" id="pfx" spellcheck="false" placeholder="مثال: [PX] ">
+        </div>
+        <!-- Advanced JSON drawer for Cipher & FinalMask -->
+        <div class="json-drawer" id="jsonDrawer">
+          <button class="json-btn" id="jsonToggle" type="button">
+            <span>تنظیمات پیشرفته Cipher Suites و FinalMask</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="json-content">
+            <div class="field">
+              <div class="field-lbl"><span>Cipher Suites <code>cs</code></span></div>
+              <textarea class="ta" id="cs" rows="2" spellcheck="false"></textarea>
+            </div>
+            <div class="field">
+              <div class="field-lbl"><span>FinalMask JSON <code>fm</code></span><span class="lbl-tag" id="fmh">معتبر</span></div>
+              <textarea class="ta" id="fm" rows="3" spellcheck="false"></textarea>
+              <span class="hint-sub">پارامترهای Fragment برای عبور از فیلترینگ و اختلال TLS Hello.</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div></div></div>
-</section>
-
-<section class="card sec" id="res" hidden>
-  <div class="st">
-    <span class="si"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
-    <h2>خروجی</h2>
-    <span class="cnt" id="ocnt">۰ کانفیگ</span>
-    <div class="acts">
-      <button class="b bs bp" id="cpy" type="button" disabled>
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-        کپی همه
-      </button>
-      <button class="b bs" id="dl" type="button" disabled>
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        دانلود
-      </button>
-      <button class="b bs" id="crs" type="button">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
-        پاک کردن
-      </button>
+  </div>
+  <!-- ── 3. DYNAMIC OUTPUT SECTION ── -->
+  <section class="card panel" id="res" hidden>
+    <div class="panel-hd">
+      <h2>
+        <span class="hd-icon" style="color:#00f2fe;background:rgba(0,242,254,.1)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+        خروجی بهینه‌شده کانفیگ‌ها
+      </h2>
+      <div class="stats-badges">
+        <span class="stat-pill active" id="ocnt">۰ کانفیگ</span>
+        <span class="stat-pill" id="sum">—</span>
+      </div>
     </div>
-  </div>
-  <p class="sum" id="sum">—</p>
-  <div class="errs" id="errs"></div>
-  <textarea class="ta" id="out" spellcheck="false" readonly></textarea>
-</section>
-
-<div class="qk">
-  <a class="qc" href="https://github.com/zeus-panel/ZEUS-PANEL" target="_blank" rel="noopener">
-    <span class="qi"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 17c1.38 0 2.5-1.12 2.5-2.5 0-1.5-1-2.5-2-3.5s-2-2-2-3.5A3.5 3.5 0 0113 4c0 2-1.5 3-2 4.5-.5 1.5 1 3 2.5 3s2.5-1 2.5-2.5c0-.5-.17-1-.5-1.5"/></svg></span>
-    <span class="qt"><b>کانفیگ رایگان</b><small>ZEUS-PANEL</small></span>
-    <svg class="qg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
-  </a>
-  <a class="qc q-code" href="https://github.com/ArasTey/cf-optimizor" target="_blank" rel="noopener">
-    <span class="qi"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></span>
-    <span class="qt"><b>سورس پروژه</b><small>ArasTey / cf-optimizor</small></span>
-    <svg class="qg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
-  </a>
+    <div class="err-list" id="errs"></div>
+    <textarea class="ta" id="out" spellcheck="false" readonly style="min-height:220px;border-color:rgba(0,242,254,.35)"></textarea>
+    <div class="editor-toolbar" style="margin-top:2px">
+      <div class="toolbar-left">
+        <button class="btn btn-primary btn-sm" id="cpy" type="button" disabled style="height:36px;padding:0 20px">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          کپی همه کانفیگ‌ها
+        </button>
+        <button class="btn btn-sm" id="dl" type="button" disabled>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          دانلود فایل .txt
+        </button>
+      </div>
+      <div class="toolbar-right">
+        <button class="btn btn-sm" id="crs" type="button" style="color:var(--rd)">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.1"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+          بستن و پاک کردن
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- ── 4. MINIMAL FOOTER (NO TELEGRAM/GITHUB/ARASTEY/ZEUS) ── -->
+  <footer class="foot-clean">
+    <span>© <span id="yr"></span> PX OPTIMIZER STUDIO — تمامی پردازش‌ها به‌صورت ۱۰۰٪ محلی در مرورگر شما انجام می‌شود و هیچ اطلاعاتی ارسال نمی‌گردد.</span>
+  </footer>
 </div>
-
-<div class="card pv">
-  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-  <div><b>پردازش کاملاً روی دستگاه خودت</b><span>کانفیگ‌ها در مرورگر پردازش می‌شوند و هیچ‌جا آپلود نمی‌شوند.</span></div>
-</div>
-
-<section class="card guide">
-  <div class="guide-hd">
-    <span class="si"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-    <h2>آموزش سریع — چطور استفاده کنم؟</h2>
-  </div>
-  <div class="steps">
-    <div class="step"><span class="snum">۱</span><div class="sc"><b>اپ موردنیاز را دانلود کن</b><p>v2rayNG نسخهٔ <b>patterniha</b> را نصب کن. دکمهٔ «دانلود آخرین نسخه» همیشه لینک مستقیم APK می‌دهد.</p></div></div>
-    <div class="step"><span class="snum">۲</span><div class="sc"><b>کانفیگ یا لینک ساب را وارد کن</b><p>لینک ساب، فرمت ZEUS، کد base64، یا کانفیگ مستقیم — هر فرمتی را بچسبان، ابزار خودش استخراج می‌کند.</p></div></div>
-    <div class="step"><span class="snum">۳</span><div class="sc"><b>روی «بهینه‌سازی» بزن</b><p>Fragment، Cipher Suites و Fingerprint به‌صورت خودکار اضافه می‌شوند. تنظیمات پیش‌فرض بهینه هستند.</p></div></div>
-    <div class="step"><span class="snum">۴</span><div class="sc"><b>خروجی را کپی یا دانلود کن</b><p>«کپی همه» را بزن یا فایل <code>.txt</code> را دانلود کن.</p></div></div>
-    <div class="step"><span class="snum">۵</span><div class="sc"><b>در v2rayNG ایمپورت کن</b><p>منوی سه‌نقطه ← <b>Import config from clipboard</b>. همهٔ کانفیگ‌ها یک‌جا وارد می‌شوند.</p></div></div>
-  </div>
-  <div class="gnote">
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-    <span>تنها <code>vless://</code> و <code>trojan://</code> بهینه می‌شوند. بقیه عیناً منتقل می‌شوند.</span>
-  </div>
-</section>
-
-<!-- ✅ FOOTER با تغییرات اعمال‌شده -->
-<footer class="foot">
-  <p class="dev" dir="ltr">Developed by <a href="https://t.me/imArasTey" target="_blank" rel="noopener" class="dev-link">ArasTey</a> With ☕️</p>
-  <div class="lk">
-    <a class="tg-lk" href="https://t.me/imArasTey" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>تلگرام
-    </a>
-    <a class="gh-lk" href="https://github.com/ArasTey/cf-optimizor" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>گیت‌هاب
-    </a>
-    <a class="zeus-lk" href="https://github.com/zeus-panel/ZEUS-PANEL" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>ZEUS-PANEL
-    </a>
-  </div>
-  <span class="copy">© <span id="yr"></span> — All rights reserved</span>
-</footer>
-
+<!-- TOAST NOTIFICATION -->
+<div class="toast-msg" id="toast">
+  <span id="toastIcon"></span>
+  <span id="toastText"></span>
 </div>
 <script>
 (function(){
 'use strict';
-
-/* ── constants ── */
 var FM_STR='{"tcp":[{"type":"fragment","settings":{"packets":"tlshello","lengths":["5","94","1"],"delays":["0"],"maxSplit":"0"}},{"type":"fragment","settings":{"packets":"1-1","lengths":["109","1"],"delays":["1"],"maxSplit":"355"}}]}';
-var CS_STR=['TLS_AES_256_GCM_SHA384','TLS_CHACHA20_POLY1305_SHA256','TLS_AES_128_GCM_SHA256',
-  'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384',
-  'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256',
-  'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256',
-  'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA',
-  'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256','TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256'].join(':');
-var DEF={adr:'',fp:'unsafe',cs:CS_STR,fm:FM_STR};
+var CS_STR=['TLS_AES_256_GCM_SHA384','TLS_CHACHA20_POLY1305_SHA256','TLS_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256','TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256'].join(':');
+var DEF={adr:'',fp:'unsafe',cs:CS_STR,fm:FM_STR,alpn:'',pfx:'[PX] '};
 var ORDER=['cs','path','security','alpn','encryption','fm','insecure','host','fp','type','allowInsecure','sni'];
 var UUID_RE=/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 var PROTO_START=/^(vless|vmess|trojan|ss|hysteria2?|tuic|naive\+https?|wireguard):\/\//i;
-var SKEY='arpam_opt',TKEY='vpn_theme';
-var GH_API='https://api.github.com/repos/patterniha/v2rayNG/releases/latest';
-var GH_LATEST='https://github.com/patterniha/v2rayNG/releases/latest';
-
-/* ── utils ── */
+var SKEY='px_opt_v3_sets',TKEY='px_theme';
 function $(id){return document.getElementById(id);}
 function fa(n){return String(n).replace(/\d/g,function(d){return'۰۱۲۳۴۵۶۷۸۹'[+d];});}
 function dec(s){try{return decodeURIComponent(s);}catch(e){return s;}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-
-/* ── GitHub release fetch ── */
-function fetchLatestRelease(){
-  var verEl=$('ver'),dlBtn=$('dlBtn');
-  fetch(GH_API,{headers:{Accept:'application/vnd.github.v3+json'}})
-    .then(function(r){if(!r.ok)throw 0;return r.json();})
-    .then(function(d){
-      var tag=d.tag_name||'',apk=null;
-      if(d.assets&&d.assets.length){
-        for(var i=0;i<d.assets.length;i++){if(/arm64/i.test(d.assets[i].name)&&/\.apk$/i.test(d.assets[i].name)){apk=d.assets[i].browser_download_url;break;}}
-        if(!apk)for(var j=0;j<d.assets.length;j++){if(/\.apk$/i.test(d.assets[j].name)){apk=d.assets[j].browser_download_url;break;}}
-      }
-      verEl.textContent=tag||'latest';verEl.classList.remove('loading');
-      dlBtn.href=apk||(d.html_url||GH_LATEST);
-    })
-    .catch(function(){verEl.textContent='latest';verEl.classList.remove('loading');});
+function showToast(text,type){
+  var t=$('toast'),icon=$('toastIcon'),txt=$('toastText');
+  txt.textContent=text;
+  icon.innerHTML=type==='err'
+    ?'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'
+    :'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#00f2fe" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer=setTimeout(function(){t.classList.remove('show');},2400);
 }
-
-/* ── query string helpers ── */
 function pq(q){
   var o=[];if(!q)return o;
   q.split('&').forEach(function(p){if(!p)return;var i=p.indexOf('=');o.push({k:dec(i<0?p:p.slice(0,i)),v:i<0?'':dec(p.slice(i+1))});});
   return o;
 }
 function setParam(p,k,v){
+  if(v===undefined||v===null||v==='')return;
   var lk=k.toLowerCase(),found=false;
   for(var i=p.length-1;i>=0;i--){
     if(p[i].k.toLowerCase()===lk){if(found){p.splice(i,1);continue;}p[i]={k:k,v:v};found=true;}
@@ -409,8 +525,6 @@ function buildQS(p){
   a.sort(function(x,y){return idx[x.k.toLowerCase()]-idx[y.k.toLowerCase()];});
   return a.concat(b).map(function(x){return encodeURIComponent(x.k)+'='+encodeURIComponent(x.v);}).join('&');
 }
-
-/* ── parsers ── */
 function parseAuth(au){
   var host=au,port='';
   if(au.charAt(0)==='['){
@@ -431,44 +545,82 @@ function splitUrl(raw,skip){
   return{body:b,q:q,frag:frag};
 }
 function parseVless(raw){
-  var s=splitUrl(raw,8);
-  var a=s.body.lastIndexOf('@');
-  if(a<0)throw new Error('@ وجود ندارد');
+  var s=splitUrl(raw,8),a=s.body.lastIndexOf('@');
+  if(a<0)throw new Error('@ در کانفیگ وجود ندارد');
   var id=dec(s.body.slice(0,a)).trim(),au=s.body.slice(a+1).trim();
-  if(!UUID_RE.test(id))throw new Error('UUID نامعتبر');
+  if(!UUID_RE.test(id))throw new Error('UUID نامعتبر است');
   var hp=parseAuth(au);
   return{proto:'vless',id:id,host:hp.host,port:hp.port,p:pq(s.q),f:s.frag};
 }
 function parseTrojan(raw){
-  var s=splitUrl(raw,9);
-  var a=s.body.lastIndexOf('@');
-  if(a<0)throw new Error('@ وجود ندارد');
+  var s=splitUrl(raw,9),a=s.body.lastIndexOf('@');
+  if(a<0)throw new Error('@ در کانفیگ وجود ندارد');
   var pass=dec(s.body.slice(0,a)).trim(),au=s.body.slice(a+1).trim();
-  if(!pass)throw new Error('رمز عبور خالی');
+  if(!pass)throw new Error('رمز عبور خالی است');
   var hp=parseAuth(au);
   return{proto:'trojan',pass:pass,host:hp.host,port:hp.port,p:pq(s.q),f:s.frag};
 }
-function buildVless(c){var qs=buildQS(c.p);return'vless://'+c.id+'@'+c.host+(c.port?':'+c.port:'')+(qs?'?'+qs:'')+(c.f?'#'+c.f:'');}
-function buildTrojan(c){var qs=buildQS(c.p);return'trojan://'+encodeURIComponent(c.pass)+'@'+c.host+(c.port?':'+c.port:'')+(qs?'?'+qs:'')+(c.f?'#'+c.f:'');}
+function formatRemark(frag,pfx){
+  var name=dec(frag||'Config');
+  if(pfx&&name.indexOf(pfx)!==0)name=pfx+name;
+  return name;
+}
+function buildVless(c,pfx){
+  var qs=buildQS(c.p),rmk=formatRemark(c.f,pfx);
+  return'vless://'+c.id+'@'+c.host+(c.port?':'+c.port:'')+(qs?'?'+qs:'')+'#'+encodeURIComponent(rmk);
+}
+function buildTrojan(c,pfx){
+  var qs=buildQS(c.p),rmk=formatRemark(c.f,pfx);
+  return'trojan://'+encodeURIComponent(c.pass)+'@'+c.host+(c.port?':'+c.port:'')+(qs?'?'+qs:'')+'#'+encodeURIComponent(rmk);
+}
+function optimizeVmess(raw,o){
+  var b64=raw.slice(8).trim();
+  var jsonStr=b64decode(b64);
+  if(!jsonStr)throw new Error('کد Base64 در VMess نامعتبر است');
+  var obj=null;
+  try{obj=JSON.parse(jsonStr);}catch(e){throw new Error('ساختار JSON در VMess نامعتبر است');}
+  if(o.adr)obj.add=o.adr;
+  if(o.fp)obj.fp=o.fp;
+  if(o.alpn)obj.alpn=o.alpn;
+  if(o.pfx){
+    var name=String(obj.ps||'VMess');
+    if(name.indexOf(o.pfx)!==0)obj.ps=o.pfx+name;
+  }
+  return'vmess://'+b64encode(JSON.stringify(obj));
+}
 function fmOf(raw){
   var t=String(raw||'').trim();if(!t)t=FM_STR;
-  try{return JSON.stringify(JSON.parse(t));}catch(e){throw new Error('FinalMask JSON نامعتبر');}
+  try{return JSON.stringify(JSON.parse(t));}catch(e){throw new Error('ساختار JSON در FinalMask نامعتبر است');}
 }
 function applyParams(c,o){
   if(o.adr)c.host=o.adr;
   setParam(c.p,'fp',o.fp||DEF.fp);
   setParam(c.p,'cs',o.cs||DEF.cs);
   setParam(c.p,'fm',fmOf(o.fm));
+  if(o.alpn)setParam(c.p,'alpn',o.alpn);
 }
 function optimize(raw,o){
   var l=String(raw||'').trim();
-  if(/^vless:\/\//i.test(l)){var cv=parseVless(l);applyParams(cv,o);return buildVless(cv);}
-  if(/^trojan:\/\//i.test(l)){var ct=parseTrojan(l);applyParams(ct,o);return buildTrojan(ct);}
-  if(PROTO_START.test(l))return l; /* pass-through */
+  if(/^vless:\/\//i.test(l)){var cv=parseVless(l);applyParams(cv,o);return buildVless(cv,o.pfx);}
+  if(/^trojan:\/\//i.test(l)){var ct=parseTrojan(l);applyParams(ct,o);return buildTrojan(ct,o.pfx);}
+  if(/^vmess:\/\//i.test(l)){return optimizeVmess(l,o);}
+  if(PROTO_START.test(l)){
+    if(o.pfx){
+      var hi=l.indexOf('#');
+      if(hi>=0){
+        var r=dec(l.slice(hi+1));
+        if(r.indexOf(o.pfx)!==0)return l.slice(0,hi)+'#'+encodeURIComponent(o.pfx+r);
+      }else{
+        return l+'#'+encodeURIComponent(o.pfx+'Config');
+      }
+    }
+    return l;
+  }
   throw new Error('پروتکل ناشناخته');
 }
-
-/* ── base64 decoder ── */
+function b64encode(s){
+  try{return btoa(unescape(encodeURIComponent(s)));}catch(e){return'';}
+}
 function b64decode(s){
   try{
     var t=s.replace(/[\r\n\t ]/g,'').replace(/-/g,'+').replace(/_/g,'/');
@@ -478,8 +630,6 @@ function b64decode(s){
     return decodeURIComponent(o);
   }catch(e){return'';}
 }
-
-/* ── extract ── */
 function extractLines(text){
   var found=[];
   text.split(/\r?\n/).forEach(function(line){
@@ -499,27 +649,26 @@ function extract(text){
   }
   return[];
 }
-
-/* ── CORS proxy fetch chain ── */
 function proxyList(u){
   var e=encodeURIComponent(u);
   return[
     u,
-    'https://api.'+'allorigins.win/raw?url='+e,
-    'https://corsproxy.'+'io/?'+e,
-    'https://r.'+'jina.ai/'+u
+    'https://api.allorigins.win/raw?url='+e,
+    'https://corsproxy.io/?'+e,
+    'https://api.codetabs.com/v1/proxy?quest='+e,
+    'https://r.jina.ai/'+u
   ];
 }
 function fetchSub(url){
   var list=proxyList(url),idx=0;
   function next(){
-    if(idx>=list.length)return Promise.reject(new Error('همهٔ پروکسی‌ها ناموفق'));
+    if(idx>=list.length)return Promise.reject(new Error('دریافت از تمامی پروکسی‌ها ناموفق بود'));
     var cur=list[idx++];
     return fetch(cur,{redirect:'follow'})
       .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
       .then(function(t){
         var c=extract(t);
-        if(!c.length)throw new Error('کانفیگ پیدا نشد');
+        if(!c.length)throw new Error('هیچ کانفیگی یافت نشد');
         return c;
       })
       .catch(function(e){
@@ -529,24 +678,20 @@ function fetchSub(url){
   }
   return next();
 }
-
-/* ── settings ── */
 function loadSettings(){
   var s={};try{s=JSON.parse(localStorage.getItem(SKEY)||'{}')||{};}catch(e){s={};}
   var fm=DEF.fm;
   if(typeof s.fm==='string'&&s.fm.trim()){try{JSON.parse(s.fm);fm=s.fm.trim();}catch(e){fm=DEF.fm;}}
-  return{adr:(typeof s.adr==='string'&&s.adr!=='188.114.97.6')?s.adr:'',fp:s.fp||DEF.fp,cs:s.cs||DEF.cs,fm:fm};
+  return{
+    adr:(typeof s.adr==='string'&&s.adr!=='188.114.97.6')?s.adr:'',
+    fp:s.fp||DEF.fp,
+    cs:s.cs||DEF.cs,
+    fm:fm,
+    alpn:s.alpn||DEF.alpn,
+    pfx:(s.pfx!==undefined)?s.pfx:DEF.pfx
+  };
 }
 function saveSettings(o){try{localStorage.setItem(SKEY,JSON.stringify(o));}catch(e){}}
-
-/* ── flash feedback ── */
-function flash(btn,text,cls){
-  if(!btn||btn._busy)return;btn._busy=true;btn._saved=btn.innerHTML;
-  btn.textContent=text;btn.classList.add(cls||'ok');
-  setTimeout(function(){btn.innerHTML=btn._saved;btn.classList.remove('ok','no');btn._busy=false;},1400);
-}
-
-/* ── clipboard ── */
 function copyText(t){
   if(navigator.clipboard&&window.isSecureContext)
     return navigator.clipboard.writeText(t).then(function(){return true;}).catch(function(){return legacyCopy(t);});
@@ -559,67 +704,114 @@ function legacyCopy(t){
   var ok=false;try{ok=document.execCommand('copy');}catch(e){}
   document.body.removeChild(el);return ok;
 }
-
-/* ── DOM refs ── */
 var inp=$('inp'),out=$('out'),res=$('res'),sumEl=$('sum'),errs=$('errs'),
-    cnt=$('cnt'),ocnt=$('ocnt'),
+    cnt=$('cnt'),protoCnt=$('protoCnt'),ocnt=$('ocnt'),
     adr=$('adr'),fp=$('fp'),cs=$('cs'),fm=$('fm'),fmh=$('fmh'),
-    adv=$('adv'),advb=$('advb'),go=$('go'),dz=$('dz'),
-    cpy=$('cpy'),dl=$('dl');
-
-/* ── init ── */
+    alpn=$('alpn'),pfx=$('pfx'),
+    go=$('go'),dz=$('dz'),cpy=$('cpy'),dl=$('dl');
 var st=loadSettings();
-adr.value=st.adr;fp.value=st.fp;cs.value=st.cs;fm.value=st.fm;
+adr.value=st.adr;fp.value=st.fp;cs.value=st.cs;fm.value=st.fm;alpn.value=st.alpn;pfx.value=st.pfx;
 $('yr').textContent=fa(new Date().getFullYear());
-fetchLatestRelease();
-
-function getOpts(){return{adr:adr.value.trim(),fp:fp.value,cs:cs.value.trim()||DEF.cs,fm:fm.value.trim()||DEF.fm};}
-function persist(){saveSettings(getOpts());}
+function getOpts(){
+  return{
+    adr:adr.value.trim(),fp:fp.value,
+    cs:cs.value.trim()||DEF.cs,fm:fm.value.trim()||DEF.fm,
+    alpn:alpn.value.trim(),pfx:pfx.value
+  };
+}
+function persist(){
+  saveSettings(getOpts());
+  updateIpPills();
+}
+function updateIpPills(){
+  var cur=adr.value.trim();
+  document.querySelectorAll('.ip-pill').forEach(function(p){
+    p.classList.toggle('active',p.getAttribute('data-ip')===cur);
+  });
+}
 function validateFm(){
   var v=fm.value.trim();
-  if(!v){fmh.textContent='خالی — مقدار پیش‌فرض استفاده می‌شود';fmh.classList.remove('no');return true;}
-  try{JSON.parse(v);fmh.textContent='✓ JSON معتبر';fmh.classList.remove('no');return true;}
-  catch(e){fmh.textContent='✗ JSON نامعتبر';fmh.classList.add('no');return false;}
+  if(!v){fmh.textContent='پیش‌فرض';fmh.style.color='var(--tx2)';return true;}
+  try{JSON.parse(v);fmh.textContent='معتبر ✓';fmh.style.color='var(--ac)';return true;}
+  catch(e){fmh.textContent='نامعتبر ✗';fmh.style.color='var(--rd)';return false;}
 }
 function updateCount(){
-  var n=inp.value.split(/\r?\n/).filter(function(l){return l.trim();}).length;
-  cnt.textContent=fa(n)+' خط';
+  var lines=inp.value.split(/\r?\n/).filter(function(l){return l.trim();});
+  cnt.textContent=fa(lines.length)+' خط';
+  var vl=0,tr=0,vm=0,oth=0;
+  lines.forEach(function(l){
+    var t=l.trim();
+    if(/^vless:\/\//i.test(t))vl++;
+    else if(/^trojan:\/\//i.test(t))tr++;
+    else if(/^vmess:\/\//i.test(t))vm++;
+    else if(PROTO_START.test(t))oth++;
+  });
+  var totalP=vl+tr+vm+oth;
+  if(totalP>0){
+    protoCnt.hidden=false;
+    protoCnt.textContent=fa(totalP)+' کانفیگ ('+fa(vl)+' vless • '+fa(tr)+' trojan • '+fa(vm)+' vmess)';
+  }else{
+    protoCnt.hidden=true;
+  }
 }
 function setOutputBtns(en){cpy.disabled=dl.disabled=!en;}
-
-/* ── event listeners ── */
-[adr,cs].forEach(function(el){el.addEventListener('input',persist);});
-fp.addEventListener('change',persist);
+[adr,cs,pfx].forEach(function(el){el.addEventListener('input',persist);});
+[fp,alpn].forEach(function(el){el.addEventListener('change',persist);});
 fm.addEventListener('input',function(){validateFm();persist();});
 inp.addEventListener('input',updateCount);
-validateFm();updateCount();
-
+validateFm();updateCount();updateIpPills();
+document.querySelectorAll('.ip-pill').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    adr.value=this.getAttribute('data-ip');
+    persist();
+    showToast('آدرس سرور تنظیم شد: '+(this.textContent||'پیش‌فرض'),'ok');
+  });
+});
 $('th').addEventListener('click',function(){
   var h=document.documentElement,next=h.getAttribute('data-theme')==='light'?'dark':'light';
   h.classList.add('tz');h.setAttribute('data-theme',next);
-  $('mtc').setAttribute('content',next==='light'?'#f3f5f9':'#0b0b10');
+  $('mtc').setAttribute('content',next==='light'?'#f0f9ff':'#030816');
   try{localStorage.setItem(TKEY,next);}catch(e){}
   setTimeout(function(){h.classList.remove('tz');},430);
+  showToast('تم '+(next==='light'?'روشن':'تاریک')+' فعال شد','ok');
 });
-advb.addEventListener('click',function(){
-  var open=adv.classList.toggle('open');
-  advb.setAttribute('aria-expanded',open?'true':'false');
+$('jsonToggle').addEventListener('click',function(){
+  var dr=$('jsonDrawer');
+  dr.classList.toggle('open');
 });
-$('cadr').addEventListener('click',function(){adr.value='';persist();flash(this,'پاک شد');});
-$('rst').addEventListener('click',function(){adr.value=DEF.adr;fp.value=DEF.fp;cs.value=DEF.cs;fm.value=DEF.fm;validateFm();persist();flash(this,'بازنشانی شد');});
-$('clr').addEventListener('click',function(){inp.value='';updateCount();inp.focus();flash(this,'پاک شد');});
-
+$('rst').addEventListener('click',function(){
+  adr.value=DEF.adr;fp.value=DEF.fp;cs.value=DEF.cs;fm.value=DEF.fm;alpn.value=DEF.alpn;pfx.value=DEF.pfx;
+  validateFm();persist();
+  showToast('تمامی تنظیمات به حالت پیش‌فرض بازگشت','ok');
+});
+$('clr').addEventListener('click',function(){
+  inp.value='';updateCount();inp.focus();
+  showToast('ورودی پاک شد','ok');
+});
+$('sampleBtn').addEventListener('click',function(){
+  var s=[
+    'vless://11111111-1111-1111-1111-111111111111@example.com:443?type=tcp&security=tls#Sample-VLESS-1',
+    'trojan://mypassword123@speed.example.com:443?type=ws&security=tls#Sample-Trojan-PRO',
+    'vmess://eyAidiI6ICIyIiwgInBzIjogIlNhbXBsZS1WTWVzcyIsICJhZGQiOiAiY2xvdWRmbGFyZS5jb20iLCAicG9ydCI6ICI0NDMiLCAiaWQiOiAiMTExMSIsICJhaWQiOiAiMCIsICJzY3kiOiAiYXV0byIsICJuZXQiOiAid3MiLCAidHlwZSI6ICJub25lIiwgImhvc3QiOiAiIiwgInBhdGgiOiAiLyIsICJ0bHMiOiAidGxzIiwgImZwIjogImNocm9tZSIsICJhbHBuIjogImgyIiB9'
+  ].join('\n');
+  inp.value=s;
+  updateCount();
+  showToast('نمونه کانفیگ‌های تستی بارگذاری شد','ok');
+});
 $('pst').addEventListener('click',function(){
-  var btn=this;
-  if(!navigator.clipboard||!navigator.clipboard.readText){inp.focus();flash(btn,'Ctrl+V','no');return;}
+  if(!navigator.clipboard||!navigator.clipboard.readText){inp.focus();showToast('از کلید میانبر Ctrl+V استفاده کنید','err');return;}
   navigator.clipboard.readText()
     .then(function(t){
-      if(t){inp.value=(inp.value.trim()?inp.value.trim()+'\n':'')+t.trim();updateCount();flash(btn,'اضافه شد');}
-      else flash(btn,'کلیپ‌بورد خالی','no');
+      if(t){
+        inp.value=(inp.value.trim()?inp.value.trim()+'\n':'')+t.trim();
+        updateCount();
+        showToast('محتوای کلیپ‌بورد اضافه شد','ok');
+      }else{
+        showToast('کلیپ‌بورد خالی است','err');
+      }
     })
-    .catch(function(){inp.focus();flash(btn,'Ctrl+V','no');});
+    .catch(function(){inp.focus();showToast('از کلید میانبر Ctrl+V استفاده کنید','err');});
 });
-
 $('fbt').addEventListener('click',function(){$('fin').click();});
 $('fin').addEventListener('change',function(){
   var f=this.files&&this.files[0];this.value='';
@@ -631,15 +823,15 @@ function readFile(f){
     var txt=String(r.result||'').trim();
     inp.value=(inp.value.trim()?inp.value.trim()+'\n':'')+txt;
     updateCount();run();
+    showToast('فایل با موفقیت خوانده شد','ok');
   };
   r.readAsText(f);
 }
-
 ['dragenter','dragover'].forEach(function(ev){
-  dz.addEventListener(ev,function(e){e.preventDefault();inp.classList.add('drag');});
+  dz.addEventListener(ev,function(e){e.preventDefault();dz.classList.add('drag-over');});
 });
 ['dragleave','drop'].forEach(function(ev){
-  dz.addEventListener(ev,function(e){e.preventDefault();inp.classList.remove('drag');});
+  dz.addEventListener(ev,function(e){e.preventDefault();dz.classList.remove('drag-over');});
 });
 dz.addEventListener('drop',function(e){
   var f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];
@@ -651,41 +843,42 @@ inp.addEventListener('keydown',function(e){
   if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();run();}
 });
 go.addEventListener('click',run);
-
 cpy.addEventListener('click',function(){
-  var btn=this;if(!out.value)return;
-  copyText(out.value).then(function(ok){flash(btn,ok?'کپی شد':'ناموفق',ok?'ok':'no');});
+  if(!out.value)return;
+  copyText(out.value).then(function(ok){
+    showToast(ok?'تمامی کانفیگ‌های بهینه‌شده کپی شد':'کپی خودکار پشتیبانی نمی‌شود — دستی کپی کنید',ok?'ok':'err');
+  });
 });
 dl.addEventListener('click',function(){
   if(!out.value)return;
   var blob=new Blob([out.value+'\n'],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob);
-  var a=document.createElement('a');a.href=url;a.download='configs-'+Date.now()+'.txt';
+  var a=document.createElement('a');a.href=url;a.download='PX-Configs-'+Date.now()+'.txt';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(function(){URL.revokeObjectURL(url);},1500);
-  flash(this,'ذخیره شد');
+  showToast('فایل کانفیگ‌ها دانلود شد','ok');
 });
 $('crs').addEventListener('click',function(){
   out.value='';errs.innerHTML='';sumEl.textContent='—';
   ocnt.textContent='۰ کانفیگ';res.hidden=true;setOutputBtns(false);
+  showToast('بخش خروجی بسته شد','ok');
 });
-
-/* ── run ── */
 function run(){
   if(go._running)return;
   var raw=inp.value.trim();
-  if(!raw){flash(go,'ورودی خالی است','no');inp.focus();return;}
-  if(!validateFm()){if(!adv.classList.contains('open'))advb.click();fm.focus();return;}
-
+  if(!raw){showToast('لطفاً ابتدا کانفیگ یا لینک ساب را وارد کنید','err');inp.focus();return;}
+  if(!validateFm()){
+    showToast('ساختار JSON در FinalMask نامعتبر است','err');
+    if(!$('jsonDrawer').classList.contains('open'))$('jsonToggle').click();
+    fm.focus();return;
+  }
   var lines=raw.split(/\r?\n/).map(function(l){return l.trim();}).filter(Boolean);
   var subs=lines.filter(function(l){return /^https?:\/\//i.test(l);});
   var directConfigs=extract(raw);
-
   var failed=[];
   go._running=true;
   go._savedHTML=go.innerHTML;
   go.disabled=true;
-  go.textContent=subs.length?'در حال دریافت ساب…':'در حال پردازش…';
-
+  go.textContent=subs.length?'در حال دریافت از ساب‌اسکرایب…':'در حال پردازش کانفیگ‌ها…';
   Promise.all(subs.map(function(u){
     return fetchSub(u).catch(function(e){failed.push(u+' — '+e.message);return[];});
   }))
@@ -699,30 +892,36 @@ function run(){
   .catch(function(){finish(directConfigs,failed);})
   .then(function(){go.innerHTML=go._savedHTML;go.disabled=false;go._running=false;});
 }
-
-/* ── finish ── */
 function finish(all,failed){
-  var o=getOpts(),ok=[],bad=[],passthru=0;
+  var o=getOpts(),ok=[],bad=[],passthru=0,vmessCnt=0,vlCnt=0,trCnt=0;
+  var seenOut={};
   all.forEach(function(l,i){
     try{
-      var r=optimize(l,o);ok.push(r);
-      if(PROTO_START.test(l)&&!/^(vless|trojan):\/\//i.test(l))passthru++;
+      var r=optimize(l,o);
+      if(!seenOut[r]){
+        seenOut[r]=1;
+        ok.push(r);
+        if(/^vmess:\/\//i.test(l))vmessCnt++;
+        else if(/^vless:\/\//i.test(l))vlCnt++;
+        else if(/^trojan:\/\//i.test(l))trCnt++;
+        else if(PROTO_START.test(l))passthru++;
+      }
     }catch(e){bad.push('خط '+fa(i+1)+' — '+e.message);}
   });
-  failed.forEach(function(u){bad.push('ساب دریافت نشد: '+u);});
+  failed.forEach(function(u){bad.push('خطا در دریافت ساب: '+u);});
   out.value=ok.join('\n');
   ocnt.textContent=fa(ok.length)+' کانفیگ';
-  errs.innerHTML=bad.map(function(t){return'<div class="er">'+esc(t)+'</div>';}).join('');
+  errs.innerHTML=bad.map(function(t){return'<div class="err-item">'+esc(t)+'</div>';}).join('');
   var s=ok.length
-    ?(fa(ok.length)+' کانفیگ بهینه شد'+(passthru?' · '+fa(passthru)+' عبور':'')+(bad.length?' · '+fa(bad.length)+' خطا':''))
-    :'هیچ کانفیگ معتبری پیدا نشد';
+    ?(fa(ok.length)+' کانفیگ بهینه‌شده ('+fa(vlCnt)+' VLESS • '+fa(trCnt)+' Trojan • '+fa(vmessCnt)+' VMess)'+(passthru?' • '+fa(passthru)+' عبور':'')+(bad.length?' • '+fa(bad.length)+' خطا':''))
+    :'هیچ کانفیگ معتبری یافت نشد';
   sumEl.textContent=s;
   setOutputBtns(ok.length>0);
   res.hidden=false;
   res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  showToast(ok.length?'بهینه‌سازی '+fa(ok.length)+' کانفیگ با موفقیت انجام شد':'خطا در پردازش کانفیگ‌ها',ok.length?'ok':'err');
 }
-
 })();
 </script>
 </body>
-                                                </html>
+</html>
