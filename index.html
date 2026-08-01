@@ -153,7 +153,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 .ib:hover{color:var(--tx);background:var(--s3);border-color:var(--ac)}
 .mn{display:none}html[data-theme=light] .sn{display:none}html[data-theme=light] .mn{display:block}
-/* ── ENGINE MODE SWITCHER RIBBON (NEW FEATURE v4.1: NEW SYSTEM VS OLD SYSTEM) ── */
+/* ── ENGINE MODE SWITCHER RIBBON (v4.2) ── */
 .engine-ribbon{
   display:flex;align-items:center;justify-content:space-between;gap:12px;
   padding:10px 16px;flex-wrap:wrap;
@@ -182,14 +182,14 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 .carrier-pill:hover{color:var(--tx);border-color:var(--ac);background:var(--ac0)}
 .carrier-pill.active{color:#fff;background:var(--ac);border-color:var(--ac2)}
-/* ── Modular 2-Column Grid (Compact Padding & Height) ── */
+/* ── Modular 2-Column Grid ── */
 .grid-main{
   display:grid;grid-template-columns:1fr;gap:12px;align-items:start;
 }
 @media(min-width:920px){
   .grid-main{grid-template-columns:1.2fr 1fr}
 }
-/* ── Column Containers (Stacked lightweight modular cards) ── */
+/* ── Column Containers ── */
 .col-stack{display:flex;flex-direction:column;gap:10px}
 .card-mod{
   padding:14px 16px;display:flex;flex-direction:column;gap:10px;
@@ -458,9 +458,9 @@ html[lang=en] .toast-msg{left:auto;right:24px}
   <div class="notice-bar">
     <span class="notice-badge">
       <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-      <span id="txt_notice_badge">اطلاعیه نسخه ۴.۱</span>
+      <span id="txt_notice_badge">اطلاعیه نسخه ۴.۲</span>
     </span>
-    <p class="notice-text" id="txt_notice_text">موتور هوشمند PX اپتیمایزر به <b>نسخه ۴.۱</b> ارتقا یافت — اضافه شدن انتخاب <b>سیستم جدید (Next-Gen) یا سیستم قدیم (Legacy)</b>، ارتقای الگوریتم ضد فیلتر و بهبود سرعت در استودیو.</p>
+    <p class="notice-text" id="txt_notice_text">موتور هوشمند PX اپتیمایزر به <b>نسخه ۴.۲</b> ارتقا یافت — پایداری ۱۰۰٪ و رفع خطا، اضافه شدن انتخاب <b>سیستم جدید یا سیستم قدیم</b>، آنالیزور سلامت کانفیگ‌ها و فیلتر پیشرفته پورت و کشور.</p>
   </div>
   <!-- ── 1. HEADER WITH LANG TOGGLE, COLORED SOCIALS (WITH HEART) & THEME TOGGLE ── -->
   <header class="hdr">
@@ -468,7 +468,7 @@ html[lang=en] .toast-msg{left:auto;right:24px}
       <div class="hdr-logo">PX</div>
       <div class="hdr-title">
         <h1>PX OPTIMIZER STUDIO</h1>
-        <small><span class="status-dot"></span> <span id="txt_hdr_sub">استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۴.۱</span></small>
+        <small><span class="status-dot"></span> <span id="txt_hdr_sub">استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۴.۲</span></small>
       </div>
     </div>
     <div class="hdr-actions">
@@ -500,18 +500,18 @@ html[lang=en] .toast-msg{left:auto;right:24px}
       </button>
     </div>
   </header>
-  <!-- ── 1.1 NEW FEATURE v4.1: NEXT-GEN vs LEGACY ENGINE MODE SWITCHER RIBBON ── -->
+  <!-- ── 1.1 NEW FEATURE v4.2: NEXT-GEN vs LEGACY ENGINE MODE SWITCHER RIBBON ── -->
   <div class="glass-box engine-ribbon" id="engineRibbon">
     <div class="engine-hd">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
       <span id="txt_engine_lbl">انتخاب سیستم پردازشی موتور:</span>
     </div>
     <div class="engine-pills">
-      <span class="engine-pill active" data-engine="new" id="engBtnNew">⚡ سیستم جدید (Next-Gen v4.1)</span>
+      <span class="engine-pill active" data-engine="new" id="engBtnNew">⚡ سیستم جدید (Next-Gen v4.2)</span>
       <span class="engine-pill" data-engine="old" id="engBtnOld">🛠️ سیستم قدیم (Legacy Classic)</span>
     </div>
     <div class="engine-desc" id="txt_engine_desc">
-      موتور جدید v4.1: بهینه‌سازی پیشرفته لایه TLS/Reality، اعمال هوشمند Fragment، پاک‌سازی پارامترهای تداخل‌زا و الزام محافظت‌شده PX_op.
+      موتور جدید v4.2: بهینه‌سازی پیشرفته لایه TLS/Reality، اعمال هوشمند Fragment، پاک‌سازی پارامترهای تداخل‌زا و الزام محافظت‌شده PX_op.
     </div>
   </div>
   <!-- ── 1.2 IRAN TELECOM CARRIER SUPER-PRESETS ── -->
@@ -669,7 +669,7 @@ html[lang=en] .toast-msg{left:auto;right:24px}
         <div class="card-hd">
           <h2>
             <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
-            <span id="txt_rename_hd">ویرایش‌گر نام و برچسب محافظت‌شده (نسخه ۴.۱)</span>
+            <span id="txt_rename_hd">ویرایش‌گر نام و برچسب محافظت‌شده (نسخه ۴.۲)</span>
           </h2>
           <span class="locked-badge" id="txt_rename_lock">🔒 الزام اجباری: PX_op</span>
         </div>
@@ -939,6 +939,29 @@ html[lang=en] .toast-msg{left:auto;right:24px}
     <span id="txt_footer">© <span id="yr"></span> PX OPTIMIZER STUDIO — ساخته شده توسط <b>PIXON</b> — تمامی پردازش‌ها به‌صورت ۱۰۰٪ محلی در مرورگر انجام می‌شود.</span>
   </footer>
 </div>
+<!-- ── WELCOME SUPPORT POPUP MODAL (v4.2) ── -->
+<div class="modal-overlay" id="welcomeModal">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <h3 id="txt_w_hd">💖 حمایت از ادامه توسعه پروژه PX OPTIMIZER</h3>
+      <button class="btn btn-sm" id="closeWelcomeBtn" type="button" style="color:var(--rd)">✕</button>
+    </div>
+    <p class="modal-body-p" id="txt_w_body">
+      سلام! پروژه <b>PX OPTIMIZER</b> کاملاً رایگان، متن‌باز و بدون تبلیغات است. برای اینکه بتوانیم سرورها را نگه‌داری کنیم و قابلیت‌های جدیدتر به استودیو اضافه کنیم، می‌توانید از دو طریق زیر از ما حمایت کنید:
+    </p>
+    <div class="modal-support-btns">
+      <a href="https://github.com/adasgdasjdfadfaj/pxop/" target="_blank" rel="noopener" class="btn" style="color:var(--tx);border-color:var(--ln2)">
+        ⭐ <span id="txt_w_btn_gh">استار در گیت‌هاب</span>
+      </a>
+      <a href="https://reymit.ir/moditor" target="_blank" rel="noopener" class="btn btn-donate">
+        💖 <span id="txt_w_btn_reymit">حمایت مالی (Reymit)</span>
+      </a>
+    </div>
+    <button class="btn btn-primary" id="enterStudioBtn" type="button" style="width:100%;margin-top:6px">
+      <span id="txt_w_btn_enter">✓ متوجه شدم، ورود به استودیو</span>
+    </button>
+  </div>
+</div>
 <!-- CAPABILITY v4.0: LIVE CONFIG HEALTH ANALYZER MODAL -->
 <div class="modal-overlay" id="healthModal">
   <div class="modal-box" style="max-width:480px">
@@ -993,7 +1016,7 @@ html[lang=en] .toast-msg{left:auto;right:24px}
 <script>
 (function(){
 'use strict';
-var PX_VERSION='4.1';
+var PX_VERSION='4.2';
 var FM_STR='{"tcp":[{"type":"fragment","settings":{"packets":"tlshello","lengths":["5","94","1"],"delays":["0"],"maxSplit":"0"}},{"type":"fragment","settings":{"packets":"1-1","lengths":["109","1"],"delays":["1"],"maxSplit":"355"}}]}';
 var CS_STR=['TLS_AES_256_GCM_SHA384','TLS_CHACHA20_POLY1305_SHA256','TLS_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256','TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256'].join(':');
 var DEF={
@@ -1006,18 +1029,44 @@ var DEF={
 var ORDER=['cs','path','security','alpn','encryption','fm','insecure','host','fp','type','allowInsecure','sni'];
 var UUID_RE=/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 var PROTO_START=/^(vless|vmess|trojan|ss|hysteria2?|tuic|naive\+https?|wireguard):\/\//i;
-var SKEY='px_opt_v41_sets',TKEY='px_theme',LKEY='px_lang';
+var SKEY='px_opt_v42_sets',TKEY='px_theme',LKEY='px_lang';
+function $(id){return document.getElementById(id);}
+function setTxt(id,val,isHTML){
+  var el=$(id);
+  if(el){
+    if(isHTML)el.innerHTML=val;
+    else el.textContent=val;
+  }
+}
+function fa(n){
+  var l=document.documentElement.getAttribute('lang')||'fa';
+  if(l==='en')return String(n);
+  return String(n).replace(/\d/g,function(d){return'۰۱۲۳۴۵۶۷۸۹'[+d];});
+}
+function dec(s){try{return decodeURIComponent(s);}catch(e){return s;}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function showToast(text,type){
+  var t=$('toast'),icon=$('toastIcon'),txt=$('toastText');
+  if(!t)return;
+  txt.textContent=text;
+  icon.innerHTML=type==='err'
+    ?'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#f87171" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'
+    :'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#60a5fa" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer=setTimeout(function(){t.classList.remove('show');},2400);
+}
 /* ── INTERNATIONALIZATION DICTIONARY (FA / EN) ── */
 var I18N={
   fa:{
-    notice_badge:'اطلاعیه نسخه ۴.۱',
-    notice_text:'موتور هوشمند PX اپتیمایزر به <b>نسخه ۴.۱</b> ارتقا یافت — اضافه شدن انتخاب <b>سیستم جدید (Next-Gen) یا سیستم قدیم (Legacy)</b>، ارتقای الگوریتم ضد فیلتر و بهبود سرعت در استودیو.',
-    hdr_sub:'استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۴.۱',
+    notice_badge:'اطلاعیه نسخه ۴.۲',
+    notice_text:'موتور هوشمند PX اپتیمایزر به <b>نسخه ۴.۲</b> ارتقا یافت — پایداری ۱۰۰٪ و رفع خطا، اضافه شدن انتخاب <b>سیستم جدید یا سیستم قدیم</b>، آنالیزور سلامت کانفیگ‌ها و فیلتر پیشرفته پورت و کشور.',
+    hdr_sub:'استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۴.۲',
     lang_btn:'🇮🇷 فارسی',
     engine_lbl:'انتخاب سیستم پردازشی موتور:',
-    eng_new:'⚡ سیستم جدید (Next-Gen v4.1)',
+    eng_new:'⚡ سیستم جدید (Next-Gen v4.2)',
     eng_old:'🛠️ سیستم قدیم (Legacy Classic)',
-    eng_desc_new:'موتور جدید v4.1: بهینه‌سازی پیشرفته لایه TLS/Reality، اعمال هوشمند Fragment، پاک‌سازی پارامترهای تداخل‌زا و الزام محافظت‌شده PX_op.',
+    eng_desc_new:'موتور جدید v4.2: بهینه‌سازی پیشرفته لایه TLS/Reality، اعمال هوشمند Fragment، پاک‌سازی پارامترهای تداخل‌زا و الزام محافظت‌شده PX_op.',
     eng_desc_old:'موتور قدیم (Classic): بهینه‌سازی ساده و سنتی پارامترهای cs و fm بر روی کانفیگ‌های VLESS و Trojan.',
     carrier_lbl:'پریست‌های هوشمند اپراتورها (یک کلیک):',
     input_hd:'ورودی کانفیگ‌ها و لینک ساب‌اسکرایب',
@@ -1049,7 +1098,7 @@ var I18N={
     g3_p:'پارامترهای <code>cs</code> و <code>fm</code> و <code>alpn</code> مخصوص کلاینت‌های جدید تنظیم شده‌اند.',
     g4_t:'حریم خصوصی ۱۰۰٪ محلی',
     g4_p:'هیچ کانفیگی در سرور ذخیره نمی‌شود و تمام عملیات درون مرورگر صورت می‌گیرد.',
-    rename_hd:'ویرایش‌گر نام و برچسب محافظت‌شده (نسخه ۴.۱)',
+    rename_hd:'ویرایش‌گر نام و برچسب محافظت‌شده (نسخه ۴.۲)',
     rename_lock:'🔒 الزام اجباری: PX_op',
     rename_pfx_lbl:'پیشوند ثابت و اجباری سیستم (غیرقابل تغییر)',
     rename_pfx_tag:'قفل‌شده توسط موتور',
@@ -1066,7 +1115,7 @@ var I18N={
     adr_tag:'اختیاری',
     sni_lbl:'دامنه SNI / Host اتصالات TLS و Reality',
     sni_tag:'عبور از اختلال',
-    clean_hd:'ابزار هوشمند پاک‌سازی، پورت و فیلترها',
+    clean_hd:'ابزار هوشمند پاک‌سازی، پروتکل و کشورها',
     strip_b:'حذف خودکار خطوط تبلیغاتی و منقضی ساب',
     strip_s:'حذف خطوط ترافیک، Expired و لینک‌های غیرفعال کانال از خروجی',
     proto_filter_lbl:'فیلتر پروتکل در خروجی',
@@ -1101,20 +1150,25 @@ var I18N={
     hs_lbl3:'پورت‌های استاندارد HTTPS',
     hs_lbl4:'تعداد کل بررسی‌شده',
     hm_btn_clean:'✨ اعمال بهینه‌سازی و حذف کانفیگ‌های ضعیف',
+    w_hd:'💖 حمایت از ادامه توسعه پروژه PX OPTIMIZER',
+    w_body:'سلام! پروژه <b>PX OPTIMIZER</b> کاملاً رایگان، متن‌باز و بدون تبلیغات است. برای اینکه بتوانیم سرورها را نگه‌داری کنیم و قابلیت‌های جدیدتر به استودیو اضافه کنیم، می‌توانید از دو طریق زیر از ما حمایت کنید:',
+    w_btn_gh:'استار در گیت‌هاب',
+    w_btn_reymit:'حمایت مالی (Reymit)',
+    w_btn_enter:'✓ متوجه شدم، ورود به استودیو',
     toast_copy_ok:'تمامی کانفیگ‌های بهینه‌شده کپی شد',
     toast_copy_sub_ok:'لینک اشتراک Base64 با موفقیت کپی شد',
     toast_dl_json_ok:'فایل JSON برای Xray/Sing-box دانلود شد',
     toast_lang_ok:'زبان فارسی فعال شد'
   },
   en:{
-    notice_badge:'NOTICE v4.1',
-    notice_text:'PX Optimizer Engine upgraded to <b>v4.1</b> — featuring <b>Next-Gen v4.1 vs Legacy Classic engine selection</b>, anti-DPI scrubbing algorithm, and zero-click lag.',
-    hdr_sub:'Advanced V2Ray Config Optimization Studio • Local Browser Processing • v4.1',
+    notice_badge:'NOTICE v4.2',
+    notice_text:'PX Optimizer Engine upgraded to <b>v4.2</b> — 100% stable execution, featuring <b>Next-Gen v4.2 vs Legacy Classic engine selection</b>, anti-DPI scrubbing algorithm, and zero-click lag.',
+    hdr_sub:'Advanced V2Ray Config Optimization Studio • Local Browser Processing • v4.2',
     lang_btn:'🇺🇸 English',
     engine_lbl:'Select Optimizer Engine System:',
-    eng_new:'⚡ Next-Gen v4.1 Engine',
+    eng_new:'⚡ Next-Gen v4.2 Engine',
     eng_old:'🛠️ Legacy Classic Engine',
-    eng_desc_new:'Next-Gen v4.1: Advanced TLS/Reality layer scrubbing, smart fragment injection, conflict cleaning, and mandatory PX_op branding.',
+    eng_desc_new:'Next-Gen v4.2: Advanced TLS/Reality layer scrubbing, smart fragment injection, conflict cleaning, and mandatory PX_op branding.',
     eng_desc_old:'Legacy Classic: Basic traditional cs & fm parameter injection on VLESS and Trojan configs.',
     carrier_lbl:'1-Click Carrier Presets:',
     input_hd:'Config Input & Subscription Link Studio',
@@ -1146,7 +1200,7 @@ var I18N={
     g3_p:'Configures modern <code>cs</code>, <code>fm</code>, and <code>alpn</code> parameters automatically.',
     g4_t:'100% Local Processing',
     g4_p:'Zero server uploads — all parsing and encryption runs securely in your browser.',
-    rename_hd:'Protected Config Remark Editor (v4.1)',
+    rename_hd:'Protected Config Remark Editor (v4.2)',
     rename_lock:'🔒 MANDATORY: PX_op',
     rename_pfx_lbl:'System Locked Prefix (Mandatory)',
     rename_pfx_tag:'Engine Protected',
@@ -1198,29 +1252,24 @@ var I18N={
     hs_lbl3:'HTTPS Standard Ports',
     hs_lbl4:'Total Configs Analyzed',
     hm_btn_clean:'✨ Optimize & Keep High-Security Configs Only',
+    w_hd:'💖 Support PX OPTIMIZER Ongoing Development',
+    w_body:'Hello! <b>PX OPTIMIZER</b> is 100% free, open-source, and ad-free. To help us maintain servers and deliver new features, please consider supporting us via GitHub Star or Reymit donation:',
+    w_btn_gh:'Star on GitHub',
+    w_btn_reymit:'Donate on Reymit',
+    w_btn_enter:'✓ I Understand, Enter Studio',
     toast_copy_ok:'All optimized configs copied to clipboard!',
     toast_copy_sub_ok:'Base64 subscription string copied to clipboard!',
     toast_dl_json_ok:'Xray/Sing-box JSON config bundle downloaded!',
     toast_lang_ok:'English language activated'
   }
 };
-function $(id){return document.getElementById(id);}
-function fa(n){
-  var l=document.documentElement.getAttribute('lang')||'fa';
-  if(l==='en')return String(n);
-  return String(n).replace(/\d/g,function(d){return'۰۱۲۳۴۵۶۷۸۹'[+d];});
-}
-function dec(s){try{return decodeURIComponent(s);}catch(e){return s;}}
-function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-function showToast(text,type){
-  var t=$('toast'),icon=$('toastIcon'),txt=$('toastText');
-  txt.textContent=text;
-  icon.innerHTML=type==='err'
-    ?'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#f87171" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'
-    :'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#60a5fa" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
-  t.classList.add('show');
-  clearTimeout(t._timer);
-  t._timer=setTimeout(function(){t.classList.remove('show');},2400);
+/* ── WELCOME SUPPORT POPUP MODAL ON LOAD ── */
+var wm=$('welcomeModal');
+if(wm){
+  // Does NOT pop up automatically so studio is 100% clickable immediately
+  $('closeWelcomeBtn').addEventListener('click',function(){wm.classList.remove('open');});
+  $('enterStudioBtn').addEventListener('click',function(){wm.classList.remove('open');});
+  wm.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
 }
 function pq(q){
   var o=[];if(!q)return o;
@@ -1401,7 +1450,7 @@ function optimize(raw,o,idx){
     }
     throw new Error('پروتکل ناشناخته در سیستم قدیم');
   }
-  /* NEW SYSTEM (NEXT-GEN v4.1 ENGINE) */
+  /* NEW SYSTEM (NEXT-GEN v4.2 ENGINE) */
   if(o.stripAds&&isJunkConfig(l))throw new Error('خط اطلاعاتی/منقضی حذف شد');
   if(!matchesCountry(origRmk,o.countryFilter))throw new Error('عدم تطابق کشور');
   var r='';
@@ -1543,120 +1592,126 @@ bulkRenameToggle.classList.toggle('checked',st.bulkRename);
 renameTplBox.classList.toggle('show',st.bulkRename);
 protoFilter.value=st.protoFilter;portFilter.value=st.portFilter;
 stripAdsToggle.classList.toggle('checked',st.stripAds);
-$('yr').textContent=fa(new Date().getFullYear());
+setTxt('yr', fa(new Date().getFullYear()));
 /* ── UPDATE ENGINE MODE UI ── */
 function updateEngineModeUI(m){
   var isNew=(m==='new');
   $('engBtnNew').classList.toggle('active',isNew);
   $('engBtnOld').classList.toggle('active',!isNew);
-  $('txt_engine_desc').textContent=(curLang==='fa')
+  setTxt('txt_engine_desc', (curLang==='fa')
     ?(isNew?I18N.fa.eng_desc_new:I18N.fa.eng_desc_old)
-    :(isNew?I18N.en.eng_desc_new:I18N.en.eng_desc_old);
+    :(isNew?I18N.en.eng_desc_new:I18N.en.eng_desc_old)
+  );
 }
 updateEngineModeUI(st.engineMode);
 $('engBtnNew').addEventListener('click',function(){
   st.engineMode='new';persist();updateEngineModeUI('new');
-  showToast((curLang==='fa'?'سیستم جدید (Next-Gen v4.1) فعال شد':'Next-Gen v4.1 Engine activated'),'ok');
+  showToast((curLang==='fa'?'سیستم جدید (Next-Gen v4.2) فعال شد':'Next-Gen v4.2 Engine activated'),'ok');
 });
 $('engBtnOld').addEventListener('click',function(){
   st.engineMode='old';persist();updateEngineModeUI('old');
   showToast((curLang==='fa'?'سیستم قدیم (Legacy Engine) فعال شد':'Legacy Classic Engine activated'),'ok');
 });
-/* ── APPLY LANGUAGE (FA / EN) ── */
+/* ── APPLY LANGUAGE (FA / EN) USING SAFE setTxt ── */
 function applyLanguage(l){
   var d=I18N[l]||I18N.fa;
   document.documentElement.setAttribute('lang',l);
   document.documentElement.setAttribute('dir',l==='en'?'ltr':'rtl');
-  $('langLabel').textContent=d.lang_btn;
-  $('txt_notice_badge').textContent=d.notice_badge;
-  $('txt_notice_text').innerHTML=d.notice_text;
-  $('txt_hdr_sub').textContent=d.hdr_sub;
-  $('txt_engine_lbl').textContent=d.engine_lbl;
-  $('engBtnNew').textContent=d.eng_new;
-  $('engBtnOld').textContent=d.eng_old;
+  setTxt('langLabel', d.lang_btn);
+  setTxt('txt_notice_badge', d.notice_badge);
+  setTxt('txt_notice_text', d.notice_text, true);
+  setTxt('txt_hdr_sub', d.hdr_sub);
+  setTxt('txt_engine_lbl', d.engine_lbl);
+  setTxt('engBtnNew', d.eng_new);
+  setTxt('engBtnOld', d.eng_old);
   updateEngineModeUI(getOpts().engineMode);
-  $('txt_carrier_lbl').textContent=d.carrier_lbl;
-  $('txt_input_hd').textContent=d.input_hd;
-  $('txt_btn_paste').textContent=d.btn_paste;
-  $('txt_btn_file').textContent=d.btn_file;
-  $('txt_btn_sample').textContent=d.btn_sample;
-  $('txt_btn_health').textContent=d.btn_health;
-  $('txt_btn_clear').textContent=d.btn_clear;
-  $('txt_cta_hint').innerHTML=d.cta_hint;
-  $('txt_cta_btn').textContent=d.cta_btn;
-  $('txt_tut_hd').textContent=d.tut_hd;
-  $('txt_tut_tag').textContent=d.tut_tag;
-  $('txt_s1_num').textContent=d.s1_num;
-  $('txt_s1_b').textContent=d.s1_b;
-  $('txt_s1_p').textContent=d.s1_p;
-  $('txt_s2_num').textContent=d.s2_num;
-  $('txt_s2_b').textContent=d.s2_b;
-  $('txt_s2_p').textContent=d.s2_p;
-  $('txt_s3_num').textContent=d.s3_num;
-  $('txt_s3_b').textContent=d.s3_b;
-  $('txt_s3_p').textContent=d.s3_p;
-  $('txt_guide_hd').textContent=d.guide_hd;
-  $('txt_guide_tag').textContent=d.guide_tag;
-  $('txt_g1_t').textContent=d.g1_t;
-  $('txt_g1_p').innerHTML=d.g1_p;
-  $('txt_g2_t').textContent=d.g2_t;
-  $('txt_g2_p').innerHTML=d.g2_p;
-  $('txt_g3_t').textContent=d.g3_t;
-  $('txt_g3_p').innerHTML=d.g3_p;
-  $('txt_g4_t').textContent=d.g4_t;
-  $('txt_g4_p').innerHTML=d.g4_p;
-  $('txt_rename_hd').textContent=d.rename_hd;
-  $('txt_rename_lock').textContent=d.rename_lock;
-  $('txt_rename_pfx_lbl').textContent=d.rename_pfx_lbl;
-  $('txt_rename_pfx_tag').textContent=d.rename_pfx_tag;
-  $('txt_rename_sfx_lbl').textContent=d.rename_sfx_lbl;
-  $('txt_rename_sfx_tag').textContent=d.rename_sfx_tag;
-  $('txt_find_lbl').textContent=d.find_lbl;
-  $('txt_repl_lbl').textContent=d.repl_lbl;
-  $('txt_bulk_b').textContent=d.bulk_b;
-  $('txt_bulk_s').textContent=d.bulk_s;
-  $('txt_tpl_lbl').textContent=d.tpl_lbl;
-  $('txt_tpl_hint').innerHTML=d.tpl_hint;
-  $('txt_ip_hd').textContent=d.ip_hd;
-  $('txt_adr_lbl').textContent=d.adr_lbl;
-  $('txt_adr_tag').textContent=d.adr_tag;
-  $('txt_sni_lbl').textContent=d.sni_lbl;
-  $('txt_sni_tag').textContent=d.sni_tag;
-  $('txt_clean_hd').textContent=d.clean_hd;
-  $('txt_strip_b').textContent=d.strip_b;
-  $('txt_strip_s').textContent=d.strip_s;
-  $('txt_proto_filter_lbl').textContent=d.proto_filter_lbl;
-  $('txt_proto_filter_tag').textContent=d.proto_filter_tag;
-  $('txt_port_filter_lbl').textContent=d.port_filter_lbl;
-  $('txt_country_lbl').textContent=d.country_lbl;
-  $('txt_country_tag').textContent=d.country_tag;
-  $('pf_all').textContent=d.pf_all;
-  $('pf_vless').textContent=d.pf_vless;
-  $('pf_trojan').textContent=d.pf_trojan;
-  $('pf_vmess').textContent=d.pf_vmess;
-  $('portf_all').textContent=d.portf_all;
-  $('portf_443').textContent=d.portf_443;
-  $('portf_cdn').textContent=d.portf_cdn;
-  $('txt_sec_hd').textContent=d.sec_hd;
-  $('txt_fp_lbl').textContent=d.fp_lbl;
-  $('txt_alpn_lbl').textContent=d.alpn_lbl;
-  $('txt_json_toggle').textContent=d.json_toggle;
-  $('txt_json_hint').textContent=d.json_hint;
-  $('txt_out_hd').textContent=d.out_hd;
-  $('txt_btn_copy_all').textContent=d.btn_copy_all;
-  $('txt_btn_copy_sub').textContent=d.btn_copy_sub;
-  $('txt_btn_dl_json').textContent=d.btn_dl_json;
-  $('txt_btn_qr').textContent=d.btn_qr;
-  $('txt_btn_dl').textContent=d.btn_dl;
-  $('txt_btn_close').textContent=d.btn_close;
-  $('txt_footer').innerHTML=d.footer;
-  $('txt_modal_hd').textContent=d.modal_hd;
-  $('txt_hm_hd').textContent=d.hm_hd;
-  $('txt_hs_lbl1').textContent=d.hs_lbl1;
-  $('txt_hs_lbl2').textContent=d.hs_lbl2;
-  $('txt_hs_lbl3').textContent=d.hs_lbl3;
-  $('txt_hs_lbl4').textContent=d.hs_lbl4;
-  $('txt_hm_btn_clean').textContent=d.hm_btn_clean;
+  setTxt('txt_carrier_lbl', d.carrier_lbl);
+  setTxt('txt_input_hd', d.input_hd);
+  setTxt('txt_btn_paste', d.btn_paste);
+  setTxt('txt_btn_file', d.btn_file);
+  setTxt('txt_btn_sample', d.btn_sample);
+  setTxt('txt_btn_health', d.btn_health);
+  setTxt('txt_btn_clear', d.btn_clear);
+  setTxt('txt_cta_hint', d.cta_hint, true);
+  setTxt('txt_cta_btn', d.cta_btn);
+  setTxt('txt_tut_hd', d.tut_hd);
+  setTxt('txt_tut_tag', d.tut_tag);
+  setTxt('txt_s1_num', d.s1_num);
+  setTxt('txt_s1_b', d.s1_b);
+  setTxt('txt_s1_p', d.s1_p);
+  setTxt('txt_s2_num', d.s2_num);
+  setTxt('txt_s2_b', d.s2_b);
+  setTxt('txt_s2_p', d.s2_p);
+  setTxt('txt_s3_num', d.s3_num);
+  setTxt('txt_s3_b', d.s3_b);
+  setTxt('txt_s3_p', d.s3_p);
+  setTxt('txt_guide_hd', d.guide_hd);
+  setTxt('txt_guide_tag', d.guide_tag);
+  setTxt('txt_g1_t', d.g1_t);
+  setTxt('txt_g1_p', d.g1_p, true);
+  setTxt('txt_g2_t', d.g2_t);
+  setTxt('txt_g2_p', d.g2_p, true);
+  setTxt('txt_g3_t', d.g3_t);
+  setTxt('txt_g3_p', d.g3_p, true);
+  setTxt('txt_g4_t', d.g4_t);
+  setTxt('txt_g4_p', d.g4_p, true);
+  setTxt('txt_rename_hd', d.rename_hd);
+  setTxt('txt_rename_lock', d.rename_lock);
+  setTxt('txt_rename_pfx_lbl', d.rename_pfx_lbl);
+  setTxt('txt_rename_pfx_tag', d.rename_pfx_tag);
+  setTxt('txt_rename_sfx_lbl', d.rename_sfx_lbl);
+  setTxt('txt_rename_sfx_tag', d.rename_sfx_tag);
+  setTxt('txt_find_lbl', d.find_lbl);
+  setTxt('txt_repl_lbl', d.repl_lbl);
+  setTxt('txt_bulk_b', d.bulk_b);
+  setTxt('txt_bulk_s', d.bulk_s);
+  setTxt('txt_tpl_lbl', d.tpl_lbl);
+  setTxt('txt_tpl_hint', d.tpl_hint, true);
+  setTxt('txt_ip_hd', d.ip_hd);
+  setTxt('txt_adr_lbl', d.adr_lbl);
+  setTxt('txt_adr_tag', d.adr_tag);
+  setTxt('txt_sni_lbl', d.sni_lbl);
+  setTxt('txt_sni_tag', d.sni_tag);
+  setTxt('txt_clean_hd', d.clean_hd);
+  setTxt('txt_strip_b', d.strip_b);
+  setTxt('txt_strip_s', d.strip_s);
+  setTxt('txt_proto_filter_lbl', d.proto_filter_lbl);
+  setTxt('txt_proto_filter_tag', d.proto_filter_tag);
+  setTxt('txt_port_filter_lbl', d.port_filter_lbl);
+  setTxt('txt_country_lbl', d.country_lbl);
+  setTxt('txt_country_tag', d.country_tag);
+  setTxt('pf_all', d.pf_all);
+  setTxt('pf_vless', d.pf_vless);
+  setTxt('pf_trojan', d.pf_trojan);
+  setTxt('pf_vmess', d.pf_vmess);
+  setTxt('portf_all', d.portf_all);
+  setTxt('portf_443', d.portf_443);
+  setTxt('portf_cdn', d.portf_cdn);
+  setTxt('txt_sec_hd', d.sec_hd);
+  setTxt('txt_fp_lbl', d.fp_lbl);
+  setTxt('txt_alpn_lbl', d.alpn_lbl);
+  setTxt('txt_json_toggle', d.json_toggle);
+  setTxt('txt_json_hint', d.json_hint);
+  setTxt('txt_out_hd', d.out_hd);
+  setTxt('txt_btn_copy_all', d.btn_copy_all);
+  setTxt('txt_btn_copy_sub', d.btn_copy_sub);
+  setTxt('txt_btn_dl_json', d.btn_dl_json);
+  setTxt('txt_btn_qr', d.btn_qr);
+  setTxt('txt_btn_dl', d.btn_dl);
+  setTxt('txt_btn_close', d.btn_close);
+  setTxt('txt_footer', d.footer, true);
+  setTxt('txt_modal_hd', d.modal_hd);
+  setTxt('txt_w_hd', d.w_hd);
+  setTxt('txt_w_body', d.w_body, true);
+  setTxt('txt_w_btn_gh', d.w_btn_gh);
+  setTxt('txt_w_btn_reymit', d.w_btn_reymit);
+  setTxt('txt_w_btn_enter', d.w_btn_enter);
+  setTxt('txt_hm_hd', d.hm_hd);
+  setTxt('txt_hs_lbl1', d.hs_lbl1);
+  setTxt('txt_hs_lbl2', d.hs_lbl2);
+  setTxt('txt_hs_lbl3', d.hs_lbl3);
+  setTxt('txt_hs_lbl4', d.hs_lbl4);
+  setTxt('txt_hm_btn_clean', d.hm_btn_clean);
   updateCount();
 }
 var curLang=document.documentElement.getAttribute('lang')||'fa';
@@ -1829,7 +1884,7 @@ $('sampleBtn').addEventListener('click',function(){
   updateCount();
   showToast('نمونه کانفیگ‌های تستی بارگذاری شد','ok');
 });
-/* ── CAPABILITY v4.1: LIVE CONFIG HEALTH ANALYZER MODAL ── */
+/* ── CAPABILITY v4.0: LIVE CONFIG HEALTH ANALYZER MODAL ── */
 $('healthBtn').addEventListener('click',function(){
   var lines=inp.value.split(/\r?\n/).map(function(l){return l.trim();}).filter(Boolean);
   var direct=extract(inp.value);
@@ -1917,13 +1972,13 @@ dlJsonBtn.addEventListener('click',function(){
   if(!out.value)return;
   var lines=out.value.split(/\r?\n/).filter(function(l){return l.trim();});
   var bundle={
-    generator:"PX OPTIMIZER STUDIO v4.1",
+    generator:"PX OPTIMIZER STUDIO v4.2",
     timestamp:new Date().toISOString(),
     totalConfigs:lines.length,
     outbounds:lines.map(function(l,i){return{tag:"proxy-"+(i+1),uri:l};})
   };
   var blob=new Blob([JSON.stringify(bundle,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob);
-  var a=document.createElement('a');a.href=url;a.download='PX-Xray-Configs-v4.1-'+Date.now()+'.json';
+  var a=document.createElement('a');a.href=url;a.download='PX-Xray-Configs-v4.2-'+Date.now()+'.json';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(function(){URL.revokeObjectURL(url);},1500);
   showToast((I18N[curLang]||I18N.fa).toast_dl_json_ok,'ok');
@@ -1942,7 +1997,7 @@ $('qrModal').addEventListener('click',function(e){if(e.target===this)this.classL
 dl.addEventListener('click',function(){
   if(!out.value)return;
   var blob=new Blob([out.value+'\n'],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob);
-  var a=document.createElement('a');a.href=url;a.download='PX-Configs-v4.1-'+Date.now()+'.txt';
+  var a=document.createElement('a');a.href=url;a.download='PX-Configs-v4.2-'+Date.now()+'.txt';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(function(){URL.revokeObjectURL(url);},1500);
   showToast('فایل کانفیگ‌ها دانلود شد','ok');
@@ -2015,5 +2070,5 @@ function finish(all,failed){
 }
 })();
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2430937699ff96a',t:'MTc4NTU2ODM2Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
