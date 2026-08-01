@@ -50,7 +50,7 @@ html[data-theme=light]{
 }
 *,*::before,*::after{box-sizing:border-box;box-shadow:none!important;text-shadow:none!important}
 body{
-  margin:0;min-height:100vh;font-family:var(--sans);font-size:14.5px;line-height:1.75;
+  margin:0;min-height:100vh;font-family:var(--sans);font-size:14px;line-height:1.65;
   color:var(--tx);background:var(--bg);background-image:var(--bg-grad);
   overflow-x:hidden;-webkit-font-smoothing:antialiased;
 }
@@ -78,8 +78,8 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 /* ── App Container ── */
 .app-wrap{
-  width:100%;max-width:1160px;margin:0 auto;padding:16px 18px 56px;
-  display:flex;flex-direction:column;gap:16px;
+  width:100%;max-width:1180px;margin:0 auto;padding:12px 16px 24px;
+  display:flex;flex-direction:column;gap:10px;
 }
 .glass-box{
   background:var(--glass-bg);border:1px solid var(--glass-bd);
@@ -90,53 +90,53 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 .glass-box:hover{border-color:var(--glass-bd-hv)}
 /* ── Announcement Notice Bar (اطلاعیه) ── */
 .notice-bar{
-  display:flex;align-items:center;gap:12px;
-  padding:12px 18px;
+  display:flex;align-items:center;gap:10px;
+  padding:8px 14px;
   background:var(--s2);border:1px solid var(--ln);
   border-radius:var(--r);
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   flex-wrap:wrap;
 }
 .notice-badge{
-  font-size:12px;font-weight:700;padding:2px 10px;
+  font-size:11.5px;font-weight:700;padding:2px 10px;
   border-radius:var(--r3);background:var(--ac);color:#fff;
   display:inline-flex;align-items:center;gap:6px;flex:none;
 }
 .notice-text{
-  font-size:13.5px;color:var(--tx);font-weight:500;line-height:1.6;flex:1;min-width:240px;
+  font-size:13px;color:var(--tx);font-weight:500;line-height:1.5;flex:1;min-width:240px;
 }
 .notice-text b{font-weight:700}
 /* ── Header ── */
 .hdr{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding:14px 22px;background:var(--glass-bg2);border:1px solid var(--glass-bd);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 18px;background:var(--glass-bg2);border:1px solid var(--glass-bd);
   border-radius:var(--r);
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   flex-wrap:wrap;
 }
-.hdr-left{display:flex;align-items:center;gap:14px}
+.hdr-left{display:flex;align-items:center;gap:12px}
 .hdr-logo{
-  width:44px;height:44px;border-radius:var(--r2);
+  width:40px;height:40px;border-radius:var(--r2);
   background:var(--ac);
-  display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:19px;
   flex:none;
 }
 .hdr-title h1{
-  font-size:22px;font-weight:800;letter-spacing:-.01em;color:var(--tx);
+  font-size:20px;font-weight:800;letter-spacing:-.01em;color:var(--tx);
 }
-.hdr-title small{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--tx2);font-weight:600;margin-top:2px}
+.hdr-title small{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2);font-weight:600;margin-top:1px}
 .status-dot{width:8px;height:8px;border-radius:50%;background:var(--ac2);display:inline-block}
-/* ── Header Actions: Lang Switcher + Colored Socials + Theme Toggle ── */
-.hdr-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+/* ── Header Actions: Lang Switcher + Colored Socials + Reymit Heart + Theme Toggle ── */
+.hdr-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .lang-btn{
-  height:38px;padding:0 12px;border-radius:var(--r2);
+  height:36px;padding:0 10px;border-radius:var(--r2);
   background:var(--s1);border:1px solid var(--ln);color:var(--tx);
-  font-weight:700;font-size:12.5px;display:inline-flex;align-items:center;gap:6px;
+  font-weight:700;font-size:12px;display:inline-flex;align-items:center;gap:5px;
   cursor:pointer;transition:all var(--t1) var(--e);
 }
 .lang-btn:hover{background:var(--s2);border-color:var(--ac)}
 .social-icon{
-  width:38px;height:38px;display:grid;place-items:center;border-radius:var(--r2);
+  width:36px;height:36px;display:grid;place-items:center;border-radius:var(--r2);
   background:var(--s1);border:1px solid var(--ln);
   transition:all var(--t1) var(--e);
 }
@@ -145,104 +145,143 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 .tg-icon{fill:#2aa8e9}
 .yt-icon{fill:#ef4444}
 .gh-icon{fill:var(--tx)}
+.heart-icon{fill:#f43f5e}
 .ib{
-  width:38px;height:38px;display:grid;place-items:center;border-radius:var(--r2);
+  width:36px;height:36px;display:grid;place-items:center;border-radius:var(--r2);
   color:var(--tx2);background:var(--s2);border:1px solid var(--ln);
   transition:all var(--t1) var(--e);
 }
 .ib:hover{color:var(--tx);background:var(--s3);border-color:var(--ac)}
 .mn{display:none}html[data-theme=light] .sn{display:none}html[data-theme=light] .mn{display:block}
-/* ── Carrier Super Presets Bar (NEW FEATURE v3.5) ── */
-.carrier-bar{
+/* ── ENGINE MODE SWITCHER RIBBON (NEW FEATURE v4.1: NEW SYSTEM VS OLD SYSTEM) ── */
+.engine-ribbon{
   display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:12px 18px;flex-wrap:wrap;
+  padding:10px 16px;flex-wrap:wrap;
 }
-.carrier-hd{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--tx)}
-.carrier-pills{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.carrier-pill{
-  font-size:12px;font-weight:700;padding:5px 12px;border-radius:var(--r3);
+.engine-hd{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--tx)}
+.engine-pills{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.engine-pill{
+  font-size:12px;font-weight:700;padding:6px 14px;border-radius:var(--r3);
   background:var(--s2);border:1px solid var(--ln);color:var(--tx2);
   cursor:pointer;transition:all var(--t1) var(--e);display:inline-flex;align-items:center;gap:6px;
 }
+.engine-pill:hover{color:var(--tx);border-color:var(--ac);background:var(--ac0)}
+.engine-pill.active{color:#fff;background:var(--ac);border-color:var(--ac2)}
+.engine-desc{font-size:12px;color:var(--tx2);width:100%;margin-top:2px;line-height:1.5}
+/* ── Carrier Super Presets Bar ── */
+.carrier-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:8px 14px;flex-wrap:wrap;
+}
+.carrier-hd{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--tx)}
+.carrier-pills{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.carrier-pill{
+  font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:var(--r3);
+  background:var(--s2);border:1px solid var(--ln);color:var(--tx2);
+  cursor:pointer;transition:all var(--t1) var(--e);display:inline-flex;align-items:center;gap:5px;
+}
 .carrier-pill:hover{color:var(--tx);border-color:var(--ac);background:var(--ac0)}
 .carrier-pill.active{color:#fff;background:var(--ac);border-color:var(--ac2)}
-/* ── Modular 2-Column Grid (Lightweight & Separate Cards) ── */
+/* ── Modular 2-Column Grid (Compact Padding & Height) ── */
 .grid-main{
-  display:grid;grid-template-columns:1fr;gap:16px;align-items:start;
+  display:grid;grid-template-columns:1fr;gap:12px;align-items:start;
 }
 @media(min-width:920px){
-  .grid-main{grid-template-columns:1.25fr 1fr}
+  .grid-main{grid-template-columns:1.2fr 1fr}
 }
 /* ── Column Containers (Stacked lightweight modular cards) ── */
-.col-stack{display:flex;flex-direction:column;gap:14px}
+.col-stack{display:flex;flex-direction:column;gap:10px}
 .card-mod{
-  padding:18px 20px;display:flex;flex-direction:column;gap:14px;
+  padding:14px 16px;display:flex;flex-direction:column;gap:10px;
 }
 .card-hd{
   display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
 }
 .card-hd h2{
-  font-size:15px;font-weight:700;display:flex;align-items:center;gap:9px;color:var(--tx);
+  font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--tx);
 }
 .hd-icon{
-  width:30px;height:30px;border-radius:var(--r2);
+  width:28px;height:28px;border-radius:var(--r2);
   background:var(--ac0);border:1px solid var(--ac1);
   color:var(--ac2);display:grid;place-items:center;flex:none;
 }
 .stats-badges{display:flex;gap:6px;flex-wrap:wrap}
 .stat-pill{
-  font-size:11.5px;font-weight:600;padding:2px 10px;border-radius:var(--r3);
+  font-size:11px;font-weight:600;padding:2px 8px;border-radius:var(--r3);
   color:var(--tx2);background:var(--s2);border:1px solid var(--ln);
 }
 .stat-pill.active{color:var(--tx);background:var(--ac0);border-color:var(--ac1)}
 /* ── Toolbar & Buttons ── */
 .editor-toolbar{
-  display:flex;align-items:center;justify-content:space-between;gap:8px;
-  padding:8px 12px;background:var(--s1);border:1px solid var(--ln);
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  padding:6px 10px;background:var(--s1);border:1px solid var(--ln);
   border-radius:var(--r2);flex-wrap:wrap;
 }
 .toolbar-left,.toolbar-right{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  height:36px;padding:0 14px;border-radius:var(--r2);
-  font-size:13px;font-weight:600;color:var(--tx2);
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  height:34px;padding:0 12px;border-radius:var(--r2);
+  font-size:12.5px;font-weight:600;color:var(--tx2);
   background:var(--s2);border:1px solid var(--ln);
   white-space:nowrap;transition:all var(--t1) var(--e);cursor:pointer;
 }
 .btn:hover{background:var(--s3);border-color:var(--ln2);color:var(--tx)}
 .btn:active{transform:scale(.98)}
-.btn-sm{height:28px;padding:0 10px;font-size:12px;border-radius:var(--r3)}
+.btn-sm{height:26px;padding:0 9px;font-size:11.5px;border-radius:var(--r3)}
 .btn-primary{
-  height:44px;padding:0 24px;font-size:15px;font-weight:700;
+  height:40px;padding:0 22px;font-size:14.5px;font-weight:700;
   color:#fff!important;background:var(--ac)!important;
   border:1px solid var(--ac2)!important;
 }
 .btn-primary:hover{background:var(--ac2)!important;border-color:var(--ac2)!important}
 .btn-primary:active{transform:scale(.98)}
+.btn-donate{
+  color:#fff!important;background:#f43f5e!important;border-color:#e11d48!important;
+  font-weight:700;
+}
+.btn-donate:hover{background:#e11d48!important}
 .textarea-wrap{position:relative}
 .ta{
   width:100%;border-radius:var(--r2);background:var(--s1);border:1px solid var(--ln);
-  color:var(--tx);padding:14px;resize:vertical;font-family:var(--mono);
-  font-size:12.5px;line-height:1.75;word-break:break-all;direction:ltr;text-align:left;
+  color:var(--tx);padding:12px;resize:vertical;font-family:var(--mono);
+  font-size:12px;line-height:1.65;word-break:break-all;direction:ltr;text-align:left;
   transition:border-color var(--t1) var(--e);
 }
 .ta:focus{outline:none;border-color:var(--ac);background:var(--s2)}
-#inp{min-height:220px}
-#inp::placeholder{font-family:var(--sans);font-size:13.5px;color:var(--tx3);direction:rtl;text-align:right}
+#inp{min-height:160px}
+#inp::placeholder{font-family:var(--sans);font-size:13px;color:var(--tx3);direction:rtl;text-align:right}
 html[lang=en] #inp::placeholder{direction:ltr;text-align:left}
-#out{min-height:200px;border-color:var(--ac1)}
+#out{min-height:160px;border-color:var(--ac1)}
 .drag-over{border-color:var(--ac)!important;background:var(--ac0)!important}
 .proto-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:2px 0}
 .proto-tag{
-  font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:var(--r2);
+  font-size:11px;font-weight:600;padding:2px 8px;border-radius:var(--r2);
   background:var(--s2);border:1px solid var(--ln);color:var(--tx2);
-  display:inline-flex;align-items:center;gap:5px;
+  display:inline-flex;align-items:center;gap:4px;
 }
 .proto-tag.active{color:var(--tx);background:var(--ac0);border-color:var(--ac1)}
 .action-row{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
 }
 .hint-text{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2)}
+/* ── BOXED SQUARE 3-STEP QUICK START TUTORIAL CARD ── */
+.tut-steps{
+  display:grid;grid-template-columns:1fr;gap:8px;
+}
+@media(min-width:700px){
+  .tut-steps{grid-template-columns:1fr 1fr 1fr}
+}
+.tut-step{
+  display:flex;flex-direction:column;gap:4px;
+  padding:10px 12px;border-radius:var(--r2);
+  background:var(--s1);border:1px solid var(--ln);
+}
+.tut-step-num{
+  font-size:11px;font-weight:800;padding:1px 8px;border-radius:var(--r3);
+  background:var(--ac);color:#fff;display:inline-block;width:max-content;
+}
+.tut-step b{font-size:13px;font-weight:700;color:var(--tx)}
+.tut-step p{font-size:11.5px;color:var(--tx3);line-height:1.5;margin:0}
 /* ── Guide / Pro Tips Card ── */
 .guide-grid{
   display:grid;grid-template-columns:1fr;gap:10px;
@@ -264,25 +303,25 @@ html[lang=en] #inp::placeholder{direction:ltr;text-align:left}
 .guide-txt b{font-size:13px;font-weight:700;color:var(--tx)}
 .guide-txt p{font-size:11.8px;color:var(--tx3);line-height:1.55;margin:0}
 /* ── Form Fields & Inputs ── */
-.field{display:flex;flex-direction:column;gap:7px}
-.field-lbl{display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:700;color:var(--tx)}
+.field{display:flex;flex-direction:column;gap:6px}
+.field-lbl{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;font-weight:700;color:var(--tx)}
 .lbl-tag{font-size:10.5px;padding:1px 8px;border-radius:var(--r3);background:var(--s2);color:var(--tx3);border:1px solid var(--ln)}
 .in{
-  width:100%;height:38px;padding:0 14px;border-radius:var(--r2);
+  width:100%;height:36px;padding:0 12px;border-radius:var(--r2);
   background:var(--s1);border:1px solid var(--ln);color:var(--tx);
-  font-size:13.5px;transition:border-color var(--t1) var(--e);
+  font-size:13px;transition:border-color var(--t1) var(--e);
 }
 .in:focus{outline:none;border-color:var(--ac);background:var(--s2)}
 .in::placeholder{color:var(--tx3)}
 .in[disabled],.in[readonly]{opacity:.75;cursor:not-allowed;background:var(--s2);border-color:var(--ln2);color:var(--tx2);font-weight:700}
 .select-wrap{position:relative}
 .select-wrap .in{appearance:none;-webkit-appearance:none;padding-left:36px;cursor:pointer}
-html[lang=en] .select-wrap .in{padding-left:14px;padding-right:36px}
-.select-wrap>svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--tx3);pointer-events:none}
-html[lang=en] .select-wrap>svg{left:auto;right:12px}
-.ip-presets{display:flex;gap:6px;flex-wrap:wrap}
+html[lang=en] .select-wrap .in{padding-left:12px;padding-right:36px}
+.select-wrap>svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--tx3);pointer-events:none}
+html[lang=en] .select-wrap>svg{left:auto;right:10px}
+.ip-presets{display:flex;gap:5px;flex-wrap:wrap}
 .ip-pill{
-  font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:var(--r3);
+  font-size:11px;font-weight:600;padding:3px 9px;border-radius:var(--r3);
   background:var(--s2);border:1px solid var(--ln);color:var(--tx2);
   cursor:pointer;transition:all var(--t1) var(--e);
 }
@@ -291,67 +330,85 @@ html[lang=en] .select-wrap>svg{left:auto;right:12px}
 /* ── Custom Switch & Checkboxes ── */
 .check-row{
   display:flex;align-items:center;justify-content:space-between;
-  padding:10px 14px;border-radius:var(--r2);background:var(--s1);
+  padding:8px 12px;border-radius:var(--r2);background:var(--s1);
   border:1px solid var(--ln);cursor:pointer;user-select:none;
 }
 .check-row:hover{background:var(--s2)}
-.check-lbl{display:flex;flex-direction:column;gap:2px}
-.check-lbl b{font-size:13px;font-weight:700;color:var(--tx)}
-.check-lbl small{font-size:11.5px;color:var(--tx3)}
+.check-lbl{display:flex;flex-direction:column;gap:1px}
+.check-lbl b{font-size:12.5px;font-weight:700;color:var(--tx)}
+.check-lbl small{font-size:11px;color:var(--tx3)}
 .switch-inp{
-  width:38px;height:22px;border-radius:var(--pill);background:var(--ln2);
+  width:36px;height:20px;border-radius:var(--pill);background:var(--ln2);
   position:relative;transition:background var(--t2) var(--e);flex:none;
 }
 .switch-inp::after{
-  content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;
+  content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;
   border-radius:50%;background:#fff;transition:transform var(--t2) var(--e);
 }
 .check-row.checked .switch-inp{background:var(--ac)}
 .check-row.checked .switch-inp::after{transform:translateX(16px)}
 /* ── Naming & Remark Editor Grid ── */
 .rename-grid{
-  display:grid;grid-template-columns:1fr;gap:10px;
+  display:grid;grid-template-columns:1fr;gap:8px;
 }
 @media(min-width:640px){
   .rename-grid{grid-template-columns:1fr 1fr}
 }
 .rename-tpl-box{
-  display:none;flex-direction:column;gap:8px;padding:12px;
+  display:none;flex-direction:column;gap:8px;padding:10px;
   border-radius:var(--r2);background:var(--s1);border:1px solid var(--ln);
 }
 .rename-tpl-box.show{display:flex}
-.tpl-hints{font-size:11.5px;color:var(--tx3);line-height:1.6}
+.tpl-hints{font-size:11px;color:var(--tx3);line-height:1.5}
 .locked-badge{
-  font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:var(--r3);
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:var(--r3);
   background:var(--ac0);color:var(--ac2);border:1px solid var(--ac1);
-  display:inline-flex;align-items:center;gap:6px;
+  display:inline-flex;align-items:center;gap:5px;
 }
 /* ── Advanced JSON Toggle Card ── */
 .json-btn{
   width:100%;display:flex;align-items:center;justify-content:space-between;
-  padding:4px 0;font-size:13.5px;font-weight:700;color:var(--tx);
+  padding:2px 0;font-size:13px;font-weight:700;color:var(--tx);
   cursor:pointer;background:none;border:0;
 }
 .json-btn:hover{color:var(--ac2)}
 .json-btn svg{transition:transform var(--t2) var(--e)}
 .json-drawer.open .json-btn svg{transform:rotate(180deg)}
-.json-content{display:none;padding-top:12px;flex-direction:column;gap:12px;border-top:1px solid var(--ln)}
+.json-content{display:none;padding-top:10px;flex-direction:column;gap:10px;border-top:1px solid var(--ln)}
 .json-drawer.open .json-content{display:flex}
-.hint-sub{font-size:11.5px;color:var(--tx3)}
-/* ── QR Code Modal ── */
+.hint-sub{font-size:11px;color:var(--tx3)}
+/* ── MODALS: WELCOME MODAL, HEALTH ANALYZER MODAL, QR CODE MODAL ── */
 .modal-overlay{
-  position:fixed;inset:0;z-index:99999;background:rgba(9,14,26,.65);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  position:fixed;inset:0;z-index:99999;background:rgba(9,14,26,.68);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   display:none;place-items:center;padding:20px;
 }
 .modal-overlay.open{display:grid}
 .modal-box{
-  width:100%;max-width:380px;background:var(--bg);border:1px solid var(--ln2);
-  border-radius:var(--r);padding:22px;display:flex;flex-direction:column;
+  width:100%;max-width:440px;background:var(--bg);border:1px solid var(--ln2);
+  border-radius:var(--r);padding:24px;display:flex;flex-direction:column;
   gap:16px;text-align:center;position:relative;
 }
 .modal-hd{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .modal-hd h3{font-size:16px;font-weight:700;color:var(--tx)}
+.modal-body-p{font-size:13.5px;color:var(--tx);line-height:1.7;margin:0}
+.modal-support-btns{
+  display:flex;flex-direction:column;gap:10px;margin:4px 0;
+}
+@media(min-width:440px){
+  .modal-support-btns{flex-direction:row}
+  .modal-support-btns .btn{flex:1}
+}
+.health-stats-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:right;
+}
+html[lang=en] .health-stats-grid{text-align:left}
+.health-stat-box{
+  padding:12px;border-radius:var(--r2);background:var(--s1);border:1px solid var(--ln);
+  display:flex;flex-direction:column;gap:4px;
+}
+.health-stat-box b{font-size:18px;font-weight:800;color:var(--ac2)}
+.health-stat-box span{font-size:12px;color:var(--tx2)}
 .qr-container{
   width:220px;height:220px;margin:0 auto;background:#fff;
   padding:12px;border-radius:var(--r2);border:1px solid var(--ln);
@@ -362,9 +419,9 @@ html[lang=en] .select-wrap>svg{left:auto;right:12px}
 /* ── Toast & Output ── */
 .err-list{display:flex;flex-direction:column;gap:8px}.err-list:empty{display:none}
 .err-item{
-  font-size:12.5px;color:var(--rd);background:var(--rd0);
+  font-size:12px;color:var(--rd);background:var(--rd0);
   border:1px solid var(--rd1);border-radius:var(--r2);
-  padding:10px 14px;word-break:break-all;direction:rtl;text-align:right;
+  padding:8px 12px;word-break:break-all;direction:rtl;text-align:right;
 }
 html[lang=en] .err-item{direction:ltr;text-align:left}
 .toast-msg{
@@ -382,13 +439,13 @@ html[lang=en] .toast-msg{left:auto;right:24px}
 /* ── Footer ── */
 .foot-clean{
   display:flex;align-items:center;justify-content:center;
-  padding:16px 0 8px;text-align:center;font-size:13px;color:var(--tx2);font-weight:600;
+  padding:12px 0 6px;text-align:center;font-size:12.5px;color:var(--tx2);font-weight:600;
 }
 .foot-clean b{color:var(--tx);font-weight:700}
 @media(max-width:640px){
-  .hdr{padding:14px 16px}
-  .card-mod{padding:16px}
-  .hdr-title h1{font-size:19px}
+  .hdr{padding:12px 14px}
+  .card-mod{padding:14px}
+  .hdr-title h1{font-size:18px}
   .btn-primary{width:100%}
 }
 </style>
@@ -401,17 +458,17 @@ html[lang=en] .toast-msg{left:auto;right:24px}
   <div class="notice-bar">
     <span class="notice-badge">
       <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-      <span id="txt_notice_badge">اطلاعیه نسخه ۳.۵</span>
+      <span id="txt_notice_badge">اطلاعیه نسخه ۴.۱</span>
     </span>
-    <p class="notice-text" id="txt_notice_text">موتور هوشمند PX اپتیمایزر به <b>نسخه ۳.۵</b> ارتقا یافت — اضافه شدن <b>پشتیبانی دو زبانه (فارسی/انگلیسی)</b>، پریست‌های اختصاصی اپراتورهای ایرانسل/همراه اول، خروجی ساب Base64 و JSON، به همراه الزام محافظت‌شده <b>PX_op</b>.</p>
+    <p class="notice-text" id="txt_notice_text">موتور هوشمند PX اپتیمایزر به <b>نسخه ۴.۱</b> ارتقا یافت — اضافه شدن انتخاب <b>سیستم جدید (Next-Gen) یا سیستم قدیم (Legacy)</b>، ارتقای الگوریتم ضد فیلتر و بهبود سرعت در استودیو.</p>
   </div>
-  <!-- ── 1. HEADER WITH LANG TOGGLE, COLORED SOCIALS & THEME TOGGLE ── -->
+  <!-- ── 1. HEADER WITH LANG TOGGLE, COLORED SOCIALS (WITH HEART) & THEME TOGGLE ── -->
   <header class="hdr">
     <div class="hdr-left">
       <div class="hdr-logo">PX</div>
       <div class="hdr-title">
         <h1>PX OPTIMIZER STUDIO</h1>
-        <small><span class="status-dot"></span> <span id="txt_hdr_sub">استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۳.۵</span></small>
+        <small><span class="status-dot"></span> <span id="txt_hdr_sub">استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۴.۱</span></small>
       </div>
     </div>
     <div class="hdr-actions">
@@ -420,6 +477,10 @@ html[lang=en] .toast-msg{left:auto;right:24px}
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         <span id="langLabel">🇮🇷 فارسی</span>
       </button>
+      <!-- Reymit Donate Pink Heart Icon -->
+      <a href="https://reymit.ir/moditor" target="_blank" rel="noopener" class="social-icon" title="حمایت مالی از پروژه (Reymit)" aria-label="حمایت مالی">
+        <svg viewBox="0 0 24 24" width="20" height="20" class="heart-icon"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </a>
       <!-- Telegram Colored Icon -->
       <a href="https://t.me/logic_sec" target="_blank" rel="noopener" class="social-icon" title="کانال تلگرام logic_sec" aria-label="تلگرام">
         <svg viewBox="0 0 24 24" width="20" height="20" class="tg-icon"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
@@ -439,7 +500,21 @@ html[lang=en] .toast-msg{left:auto;right:24px}
       </button>
     </div>
   </header>
-  <!-- ── 1.5 NEW FEATURE v3.5: IRAN TELECOM CARRIER SUPER-PRESETS ── -->
+  <!-- ── 1.1 NEW FEATURE v4.1: NEXT-GEN vs LEGACY ENGINE MODE SWITCHER RIBBON ── -->
+  <div class="glass-box engine-ribbon" id="engineRibbon">
+    <div class="engine-hd">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      <span id="txt_engine_lbl">انتخاب سیستم پردازشی موتور:</span>
+    </div>
+    <div class="engine-pills">
+      <span class="engine-pill active" data-engine="new" id="engBtnNew">⚡ سیستم جدید (Next-Gen v4.1)</span>
+      <span class="engine-pill" data-engine="old" id="engBtnOld">🛠️ سیستم قدیم (Legacy Classic)</span>
+    </div>
+    <div class="engine-desc" id="txt_engine_desc">
+      موتور جدید v4.1: بهینه‌سازی پیشرفته لایه TLS/Reality، اعمال هوشمند Fragment، پاک‌سازی پارامترهای تداخل‌زا و الزام محافظت‌شده PX_op.
+    </div>
+  </div>
+  <!-- ── 1.2 IRAN TELECOM CARRIER SUPER-PRESETS ── -->
   <div class="glass-box carrier-bar">
     <div class="carrier-hd">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
@@ -452,9 +527,9 @@ html[lang=en] .toast-msg{left:auto;right:24px}
       <span class="carrier-pill" data-carrier="rtl">📡 رایتل (Rightel)</span>
     </div>
   </div>
-  <!-- ── 2. MODULAR 2-COLUMN GRID (SEPARATED LIGHTWEIGHT CARDS) ── -->
+  <!-- ── 2. MODULAR 2-COLUMN GRID (COMPACTED TO FIT WITHOUT VERTICAL SCROLLING) ── -->
   <div class="grid-main">
-    <!-- LEFT COLUMN: INPUT STUDIO & OPTIMIZATION CTA & QUICK GUIDE -->
+    <!-- LEFT COLUMN: INPUT STUDIO & OPTIMIZATION CTA & TUTORIAL & SHORTCUTS (4 CARDS, NO DONATOR WALL) -->
     <div class="col-stack">
       <!-- Lightweight Card 1: Editor Box -->
       <div class="glass-box card-mod" id="dz">
@@ -481,6 +556,11 @@ html[lang=en] .toast-msg{left:auto;right:24px}
             <button class="btn btn-sm" id="sampleBtn" type="button">
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               <span id="txt_btn_sample">تست نمونه</span>
+            </button>
+            <!-- CAPABILITY v4.0: Config Health & Security Analyzer Button -->
+            <button class="btn btn-sm" id="healthBtn" type="button" style="color:var(--ac2)">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span id="txt_btn_health">⚡ آنالیز و سلامت</span>
             </button>
           </div>
           <div class="toolbar-right">
@@ -514,12 +594,39 @@ html[lang=en] .toast-msg{left:auto;right:24px}
           </button>
         </div>
       </div>
-      <!-- Lightweight Card 3: Quick Guide & Pro Shortcuts -->
+      <!-- Compact 3-Step Quick Guide Card (No Vertical Overflow) -->
+      <div class="glass-box card-mod" id="tutCard">
+        <div class="card-hd">
+          <h2>
+            <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+            <span id="txt_tut_hd">آموزش سریع اتصال در ۳ مرحله ساده</span>
+          </h2>
+          <span class="lbl-tag" id="txt_tut_tag">راهنمای گام‌به‌گام</span>
+        </div>
+        <div class="tut-steps">
+          <div class="tut-step">
+            <span class="tut-step-num" id="txt_s1_num">مرحله ۱: وارد کردن</span>
+            <b id="txt_s1_b">چسباندن لینک یا کانفیگ</b>
+            <p id="txt_s1_p">لینک اشتراک ساب‌اسکرایب یا کانفیگ‌های متنی خود را در کادر ورودی بچسبانید.</p>
+          </div>
+          <div class="tut-step">
+            <span class="tut-step-num" id="txt_s2_num">مرحله ۲: بهینه‌سازی</span>
+            <b id="txt_s2_b">انتخاب اپراتور و اجرا</b>
+            <p id="txt_s2_p">روی پریست اپراتور خود کلیک کرده و دکمهٔ «بهینه‌سازی کانفیگ‌ها» را بزنید.</p>
+          </div>
+          <div class="tut-step">
+            <span class="tut-step-num" id="txt_s3_num">مرحله ۳: اتصال</span>
+            <b id="txt_s3_b">اسکن QR یا کپی در برنامه</b>
+            <p id="txt_s3_p">خروجی را کپی کنید یا با دکمهٔ «📱 ساخت QR کد» در v2rayNG اسکن کنید.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Lightweight Card 4: Quick Guide & Pro Shortcuts -->
       <div class="glass-box card-mod">
         <div class="card-hd">
           <h2>
             <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
-            <span id="txt_guide_hd">راهنمای سریع و کلیدهای میانبر</span>
+            <span id="txt_guide_hd">کلیدهای میانبر و نکات حرفه‌ای</span>
           </h2>
           <span class="lbl-tag" id="txt_guide_tag">نکات حرفه‌ای</span>
         </div>
@@ -555,14 +662,14 @@ html[lang=en] .toast-msg{left:auto;right:24px}
         </div>
       </div>
     </div>
-    <!-- RIGHT COLUMN: MODULAR LIGHTWEIGHT SETTINGS CARDS (SEPARATED) -->
+    <!-- RIGHT COLUMN: MODULAR LIGHTWEIGHT SETTINGS CARDS (5 CARDS) -->
     <div class="col-stack">
       <!-- Mandatory PX_op Prefix & Config Naming Editor -->
       <div class="glass-box card-mod">
         <div class="card-hd">
           <h2>
             <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
-            <span id="txt_rename_hd">ویرایش‌گر نام و برچسب محافظت‌شده (نسخه ۳.۵)</span>
+            <span id="txt_rename_hd">ویرایش‌گر نام و برچسب محافظت‌شده (نسخه ۴.۱)</span>
           </h2>
           <span class="locked-badge" id="txt_rename_lock">🔒 الزام اجباری: PX_op</span>
         </div>
@@ -653,12 +760,12 @@ html[lang=en] .toast-msg{left:auto;right:24px}
           </div>
         </div>
       </div>
-      <!-- Card B: Smart Cleaner & Protocol Filter -->
+      <!-- Card B: Smart Cleaner, Protocol, Port & Country Filter -->
       <div class="glass-box card-mod">
         <div class="card-hd">
           <h2>
             <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg></span>
-            <span id="txt_clean_hd">ابزار هوشمند پاک‌سازی و فیلتر</span>
+            <span id="txt_clean_hd">ابزار هوشمند پاک‌سازی، پورت و فیلترها</span>
           </h2>
         </div>
         <!-- Toggle 1: Strip Junk & Expired Sub Ads -->
@@ -670,19 +777,51 @@ html[lang=en] .toast-msg{left:auto;right:24px}
           <div class="switch-inp"></div>
         </div>
         <!-- Select: Protocol Filtering -->
-        <div class="field">
-          <div class="field-lbl">
-            <span id="txt_proto_filter_lbl">فیلتر پروتکل در خروجی</span>
-            <span class="lbl-tag" id="txt_proto_filter_tag">جداسازی سریع</span>
+        <div class="rename-grid">
+          <div class="field">
+            <div class="field-lbl">
+              <span id="txt_proto_filter_lbl">فیلتر پروتکل خروجی</span>
+            </div>
+            <div class="select-wrap">
+              <select class="in" id="protoFilter">
+                <option value="all" id="pf_all">نمایش همه (پیش‌فرض)</option>
+                <option value="vless" id="pf_vless">فقط VLESS</option>
+                <option value="trojan" id="pf_trojan">فقط Trojan</option>
+                <option value="vmess" id="pf_vmess">فقط VMess</option>
+              </select>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
           </div>
-          <div class="select-wrap">
-            <select class="in" id="protoFilter">
-              <option value="all" id="pf_all">نمایش همه کانفیگ‌ها (پیش‌فرض)</option>
-              <option value="vless" id="pf_vless">فقط کانفیگ‌های VLESS</option>
-              <option value="trojan" id="pf_trojan">فقط کانفیگ‌های Trojan</option>
-              <option value="vmess" id="pf_vmess">فقط کانفیگ‌های VMess</option>
-            </select>
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          <!-- Port Filter -->
+          <div class="field">
+            <div class="field-lbl">
+              <span id="txt_port_filter_lbl">فیلتر پورت سرور</span>
+            </div>
+            <div class="select-wrap">
+              <select class="in" id="portFilter">
+                <option value="all" id="portf_all">همه پورت‌ها (پیش‌فرض)</option>
+                <option value="443" id="portf_443">فقط پورت‌های ۴۴۳ / HTTPS</option>
+                <option value="cdn" id="portf_cdn">پورت‌های استاندارد Cloudflare</option>
+              </select>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Country Flag Filter Pills -->
+        <div class="field" style="margin-top:2px">
+          <div class="field-lbl">
+            <span id="txt_country_lbl">فیلتر بر اساس کشور (تشخیص از نام کانفیگ)</span>
+            <span class="lbl-tag" id="txt_country_tag">جداسازی کشورها</span>
+          </div>
+          <div class="ip-presets" id="countryPresets">
+            <span class="ip-pill active" data-country="all" id="cf_all">نمایش همه</span>
+            <span class="ip-pill" data-country="de">🇩🇪 آلمان (DE)</span>
+            <span class="ip-pill" data-country="us">🇺🇸 آمریکا (US)</span>
+            <span class="ip-pill" data-country="nl">🇳🇱 هلند (NL)</span>
+            <span class="ip-pill" data-country="fr">🇫🇷 فرانسه (FR)</span>
+            <span class="ip-pill" data-country="gb">🇬🇧 انگلیس (UK)</span>
+            <span class="ip-pill" data-country="tr">🇹🇷 ترکیه (TR)</span>
+            <span class="ip-pill" data-country="fi">🇫🇮 فنلاند (FI)</span>
           </div>
         </div>
       </div>
@@ -747,7 +886,7 @@ html[lang=en] .toast-msg{left:auto;right:24px}
       </div>
     </div>
   </div>
-  <!-- ── 3. DYNAMIC OUTPUT SECTION (WITH SUB LINK BASE64 EXPORT v3.5) ── -->
+  <!-- ── 3. DYNAMIC OUTPUT SECTION ── -->
   <section class="glass-box card-mod" id="res" hidden>
     <div class="card-hd">
       <h2>
@@ -767,12 +906,17 @@ html[lang=en] .toast-msg{left:auto;right:24px}
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
           <span id="txt_btn_copy_all">کپی همه کانفیگ‌ها</span>
         </button>
-        <!-- NEW CAPABILITY v3.5: One-Click Base64 Subscription Link Copy -->
+        <!-- One-Click Base64 Subscription Link Copy -->
         <button class="btn btn-sm" id="cpySubBtn" type="button" disabled style="color:var(--tx)">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
           <span id="txt_btn_copy_sub">📦 کپی ساب Base64</span>
         </button>
-        <!-- CAPABILITY v3.2: Live QR Code Button -->
+        <!-- JSON Core Export -->
+        <button class="btn btn-sm" id="dlJsonBtn" type="button" disabled style="color:var(--tx)">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span id="txt_btn_dl_json">⚙️ خروجی JSON</span>
+        </button>
+        <!-- Live QR Code Button -->
         <button class="btn btn-sm" id="qrBtn" type="button" disabled style="color:var(--ac)">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
           <span id="txt_btn_qr">📱 ساخت QR کد</span>
@@ -795,6 +939,39 @@ html[lang=en] .toast-msg{left:auto;right:24px}
     <span id="txt_footer">© <span id="yr"></span> PX OPTIMIZER STUDIO — ساخته شده توسط <b>PIXON</b> — تمامی پردازش‌ها به‌صورت ۱۰۰٪ محلی در مرورگر انجام می‌شود.</span>
   </footer>
 </div>
+<!-- CAPABILITY v4.0: LIVE CONFIG HEALTH ANALYZER MODAL -->
+<div class="modal-overlay" id="healthModal">
+  <div class="modal-box" style="max-width:480px">
+    <div class="modal-hd">
+      <h3 id="txt_hm_hd">⚡ گزارش سلامت، امنیت و معماری کانفیگ‌ها</h3>
+      <button class="btn btn-sm" id="closeHealthBtn" type="button" style="color:var(--rd)">بستن</button>
+    </div>
+    <div class="health-stats-grid">
+      <div class="health-stat-box">
+        <b id="hsScore">100%</b>
+        <span id="txt_hs_lbl1">امتیاز سلامت و امنیت</span>
+      </div>
+      <div class="health-stat-box">
+        <b id="hsTls">0</b>
+        <span id="txt_hs_lbl2">مجهز به TLS 1.3 / Reality</span>
+      </div>
+      <div class="health-stat-box">
+        <b id="hsCdn">0</b>
+        <span id="txt_hs_lbl3">پورت‌های استاندارد HTTPS</span>
+      </div>
+      <div class="health-stat-box">
+        <b id="hsCount">0</b>
+        <span id="txt_hs_lbl4">تعداد کل بررسی‌شده</span>
+      </div>
+    </div>
+    <p class="modal-body-p" style="font-size:13px;color:var(--tx2)" id="hsSummaryText">
+      در حال پردازش کانفیگ‌ها...
+    </p>
+    <button class="btn btn-primary" id="applyHealthCleanBtn" type="button" style="width:100%;margin-top:4px">
+      <span id="txt_hm_btn_clean">✨ اعمال بهینه‌سازی و حذف کانفیگ‌های ضعیف</span>
+    </button>
+  </div>
+</div>
 <!-- QR CODE SCANNER MODAL -->
 <div class="modal-overlay" id="qrModal">
   <div class="modal-box">
@@ -816,35 +993,53 @@ html[lang=en] .toast-msg{left:auto;right:24px}
 <script>
 (function(){
 'use strict';
-var PX_VERSION='3.5';
+var PX_VERSION='4.1';
 var FM_STR='{"tcp":[{"type":"fragment","settings":{"packets":"tlshello","lengths":["5","94","1"],"delays":["0"],"maxSplit":"0"}},{"type":"fragment","settings":{"packets":"1-1","lengths":["109","1"],"delays":["1"],"maxSplit":"355"}}]}';
 var CS_STR=['TLS_AES_256_GCM_SHA384','TLS_CHACHA20_POLY1305_SHA256','TLS_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256','TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256'].join(':');
 var DEF={
   adr:'',sni:'',fp:'unsafe',cs:CS_STR,fm:FM_STR,alpn:'',
   sfx:'',findText:'',replText:'',
   bulkRename:false,nameTpl:'PIXON-PRO-#{n} ({proto})',
-  stripAds:true,protoFilter:'all'
+  stripAds:true,protoFilter:'all',countryFilter:'all',portFilter:'all',
+  engineMode:'new'
 };
 var ORDER=['cs','path','security','alpn','encryption','fm','insecure','host','fp','type','allowInsecure','sni'];
 var UUID_RE=/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 var PROTO_START=/^(vless|vmess|trojan|ss|hysteria2?|tuic|naive\+https?|wireguard):\/\//i;
-var SKEY='px_opt_v35_sets',TKEY='px_theme',LKEY='px_lang';
+var SKEY='px_opt_v41_sets',TKEY='px_theme',LKEY='px_lang';
 /* ── INTERNATIONALIZATION DICTIONARY (FA / EN) ── */
 var I18N={
   fa:{
-    notice_badge:'اطلاعیه نسخه ۳.۵',
-    notice_text:'موتور هوشمند PX اپتیمایزر به <b>نسخه ۳.۵</b> ارتقا یافت — اضافه شدن <b>پشتیبانی دو زبانه (فارسی/انگلیسی)</b>، پریست‌های اختصاصی اپراتورهای ایرانسل/همراه اول، خروجی ساب Base64 و JSON، به همراه الزام محافظت‌شده <b>PX_op</b>.',
-    hdr_sub:'استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۳.۵',
+    notice_badge:'اطلاعیه نسخه ۴.۱',
+    notice_text:'موتور هوشمند PX اپتیمایزر به <b>نسخه ۴.۱</b> ارتقا یافت — اضافه شدن انتخاب <b>سیستم جدید (Next-Gen) یا سیستم قدیم (Legacy)</b>، ارتقای الگوریتم ضد فیلتر و بهبود سرعت در استودیو.',
+    hdr_sub:'استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۴.۱',
     lang_btn:'🇮🇷 فارسی',
+    engine_lbl:'انتخاب سیستم پردازشی موتور:',
+    eng_new:'⚡ سیستم جدید (Next-Gen v4.1)',
+    eng_old:'🛠️ سیستم قدیم (Legacy Classic)',
+    eng_desc_new:'موتور جدید v4.1: بهینه‌سازی پیشرفته لایه TLS/Reality، اعمال هوشمند Fragment، پاک‌سازی پارامترهای تداخل‌زا و الزام محافظت‌شده PX_op.',
+    eng_desc_old:'موتور قدیم (Classic): بهینه‌سازی ساده و سنتی پارامترهای cs و fm بر روی کانفیگ‌های VLESS و Trojan.',
     carrier_lbl:'پریست‌های هوشمند اپراتورها (یک کلیک):',
     input_hd:'ورودی کانفیگ‌ها و لینک ساب‌اسکرایب',
     btn_paste:'چسباندن (Paste)',
     btn_file:'فایل .txt',
     btn_sample:'تست نمونه',
+    btn_health:'⚡ آنالیز و سلامت',
     btn_clear:'پاک کردن',
     cta_hint:'درج خودکار برچسب <b>PX_op</b> در ابتدای نام کانفیگ‌ها',
     cta_btn:'بهینه‌سازی کانفیگ‌ها',
-    guide_hd:'راهنمای سریع و کلیدهای میانبر',
+    tut_hd:'آموزش سریع اتصال در ۳ مرحله ساده',
+    tut_tag:'راهنمای گام‌به‌گام',
+    s1_num:'مرحله ۱: وارد کردن',
+    s1_b:'چسباندن لینک یا کانفیگ',
+    s1_p:'لینک اشتراک ساب‌اسکرایب یا کانفیگ‌های متنی خود را در کادر ورودی بچسبانید.',
+    s2_num:'مرحله ۲: بهینه‌سازی',
+    s2_b:'انتخاب اپراتور و اجرا',
+    s2_p:'روی پریست اپراتور خود کلیک کرده و دکمهٔ «بهینه‌سازی کانفیگ‌ها» را بزنید.',
+    s3_num:'مرحله ۳: اتصال',
+    s3_b:'اسکن QR یا کپی در برنامه',
+    s3_p:'خروجی را کپی کنید یا با دکمهٔ «📱 ساخت QR کد» در v2rayNG اسکن کنید.',
+    guide_hd:'کلیدهای میانبر و نکات حرفه‌ای',
     guide_tag:'نکات حرفه‌ای',
     g1_t:'کلیدهای میانبر سریع',
     g1_p:'با کلید ترکیبی <code>Ctrl + Enter</code> در هر لحظه عملیات بهینه‌سازی را اجرا کنید.',
@@ -854,7 +1049,7 @@ var I18N={
     g3_p:'پارامترهای <code>cs</code> و <code>fm</code> و <code>alpn</code> مخصوص کلاینت‌های جدید تنظیم شده‌اند.',
     g4_t:'حریم خصوصی ۱۰۰٪ محلی',
     g4_p:'هیچ کانفیگی در سرور ذخیره نمی‌شود و تمام عملیات درون مرورگر صورت می‌گیرد.',
-    rename_hd:'ویرایش‌گر نام و برچسب محافظت‌شده (نسخه ۳.۵)',
+    rename_hd:'ویرایش‌گر نام و برچسب محافظت‌شده (نسخه ۴.۱)',
     rename_lock:'🔒 الزام اجباری: PX_op',
     rename_pfx_lbl:'پیشوند ثابت و اجباری سیستم (غیرقابل تغییر)',
     rename_pfx_tag:'قفل‌شده توسط موتور',
@@ -871,15 +1066,21 @@ var I18N={
     adr_tag:'اختیاری',
     sni_lbl:'دامنه SNI / Host اتصالات TLS و Reality',
     sni_tag:'عبور از اختلال',
-    clean_hd:'ابزار هوشمند پاک‌سازی و فیلتر',
+    clean_hd:'ابزار هوشمند پاک‌سازی، پورت و فیلترها',
     strip_b:'حذف خودکار خطوط تبلیغاتی و منقضی ساب',
     strip_s:'حذف خطوط ترافیک، Expired و لینک‌های غیرفعال کانال از خروجی',
     proto_filter_lbl:'فیلتر پروتکل در خروجی',
     proto_filter_tag:'جداسازی سریع',
+    port_filter_lbl:'فیلتر پورت سرور',
+    country_lbl:'فیلتر بر اساس کشور (تشخیص از نام کانفیگ)',
+    country_tag:'جداسازی کشورها',
     pf_all:'نمایش همه کانفیگ‌ها (پیش‌فرض)',
     pf_vless:'فقط کانفیگ‌های VLESS',
     pf_trojan:'فقط کانفیگ‌های Trojan',
     pf_vmess:'فقط کانفیگ‌های VMess',
+    portf_all:'همه پورت‌ها (پیش‌فرض)',
+    portf_443:'فقط پورت‌های ۴۴۳ / HTTPS',
+    portf_cdn:'پورت‌های استاندارد Cloudflare',
     sec_hd:'امنیت اتصالات و شناسه مرورگر',
     fp_lbl:'شناسه مرورگر (Fingerprint)',
     alpn_lbl:'پروتکل لایه کاربرد (ALPN)',
@@ -888,29 +1089,54 @@ var I18N={
     out_hd:'خروجی بهینه‌شده کانفیگ‌ها',
     btn_copy_all:'کپی همه کانفیگ‌ها',
     btn_copy_sub:'📦 کپی ساب Base64',
+    btn_dl_json:'⚙️ خروجی JSON',
     btn_qr:'📱 ساخت QR کد',
     btn_dl:'دانلود فایل .txt',
     btn_close:'بستن و پاک کردن',
     footer:'© '+fa(new Date().getFullYear())+' PX OPTIMIZER STUDIO — ساخته شده توسط <b>PIXON</b> — تمامی پردازش‌ها به‌صورت ۱۰۰٪ محلی در مرورگر انجام می‌شود.',
     modal_hd:'اسکن QR کد کانفیگ',
+    hm_hd:'⚡ گزارش سلامت، امنیت و معماری کانفیگ‌ها',
+    hs_lbl1:'امتیاز سلامت و امنیت',
+    hs_lbl2:'مجهز به TLS 1.3 / Reality',
+    hs_lbl3:'پورت‌های استاندارد HTTPS',
+    hs_lbl4:'تعداد کل بررسی‌شده',
+    hm_btn_clean:'✨ اعمال بهینه‌سازی و حذف کانفیگ‌های ضعیف',
     toast_copy_ok:'تمامی کانفیگ‌های بهینه‌شده کپی شد',
     toast_copy_sub_ok:'لینک اشتراک Base64 با موفقیت کپی شد',
+    toast_dl_json_ok:'فایل JSON برای Xray/Sing-box دانلود شد',
     toast_lang_ok:'زبان فارسی فعال شد'
   },
   en:{
-    notice_badge:'NOTICE v3.5',
-    notice_text:'PX Optimizer Engine upgraded to <b>v3.5</b> — featuring <b>Dual-Language (EN/FA) support</b>, 1-Click Iranian Carrier Presets, Base64 Sub Export, and mandatory locked <b>PX_op</b> branding.',
-    hdr_sub:'Advanced V2Ray Config Optimization Studio • Local Browser Processing • v3.5',
+    notice_badge:'NOTICE v4.1',
+    notice_text:'PX Optimizer Engine upgraded to <b>v4.1</b> — featuring <b>Next-Gen v4.1 vs Legacy Classic engine selection</b>, anti-DPI scrubbing algorithm, and zero-click lag.',
+    hdr_sub:'Advanced V2Ray Config Optimization Studio • Local Browser Processing • v4.1',
     lang_btn:'🇺🇸 English',
+    engine_lbl:'Select Optimizer Engine System:',
+    eng_new:'⚡ Next-Gen v4.1 Engine',
+    eng_old:'🛠️ Legacy Classic Engine',
+    eng_desc_new:'Next-Gen v4.1: Advanced TLS/Reality layer scrubbing, smart fragment injection, conflict cleaning, and mandatory PX_op branding.',
+    eng_desc_old:'Legacy Classic: Basic traditional cs & fm parameter injection on VLESS and Trojan configs.',
     carrier_lbl:'1-Click Carrier Presets:',
     input_hd:'Config Input & Subscription Link Studio',
     btn_paste:'Paste Clipboard',
     btn_file:'Load .txt File',
     btn_sample:'Sample Test',
+    btn_health:'⚡ Health Check',
     btn_clear:'Clear Input',
     cta_hint:'Mandatory <b>PX_op</b> tag automatically prepended to all config remarks',
     cta_btn:'Optimize Configs',
-    guide_hd:'Quick Guide & Keyboard Shortcuts',
+    tut_hd:'3-Step Quick Start Connection Guide',
+    tut_tag:'HOW-TO GUIDE',
+    s1_num:'Step 1: Import',
+    s1_b:'Paste Config or Sub Link',
+    s1_p:'Paste your subscription URL or individual VLESS, Trojan, or VMess config strings in the input box.',
+    s2_num:'Step 2: Optimize',
+    s2_b:'Select Carrier & Optimize',
+    s2_p:'Click your mobile carrier preset (Irancell, MCI, ADSL) and hit the "Optimize Configs" button.',
+    s3_num:'Step 3: Connect',
+    s3_b:'Copy or Scan QR Code',
+    s3_p:'Copy the optimized output or tap "📱 QR Scanner" to instantly scan with your phone camera in v2rayNG.',
+    guide_hd:'Keyboard Shortcuts & Pro Tips',
     guide_tag:'PRO TIPS',
     g1_t:'Instant Shortcut',
     g1_p:'Press <code>Ctrl + Enter</code> anytime to trigger instant config optimization.',
@@ -920,7 +1146,7 @@ var I18N={
     g3_p:'Configures modern <code>cs</code>, <code>fm</code>, and <code>alpn</code> parameters automatically.',
     g4_t:'100% Local Processing',
     g4_p:'Zero server uploads — all parsing and encryption runs securely in your browser.',
-    rename_hd:'Protected Config Remark Editor (v3.5)',
+    rename_hd:'Protected Config Remark Editor (v4.1)',
     rename_lock:'🔒 MANDATORY: PX_op',
     rename_pfx_lbl:'System Locked Prefix (Mandatory)',
     rename_pfx_tag:'Engine Protected',
@@ -937,15 +1163,21 @@ var I18N={
     adr_tag:'Optional',
     sni_lbl:'SNI / Host Domain for TLS & Reality',
     sni_tag:'Anti-DPI Bypass',
-    clean_hd:'Smart Cleaner & Protocol Filter',
+    clean_hd:'Smart Cleaner, Protocol & Port Filter',
     strip_b:'Auto-Strip Subscription Info & Expired Ads',
     strip_s:'Removes traffic counters, expired notices, and channel ads',
     proto_filter_lbl:'Output Protocol Filter',
     proto_filter_tag:'Quick Isolate',
+    port_filter_lbl:'Server Port Filter',
+    country_lbl:'Filter By Country (Detected from Remark)',
+    country_tag:'Country Isolate',
     pf_all:'Show All Configs (Default)',
     pf_vless:'VLESS Configs Only',
     pf_trojan:'Trojan Configs Only',
     pf_vmess:'VMess Configs Only',
+    portf_all:'All Ports (Default)',
+    portf_443:'HTTPS / 443 Ports Only',
+    portf_cdn:'Cloudflare Standard Ports',
     sec_hd:'Connection Security & Browser Fingerprint',
     fp_lbl:'Browser Fingerprint',
     alpn_lbl:'Application-Layer Protocol (ALPN)',
@@ -954,13 +1186,21 @@ var I18N={
     out_hd:'Optimized Config Output',
     btn_copy_all:'Copy All Configs',
     btn_copy_sub:'📦 Copy Base64 Sub',
+    btn_dl_json:'⚙️ JSON Export',
     btn_qr:'📱 QR Scanner',
     btn_dl:'Download .txt',
     btn_close:'Close & Clear',
     footer:'© '+new Date().getFullYear()+' PX OPTIMIZER STUDIO — Built by <b>PIXON</b> — 100% Secure Client-Side Browser Processing.',
     modal_hd:'Scan Config QR Code',
+    hm_hd:'⚡ Config Health, Security & Architecture Report',
+    hs_lbl1:'Security Health Score',
+    hs_lbl2:'TLS 1.3 / Reality Equipped',
+    hs_lbl3:'HTTPS Standard Ports',
+    hs_lbl4:'Total Configs Analyzed',
+    hm_btn_clean:'✨ Optimize & Keep High-Security Configs Only',
     toast_copy_ok:'All optimized configs copied to clipboard!',
     toast_copy_sub_ok:'Base64 subscription string copied to clipboard!',
+    toast_dl_json_ok:'Xray/Sing-box JSON config bundle downloaded!',
     toast_lang_ok:'English language activated'
   }
 };
@@ -1104,17 +1344,78 @@ function isJunkConfig(line){
   }
   return false;
 }
+function matchesCountry(rmk,cf){
+  if(!cf||cf==='all')return true;
+  var lower=String(rmk||'').toLowerCase();
+  var dict={
+    de:['de','germany','آلمان','🇩🇪'],
+    us:['us','usa','america','آمریکا','🇺🇸'],
+    nl:['nl','netherlands','هلند','🇳🇱'],
+    fr:['fr','france','فرانسه','🇫🇷'],
+    gb:['gb','uk','united kingdom','انگلیس','انگلستان','🇬🇧'],
+    tr:['tr','turkey','ترکیه','🇹🇷'],
+    fi:['fi','finland','فنلاند','🇫🇮']
+  };
+  var keys=dict[cf]||[cf];
+  for(var i=0;i<keys.length;i++){
+    if(lower.indexOf(keys[i])>=0)return true;
+  }
+  return false;
+}
+function matchesPort(port,pf){
+  if(!pf||pf==='all')return true;
+  var p=Number(port)||443;
+  if(pf==='443')return p===443||p===8443;
+  if(pf==='cdn')return [80,8080,8880,2052,2082,2086,2095,443,2053,2083,2087,2096,8443].indexOf(p)>=0;
+  return true;
+}
+/* ── OPTIMIZE FUNCTION WITH NEW SYSTEM vs OLD SYSTEM MODE SWITCH ── */
 function optimize(raw,o,idx){
   var l=String(raw||'').trim();
+  var hi=l.indexOf('#');
+  var origRmk=(hi>=0)?dec(l.slice(hi+1)):'Config';
+  /* OLD SYSTEM (LEGACY CLASSIC ENGINE) */
+  if(o.engineMode==='old'){
+    if(/^vless:\/\//i.test(l)){
+      var cvOld=parseVless(l);
+      if(o.adr)cvOld.host=o.adr;
+      setParam(cvOld.p,'fp',o.fp||'unsafe');
+      setParam(cvOld.p,'cs',o.cs||DEF.cs);
+      setParam(cvOld.p,'fm',fmOf(o.fm));
+      return buildVless(cvOld,o,idx);
+    }
+    if(/^trojan:\/\//i.test(l)){
+      var ctOld=parseTrojan(l);
+      if(o.adr)ctOld.host=o.adr;
+      setParam(ctOld.p,'fp',o.fp||'unsafe');
+      setParam(ctOld.p,'cs',o.cs||DEF.cs);
+      setParam(ctOld.p,'fm',fmOf(o.fm));
+      return buildTrojan(ctOld,o,idx);
+    }
+    if(/^vmess:\/\//i.test(l)){
+      return optimizeVmess(l,o,idx);
+    }
+    if(PROTO_START.test(l)){
+      var simpleName=formatRemark(origRmk,o,idx,'OTHER','');
+      return (hi>=0?l.slice(0,hi):l)+'#'+encodeURIComponent(simpleName);
+    }
+    throw new Error('پروتکل ناشناخته در سیستم قدیم');
+  }
+  /* NEW SYSTEM (NEXT-GEN v4.1 ENGINE) */
   if(o.stripAds&&isJunkConfig(l))throw new Error('خط اطلاعاتی/منقضی حذف شد');
+  if(!matchesCountry(origRmk,o.countryFilter))throw new Error('عدم تطابق کشور');
   var r='';
   if(/^vless:\/\//i.test(l)){
     if(o.protoFilter!=='all'&&o.protoFilter!=='vless')throw new Error('فیلتر پروتکل (غیر VLESS)');
-    var cv=parseVless(l);applyParams(cv,o);r=buildVless(cv,o,idx);
+    var cv=parseVless(l);
+    if(!matchesPort(cv.port,o.portFilter))throw new Error('فیلتر پورت سرور');
+    applyParams(cv,o);r=buildVless(cv,o,idx);
   }
   else if(/^trojan:\/\//i.test(l)){
     if(o.protoFilter!=='all'&&o.protoFilter!=='trojan')throw new Error('فیلتر پروتکل (غیر Trojan)');
-    var ct=parseTrojan(l);applyParams(ct,o);r=buildTrojan(ct,o,idx);
+    var ct=parseTrojan(l);
+    if(!matchesPort(ct.port,o.portFilter))throw new Error('فیلتر پورت سرور');
+    applyParams(ct,o);r=buildTrojan(ct,o,idx);
   }
   else if(/^vmess:\/\//i.test(l)){
     if(o.protoFilter!=='all'&&o.protoFilter!=='vmess')throw new Error('فیلتر پروتکل (غیر VMess)');
@@ -1122,9 +1423,7 @@ function optimize(raw,o,idx){
   }
   else if(PROTO_START.test(l)){
     if(o.protoFilter!=='all')throw new Error('فیلتر پروتکل');
-    var hi=l.indexOf('#');
-    var frag=(hi>=0)?dec(l.slice(hi+1)):'Config';
-    var newRmk=formatRemark(frag,o,idx,'OTHER','');
+    var newRmk=formatRemark(origRmk,o,idx,'OTHER','');
     r=(hi>=0?l.slice(0,hi):l)+'#'+encodeURIComponent(newRmk);
   }
   else{
@@ -1209,7 +1508,10 @@ function loadSettings(){
     bulkRename:(s.bulkRename!==undefined)?s.bulkRename:DEF.bulkRename,
     nameTpl:s.nameTpl||DEF.nameTpl,
     stripAds:(s.stripAds!==undefined)?s.stripAds:DEF.stripAds,
-    protoFilter:s.protoFilter||DEF.protoFilter
+    protoFilter:s.protoFilter||DEF.protoFilter,
+    countryFilter:s.countryFilter||DEF.countryFilter,
+    portFilter:s.portFilter||DEF.portFilter,
+    engineMode:s.engineMode||DEF.engineMode
   };
 }
 function saveSettings(o){try{localStorage.setItem(SKEY,JSON.stringify(o));}catch(e){}}
@@ -1230,17 +1532,36 @@ var inp=$('inp'),out=$('out'),res=$('res'),sumEl=$('sum'),errs=$('errs'),
     adr=$('adr'),sni=$('sni'),fp=$('fp'),cs=$('cs'),fm=$('fm'),fmh=$('fmh'),
     alpn=$('alpn'),sfx=$('sfx'),findText=$('findText'),replText=$('replText'),
     bulkRenameToggle=$('bulkRenameToggle'),renameTplBox=$('renameTplBox'),nameTpl=$('nameTpl'),
-    protoFilter=$('protoFilter'),stripAdsToggle=$('stripAdsToggle'),
-    go=$('go'),dz=$('dz'),cpy=$('cpy'),cpySubBtn=$('cpySubBtn'),dl=$('dl'),qrBtn=$('qrBtn');
+    protoFilter=$('protoFilter'),portFilter=$('portFilter'),stripAdsToggle=$('stripAdsToggle'),
+    go=$('go'),dz=$('dz'),cpy=$('cpy'),cpySubBtn=$('cpySubBtn'),dlJsonBtn=$('dlJsonBtn'),
+    dl=$('dl'),qrBtn=$('qrBtn');
 var st=loadSettings();
 adr.value=st.adr;sni.value=st.sni;fp.value=st.fp;cs.value=st.cs;fm.value=st.fm;alpn.value=st.alpn;
 sfx.value=st.sfx;findText.value=st.findText;replText.value=st.replText;
 nameTpl.value=st.nameTpl;
 bulkRenameToggle.classList.toggle('checked',st.bulkRename);
 renameTplBox.classList.toggle('show',st.bulkRename);
-protoFilter.value=st.protoFilter;
+protoFilter.value=st.protoFilter;portFilter.value=st.portFilter;
 stripAdsToggle.classList.toggle('checked',st.stripAds);
 $('yr').textContent=fa(new Date().getFullYear());
+/* ── UPDATE ENGINE MODE UI ── */
+function updateEngineModeUI(m){
+  var isNew=(m==='new');
+  $('engBtnNew').classList.toggle('active',isNew);
+  $('engBtnOld').classList.toggle('active',!isNew);
+  $('txt_engine_desc').textContent=(curLang==='fa')
+    ?(isNew?I18N.fa.eng_desc_new:I18N.fa.eng_desc_old)
+    :(isNew?I18N.en.eng_desc_new:I18N.en.eng_desc_old);
+}
+updateEngineModeUI(st.engineMode);
+$('engBtnNew').addEventListener('click',function(){
+  st.engineMode='new';persist();updateEngineModeUI('new');
+  showToast((curLang==='fa'?'سیستم جدید (Next-Gen v4.1) فعال شد':'Next-Gen v4.1 Engine activated'),'ok');
+});
+$('engBtnOld').addEventListener('click',function(){
+  st.engineMode='old';persist();updateEngineModeUI('old');
+  showToast((curLang==='fa'?'سیستم قدیم (Legacy Engine) فعال شد':'Legacy Classic Engine activated'),'ok');
+});
 /* ── APPLY LANGUAGE (FA / EN) ── */
 function applyLanguage(l){
   var d=I18N[l]||I18N.fa;
@@ -1250,14 +1571,30 @@ function applyLanguage(l){
   $('txt_notice_badge').textContent=d.notice_badge;
   $('txt_notice_text').innerHTML=d.notice_text;
   $('txt_hdr_sub').textContent=d.hdr_sub;
+  $('txt_engine_lbl').textContent=d.engine_lbl;
+  $('engBtnNew').textContent=d.eng_new;
+  $('engBtnOld').textContent=d.eng_old;
+  updateEngineModeUI(getOpts().engineMode);
   $('txt_carrier_lbl').textContent=d.carrier_lbl;
   $('txt_input_hd').textContent=d.input_hd;
   $('txt_btn_paste').textContent=d.btn_paste;
   $('txt_btn_file').textContent=d.btn_file;
   $('txt_btn_sample').textContent=d.btn_sample;
+  $('txt_btn_health').textContent=d.btn_health;
   $('txt_btn_clear').textContent=d.btn_clear;
   $('txt_cta_hint').innerHTML=d.cta_hint;
   $('txt_cta_btn').textContent=d.cta_btn;
+  $('txt_tut_hd').textContent=d.tut_hd;
+  $('txt_tut_tag').textContent=d.tut_tag;
+  $('txt_s1_num').textContent=d.s1_num;
+  $('txt_s1_b').textContent=d.s1_b;
+  $('txt_s1_p').textContent=d.s1_p;
+  $('txt_s2_num').textContent=d.s2_num;
+  $('txt_s2_b').textContent=d.s2_b;
+  $('txt_s2_p').textContent=d.s2_p;
+  $('txt_s3_num').textContent=d.s3_num;
+  $('txt_s3_b').textContent=d.s3_b;
+  $('txt_s3_p').textContent=d.s3_p;
   $('txt_guide_hd').textContent=d.guide_hd;
   $('txt_guide_tag').textContent=d.guide_tag;
   $('txt_g1_t').textContent=d.g1_t;
@@ -1290,10 +1627,16 @@ function applyLanguage(l){
   $('txt_strip_s').textContent=d.strip_s;
   $('txt_proto_filter_lbl').textContent=d.proto_filter_lbl;
   $('txt_proto_filter_tag').textContent=d.proto_filter_tag;
+  $('txt_port_filter_lbl').textContent=d.port_filter_lbl;
+  $('txt_country_lbl').textContent=d.country_lbl;
+  $('txt_country_tag').textContent=d.country_tag;
   $('pf_all').textContent=d.pf_all;
   $('pf_vless').textContent=d.pf_vless;
   $('pf_trojan').textContent=d.pf_trojan;
   $('pf_vmess').textContent=d.pf_vmess;
+  $('portf_all').textContent=d.portf_all;
+  $('portf_443').textContent=d.portf_443;
+  $('portf_cdn').textContent=d.portf_cdn;
   $('txt_sec_hd').textContent=d.sec_hd;
   $('txt_fp_lbl').textContent=d.fp_lbl;
   $('txt_alpn_lbl').textContent=d.alpn_lbl;
@@ -1302,11 +1645,18 @@ function applyLanguage(l){
   $('txt_out_hd').textContent=d.out_hd;
   $('txt_btn_copy_all').textContent=d.btn_copy_all;
   $('txt_btn_copy_sub').textContent=d.btn_copy_sub;
+  $('txt_btn_dl_json').textContent=d.btn_dl_json;
   $('txt_btn_qr').textContent=d.btn_qr;
   $('txt_btn_dl').textContent=d.btn_dl;
   $('txt_btn_close').textContent=d.btn_close;
   $('txt_footer').innerHTML=d.footer;
   $('txt_modal_hd').textContent=d.modal_hd;
+  $('txt_hm_hd').textContent=d.hm_hd;
+  $('txt_hs_lbl1').textContent=d.hs_lbl1;
+  $('txt_hs_lbl2').textContent=d.hs_lbl2;
+  $('txt_hs_lbl3').textContent=d.hs_lbl3;
+  $('txt_hs_lbl4').textContent=d.hs_lbl4;
+  $('txt_hm_btn_clean').textContent=d.hm_btn_clean;
   updateCount();
 }
 var curLang=document.documentElement.getAttribute('lang')||'fa';
@@ -1319,6 +1669,10 @@ $('langBtn').addEventListener('click',function(){
   showToast(msg,'ok');
 });
 function getOpts(){
+  var activeCf='all';
+  var cfEl=document.querySelector('#countryPresets .ip-pill.active');
+  if(cfEl)activeCf=cfEl.getAttribute('data-country')||'all';
+  var activeEng=$('engBtnNew').classList.contains('active')?'new':'old';
   return{
     adr:adr.value.trim(),sni:sni.value.trim(),fp:fp.value,
     cs:cs.value.trim()||DEF.cs,fm:fm.value.trim()||DEF.fm,
@@ -1327,7 +1681,9 @@ function getOpts(){
     bulkRename:bulkRenameToggle.classList.contains('checked'),
     nameTpl:nameTpl.value.trim()||DEF.nameTpl,
     stripAds:stripAdsToggle.classList.contains('checked'),
-    protoFilter:protoFilter.value
+    protoFilter:protoFilter.value,portFilter:portFilter.value,
+    countryFilter:activeCf,
+    engineMode:activeEng
   };
 }
 function persist(){
@@ -1368,7 +1724,7 @@ function updateCount(){
     protoCnt.hidden=true;
   }
 }
-function setOutputBtns(en){cpy.disabled=dl.disabled=qrBtn.disabled=cpySubBtn.disabled=!en;}
+function setOutputBtns(en){cpy.disabled=dl.disabled=qrBtn.disabled=cpySubBtn.disabled=dlJsonBtn.disabled=!en;}
 /* ── IRAN CARRIER 1-CLICK SUPER-PRESETS ── */
 document.querySelectorAll('.carrier-pill').forEach(function(btn){
   btn.addEventListener('click',function(){
@@ -1393,7 +1749,7 @@ document.querySelectorAll('.carrier-pill').forEach(function(btn){
   });
 });
 [adr,sni,cs,sfx,findText,replText,nameTpl].forEach(function(el){el.addEventListener('input',persist);});
-[fp,alpn,protoFilter].forEach(function(el){el.addEventListener('change',persist);});
+[fp,alpn,protoFilter,portFilter].forEach(function(el){el.addEventListener('change',persist);});
 fm.addEventListener('input',function(){validateFm();persist();});
 inp.addEventListener('input',updateCount);
 validateFm();updateCount();updateIpPills();
@@ -1422,6 +1778,14 @@ document.querySelectorAll('#sniPresets .ip-pill').forEach(function(btn){
     showToast('دامنه SNI تنظیم شد: '+(this.textContent||'پیش‌فرض'),'ok');
   });
 });
+document.querySelectorAll('#countryPresets .ip-pill').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('#countryPresets .ip-pill').forEach(function(p){p.classList.remove('active');});
+    this.classList.add('active');
+    persist();
+    showToast((curLang==='fa'?'فیلتر کشور انتخاب شد: ':'Country filter applied: ')+this.textContent,'ok');
+  });
+});
 $('th').addEventListener('click',function(){
   var h=document.documentElement,next=h.getAttribute('data-theme')==='light'?'dark':'light';
   h.classList.add('tz');h.setAttribute('data-theme',next);
@@ -1440,8 +1804,12 @@ $('rst').addEventListener('click',function(){
   nameTpl.value=DEF.nameTpl;
   bulkRenameToggle.classList.toggle('checked',DEF.bulkRename);
   renameTplBox.classList.toggle('show',DEF.bulkRename);
-  protoFilter.value=DEF.protoFilter;stripAdsToggle.classList.toggle('checked',DEF.stripAds);
+  protoFilter.value=DEF.protoFilter;portFilter.value=DEF.portFilter;
+  stripAdsToggle.classList.toggle('checked',DEF.stripAds);
   document.querySelectorAll('.carrier-pill').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('#countryPresets .ip-pill').forEach(function(p){p.classList.remove('active');});
+  $('cf_all').classList.add('active');
+  st.engineMode='new';updateEngineModeUI('new');
   validateFm();persist();
   showToast('تمامی تنظیمات به حالت پیش‌فرض بازگشت','ok');
 });
@@ -1451,13 +1819,41 @@ $('clr').addEventListener('click',function(){
 });
 $('sampleBtn').addEventListener('click',function(){
   var s=[
-    'vless://11111111-1111-1111-1111-111111111111@example.com:443?type=tcp&security=tls#ZEUS-VLESS-Germany',
-    'trojan://mypassword123@speed.example.com:443?type=ws&security=tls#ZEUS-Trojan-PRO',
-    'vmess://eyAidiI6ICIyIiwgInBzIjogIlNhbXBsZS1WTWVzcyIsICJhZGQiOiAiY2xvdWRmbGFyZS5jb20iLCAicG9ydCI6ICI0NDMiLCAiaWQiOiAiMTExMSIsICJhaWQiOiAiMCIsICJzY3kiOiAiYXV0byIsICJuZXQiOiAid3MiLCAidHlwZSI6ICJub25lIiwgImhvc3QiOiAiIiwgInBhdGgiOiAiLyIsICJ0bHMiOiAidGxzIiwgImZwIjogImNocm9tZSIsICJhbHBuIjogImgyIiB9'
+    'vless://11111111-1111-1111-1111-111111111111@example.com:443?type=tcp&security=tls#ZEUS-VLESS-Germany-DE',
+    'trojan://mypassword123@speed.example.com:443?type=ws&security=tls#ZEUS-Trojan-PRO-USA-US',
+    'vless://22222222-2222-2222-2222-222222222222@cdn.cloudflare.com:8443?type=ws&security=tls#VLESS-Netherlands-NL',
+    'trojan://fastpass123@proxy.example.com:2053?type=grpc&security=tls#Trojan-France-FR',
+    'vmess://eyAidiI6ICIyIiwgInBzIjogIlNhbXBsZS1WTWVzcy1VSyIsICJhZGQiOiAiY2xvdWRmbGFyZS5jb20iLCAicG9ydCI6ICI0NDMiLCAiaWQiOiAiMTExMSIsICJhaWQiOiAiMCIsICJzY3kiOiAiYXV0byIsICJuZXQiOiAid3MiLCAidHlwZSI6ICJub25lIiwgImhvc3QiOiAiIiwgInBhdGgiOiAiLyIsICJ0bHMiOiAidGxzIiwgImZwIjogImNocm9tZSIsICJhbHBuIjogImgyIiB9'
   ].join('\n');
   inp.value=s;
   updateCount();
   showToast('نمونه کانفیگ‌های تستی بارگذاری شد','ok');
+});
+/* ── CAPABILITY v4.1: LIVE CONFIG HEALTH ANALYZER MODAL ── */
+$('healthBtn').addEventListener('click',function(){
+  var lines=inp.value.split(/\r?\n/).map(function(l){return l.trim();}).filter(Boolean);
+  var direct=extract(inp.value);
+  if(!direct.length){showToast('ابتدا کانفیگ‌ها را در کادر ورودی قرار دهید','err');return;}
+  var tlsCnt=0,cdnCnt=0;
+  direct.forEach(function(l){
+    if(/security=(tls|reality)/i.test(l)||/^vmess:\/\//i.test(l))tlsCnt++;
+    if(/:443|:8443|:2053|:2083/i.test(l))cdnCnt++;
+  });
+  var score=Math.min(100, Math.round(((tlsCnt+cdnCnt)/(direct.length*2))*100));
+  $('hsScore').textContent=score+'%';
+  $('hsTls').textContent=fa(tlsCnt);
+  $('hsCdn').textContent=fa(cdnCnt);
+  $('hsCount').textContent=fa(direct.length);
+  $('hsSummaryText').textContent=curLang==='fa'
+    ?'از مجموع '+fa(direct.length)+' کانفیگ بررسی‌شده، تعداد '+fa(tlsCnt)+' کانفیگ مجهز به لایه رمزنگاری TLS/Reality هستند. امتیاز پایداری: '+score+'%'
+    :'Out of '+direct.length+' analyzed configs, '+tlsCnt+' feature TLS/Reality encryption. Stability score: '+score+'%';
+  $('healthModal').classList.add('open');
+});
+$('closeHealthBtn').addEventListener('click',function(){$('healthModal').classList.remove('open');});
+$('healthModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
+$('applyHealthCleanBtn').addEventListener('click',function(){
+  $('healthModal').classList.remove('open');
+  run();
 });
 $('pst').addEventListener('click',function(){
   if(!navigator.clipboard||!navigator.clipboard.readText){inp.focus();showToast('از کلید میانبر Ctrl+V استفاده کنید','err');return;}
@@ -1517,6 +1913,21 @@ cpySubBtn.addEventListener('click',function(){
     showToast(ok?(I18N[curLang]||I18N.fa).toast_copy_sub_ok:'ناموفق',ok?'ok':'err');
   });
 });
+dlJsonBtn.addEventListener('click',function(){
+  if(!out.value)return;
+  var lines=out.value.split(/\r?\n/).filter(function(l){return l.trim();});
+  var bundle={
+    generator:"PX OPTIMIZER STUDIO v4.1",
+    timestamp:new Date().toISOString(),
+    totalConfigs:lines.length,
+    outbounds:lines.map(function(l,i){return{tag:"proxy-"+(i+1),uri:l};})
+  };
+  var blob=new Blob([JSON.stringify(bundle,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob);
+  var a=document.createElement('a');a.href=url;a.download='PX-Xray-Configs-v4.1-'+Date.now()+'.json';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  setTimeout(function(){URL.revokeObjectURL(url);},1500);
+  showToast((I18N[curLang]||I18N.fa).toast_dl_json_ok,'ok');
+});
 qrBtn.addEventListener('click',function(){
   var lines=out.value.split(/\r?\n/).filter(function(l){return l.trim();});
   if(!lines.length){showToast('ابتدا کانفیگ‌ها را بهینه‌سازی کنید','err');return;}
@@ -1531,7 +1942,7 @@ $('qrModal').addEventListener('click',function(e){if(e.target===this)this.classL
 dl.addEventListener('click',function(){
   if(!out.value)return;
   var blob=new Blob([out.value+'\n'],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob);
-  var a=document.createElement('a');a.href=url;a.download='PX-Configs-v3.5-'+Date.now()+'.txt';
+  var a=document.createElement('a');a.href=url;a.download='PX-Configs-v4.1-'+Date.now()+'.txt';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(function(){URL.revokeObjectURL(url);},1500);
   showToast('فایل کانفیگ‌ها دانلود شد','ok');
@@ -1604,5 +2015,5 @@ function finish(all,failed){
 }
 })();
 </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2430937699ff96a',t:'MTc4NTU2ODM2Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
