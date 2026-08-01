@@ -9,7 +9,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<script>try{if(localStorage.getItem('px_theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+<script>
+try{
+  if(localStorage.getItem('px_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');
+  var savedLang=localStorage.getItem('px_lang');
+  if(savedLang==='en'){document.documentElement.setAttribute('lang','en');document.documentElement.setAttribute('dir','ltr');}
+}catch(e){}
+</script>
 <style>
 :root{
   --r:8px;--r2:6px;--r3:4px;--pill:999px;
@@ -28,7 +34,7 @@ html[data-theme=dark]{
   --ac:#3b82f6;--ac2:#60a5fa;
   --ac0:rgba(59,130,246,.12);--ac1:rgba(59,130,246,.25);
   --rd:#f87171;--rd0:rgba(248,113,113,.12);--rd1:rgba(248,113,113,.25);
-  --grid-line:rgba(59,130,246,.1);--node-color:rgba(96,165,250,.22);
+  --grid-line:rgba(59,130,246,.14);
 }
 html[data-theme=light]{
   --bg-grad:linear-gradient(145deg,#eff6ff 0%,#f1f5f9 50%,#e2e8f0 100%);
@@ -40,7 +46,7 @@ html[data-theme=light]{
   --ac:#2563eb;--ac2:#1d4ed8;
   --ac0:rgba(37,99,235,.1);--ac1:rgba(37,99,235,.2);
   --rd:#dc2626;--rd0:rgba(220,38,38,.1);--rd1:rgba(220,38,38,.2);
-  --grid-line:rgba(37,99,235,.07);--node-color:rgba(37,99,235,.15);
+  --grid-line:rgba(37,99,235,.08);
 }
 *,*::before,*::after{box-sizing:border-box;box-shadow:none!important;text-shadow:none!important}
 body{
@@ -60,16 +66,15 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--s2);border-radius:8px;border:2px solid transparent;background-clip:content-box}
 ::-webkit-scrollbar-thumb:hover{background:var(--tx3)}
-/* ── FUTURISTIC CYBER GRAPHIC BACKGROUND (NO SHADOW, NO NEON/AQUA) ── */
-.bg-graphic{
-  position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
-  background-size:40px 40px;
+/* ── SQUARES/GRID PATTERN ONLY AT THE TOP OF THE SITE ── */
+.bg-top-grid{
+  position:absolute;top:0;left:0;right:0;height:380px;z-index:-1;pointer-events:none;
+  background-size:32px 32px;
   background-image:
     linear-gradient(to right,var(--grid-line) 1px,transparent 1px),
     linear-gradient(to bottom,var(--grid-line) 1px,transparent 1px);
-}
-.bg-svg-layer{
-  position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.9;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 45%,rgba(0,0,0,0) 100%);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 45%,rgba(0,0,0,0) 100%);
 }
 /* ── App Container ── */
 .app-wrap{
@@ -121,8 +126,15 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 .hdr-title small{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--tx2);font-weight:600;margin-top:2px}
 .status-dot{width:8px;height:8px;border-radius:50%;background:var(--ac2);display:inline-block}
-/* ── Header Social Icons (Colored Only) + Theme Button ── */
-.hdr-actions{display:flex;align-items:center;gap:8px}
+/* ── Header Actions: Lang Switcher + Colored Socials + Theme Toggle ── */
+.hdr-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.lang-btn{
+  height:38px;padding:0 12px;border-radius:var(--r2);
+  background:var(--s1);border:1px solid var(--ln);color:var(--tx);
+  font-weight:700;font-size:12.5px;display:inline-flex;align-items:center;gap:6px;
+  cursor:pointer;transition:all var(--t1) var(--e);
+}
+.lang-btn:hover{background:var(--s2);border-color:var(--ac)}
 .social-icon{
   width:38px;height:38px;display:grid;place-items:center;border-radius:var(--r2);
   background:var(--s1);border:1px solid var(--ln);
@@ -140,6 +152,20 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 .ib:hover{color:var(--tx);background:var(--s3);border-color:var(--ac)}
 .mn{display:none}html[data-theme=light] .sn{display:none}html[data-theme=light] .mn{display:block}
+/* ── Carrier Super Presets Bar (NEW FEATURE v3.5) ── */
+.carrier-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 18px;flex-wrap:wrap;
+}
+.carrier-hd{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--tx)}
+.carrier-pills{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.carrier-pill{
+  font-size:12px;font-weight:700;padding:5px 12px;border-radius:var(--r3);
+  background:var(--s2);border:1px solid var(--ln);color:var(--tx2);
+  cursor:pointer;transition:all var(--t1) var(--e);display:inline-flex;align-items:center;gap:6px;
+}
+.carrier-pill:hover{color:var(--tx);border-color:var(--ac);background:var(--ac0)}
+.carrier-pill.active{color:#fff;background:var(--ac);border-color:var(--ac2)}
 /* ── Modular 2-Column Grid (Lightweight & Separate Cards) ── */
 .grid-main{
   display:grid;grid-template-columns:1fr;gap:16px;align-items:start;
@@ -203,6 +229,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 .ta:focus{outline:none;border-color:var(--ac);background:var(--s2)}
 #inp{min-height:220px}
 #inp::placeholder{font-family:var(--sans);font-size:13.5px;color:var(--tx3);direction:rtl;text-align:right}
+html[lang=en] #inp::placeholder{direction:ltr;text-align:left}
 #out{min-height:200px;border-color:var(--ac1)}
 .drag-over{border-color:var(--ac)!important;background:var(--ac0)!important}
 .proto-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:2px 0}
@@ -216,7 +243,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
 }
 .hint-text{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2)}
-/* ── Guide / Pro Tips Card (Filling Gaps in Left Column) ── */
+/* ── Guide / Pro Tips Card ── */
 .guide-grid{
   display:grid;grid-template-columns:1fr;gap:10px;
 }
@@ -247,9 +274,12 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 .in:focus{outline:none;border-color:var(--ac);background:var(--s2)}
 .in::placeholder{color:var(--tx3)}
+.in[disabled],.in[readonly]{opacity:.75;cursor:not-allowed;background:var(--s2);border-color:var(--ln2);color:var(--tx2);font-weight:700}
 .select-wrap{position:relative}
 .select-wrap .in{appearance:none;-webkit-appearance:none;padding-left:36px;cursor:pointer}
+html[lang=en] .select-wrap .in{padding-left:14px;padding-right:36px}
 .select-wrap>svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--tx3);pointer-events:none}
+html[lang=en] .select-wrap>svg{left:auto;right:12px}
 .ip-presets{display:flex;gap:6px;flex-wrap:wrap}
 .ip-pill{
   font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:var(--r3);
@@ -258,7 +288,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 .ip-pill:hover{color:var(--tx);border-color:var(--ac);background:var(--ac0)}
 .ip-pill.active{color:var(--tx);background:var(--ac0);border-color:var(--ac)}
-/* ── Custom Switch & Checkboxes (Feature v3.3) ── */
+/* ── Custom Switch & Checkboxes ── */
 .check-row{
   display:flex;align-items:center;justify-content:space-between;
   padding:10px 14px;border-radius:var(--r2);background:var(--s1);
@@ -278,7 +308,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 .check-row.checked .switch-inp{background:var(--ac)}
 .check-row.checked .switch-inp::after{transform:translateX(16px)}
-/* ── Naming & Remark Editor Grid (Feature v3.3) ── */
+/* ── Naming & Remark Editor Grid ── */
 .rename-grid{
   display:grid;grid-template-columns:1fr;gap:10px;
 }
@@ -291,6 +321,11 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 }
 .rename-tpl-box.show{display:flex}
 .tpl-hints{font-size:11.5px;color:var(--tx3);line-height:1.6}
+.locked-badge{
+  font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:var(--r3);
+  background:var(--ac0);color:var(--ac2);border:1px solid var(--ac1);
+  display:inline-flex;align-items:center;gap:6px;
+}
 /* ── Advanced JSON Toggle Card ── */
 .json-btn{
   width:100%;display:flex;align-items:center;justify-content:space-between;
@@ -303,7 +338,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 .json-content{display:none;padding-top:12px;flex-direction:column;gap:12px;border-top:1px solid var(--ln)}
 .json-drawer.open .json-content{display:flex}
 .hint-sub{font-size:11.5px;color:var(--tx3)}
-/* ── QR Code Modal (Feature v3.3) ── */
+/* ── QR Code Modal ── */
 .modal-overlay{
   position:fixed;inset:0;z-index:99999;background:rgba(9,14,26,.65);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
@@ -331,6 +366,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   border:1px solid var(--rd1);border-radius:var(--r2);
   padding:10px 14px;word-break:break-all;direction:rtl;text-align:right;
 }
+html[lang=en] .err-item{direction:ltr;text-align:left}
 .toast-msg{
   position:fixed;bottom:24px;left:24px;z-index:9999;
   padding:12px 20px;border-radius:var(--r2);
@@ -341,6 +377,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
   transform:translateY(80px);opacity:0;pointer-events:none;
   transition:all var(--t2) var(--e);
 }
+html[lang=en] .toast-msg{left:auto;right:24px}
 .toast-msg.show{transform:translateY(0);opacity:1}
 /* ── Footer ── */
 .foot-clean{
@@ -357,27 +394,32 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 </style>
 </head>
 <body>
-<!-- ── FUTURISTIC CYBER GEOMETRIC GRAPHIC BACKGROUND ── -->
-<div class="bg-graphic"></div>
+<!-- ── SQUARES/GRID PATTERN ONLY AT THE TOP OF THE SITE ── -->
+<div class="bg-top-grid"></div>
 <div class="app-wrap">
   <!-- ── 0. ANNOUNCEMENT NOTICE BAR (اطلاعیه) ── -->
   <div class="notice-bar">
     <span class="notice-badge">
       <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-      اطلاعیه نسخه ۳.۳
+      <span id="txt_notice_badge">اطلاعیه نسخه ۳.۵</span>
     </span>
-    <p class="notice-text">موتور هوشمند PX اپتیمایزر به <b>نسخه ۳.۳</b> ارتقا یافت — افزوده شدن <b>ویرایش‌گر پیشرفته نام کانفیگ‌ها</b> (پیشوند/پسوند، جستجو و جایگزینی کلمات و شماره‌گذاری خودکار با الگو) همراه با پس‌زمینه گرافیکی سایبرپانک.</p>
+    <p class="notice-text" id="txt_notice_text">موتور هوشمند PX اپتیمایزر به <b>نسخه ۳.۵</b> ارتقا یافت — اضافه شدن <b>پشتیبانی دو زبانه (فارسی/انگلیسی)</b>، پریست‌های اختصاصی اپراتورهای ایرانسل/همراه اول، خروجی ساب Base64 و JSON، به همراه الزام محافظت‌شده <b>PX_op</b>.</p>
   </div>
-  <!-- ── 1. HEADER WITH COLORED SOCIAL ICON BUTTONS & THEME TOGGLE ── -->
+  <!-- ── 1. HEADER WITH LANG TOGGLE, COLORED SOCIALS & THEME TOGGLE ── -->
   <header class="hdr">
     <div class="hdr-left">
       <div class="hdr-logo">PX</div>
       <div class="hdr-title">
         <h1>PX OPTIMIZER STUDIO</h1>
-        <small><span class="status-dot"></span> استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۳.۳</small>
+        <small><span class="status-dot"></span> <span id="txt_hdr_sub">استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۳.۵</span></small>
       </div>
     </div>
     <div class="hdr-actions">
+      <!-- Language Switcher Button -->
+      <button class="lang-btn" id="langBtn" type="button" title="تغییر زبان (FA / EN)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span id="langLabel">🇮🇷 فارسی</span>
+      </button>
       <!-- Telegram Colored Icon -->
       <a href="https://t.me/logic_sec" target="_blank" rel="noopener" class="social-icon" title="کانال تلگرام logic_sec" aria-label="تلگرام">
         <svg viewBox="0 0 24 24" width="20" height="20" class="tg-icon"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
@@ -397,16 +439,29 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
       </button>
     </div>
   </header>
+  <!-- ── 1.5 NEW FEATURE v3.5: IRAN TELECOM CARRIER SUPER-PRESETS ── -->
+  <div class="glass-box carrier-bar">
+    <div class="carrier-hd">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+      <span id="txt_carrier_lbl">پریست‌های هوشمند اپراتورها (یک کلیک):</span>
+    </div>
+    <div class="carrier-pills">
+      <span class="carrier-pill" data-carrier="mci">📱 همراه اول (MCI)</span>
+      <span class="carrier-pill" data-carrier="mtn">📱 ایرانسل (Irancell)</span>
+      <span class="carrier-pill" data-carrier="tci">🌐 مخابرات (TCI / ADSL)</span>
+      <span class="carrier-pill" data-carrier="rtl">📡 رایتل (Rightel)</span>
+    </div>
+  </div>
   <!-- ── 2. MODULAR 2-COLUMN GRID (SEPARATED LIGHTWEIGHT CARDS) ── -->
   <div class="grid-main">
-    <!-- LEFT COLUMN: INPUT STUDIO & OPTIMIZATION CTA & QUICK GUIDE (FILLING GAPS) -->
+    <!-- LEFT COLUMN: INPUT STUDIO & OPTIMIZATION CTA & QUICK GUIDE -->
     <div class="col-stack">
       <!-- Lightweight Card 1: Editor Box -->
       <div class="glass-box card-mod" id="dz">
         <div class="card-hd">
           <h2>
             <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
-            ورودی کانفیگ‌ها و لینک ساب‌اسکرایب
+            <span id="txt_input_hd">ورودی کانفیگ‌ها و لینک ساب‌اسکرایب</span>
           </h2>
           <div class="stats-badges">
             <span class="stat-pill" id="cnt">۰ خط</span>
@@ -417,21 +472,21 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
           <div class="toolbar-left">
             <button class="btn btn-sm" id="pst" type="button">
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
-              چسباندن (Paste)
+              <span id="txt_btn_paste">چسباندن (Paste)</span>
             </button>
             <button class="btn btn-sm" id="fbt" type="button">
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-              فایل .txt
+              <span id="txt_btn_file">فایل .txt</span>
             </button>
             <button class="btn btn-sm" id="sampleBtn" type="button">
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              تست نمونه
+              <span id="txt_btn_sample">تست نمونه</span>
             </button>
           </div>
           <div class="toolbar-right">
             <button class="btn btn-sm" id="clr" type="button" style="color:var(--rd)">
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
-              پاک کردن
+              <span id="txt_btn_clear">پاک کردن</span>
             </button>
           </div>
         </div>
@@ -451,11 +506,11 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
         <div class="action-row">
           <span class="hint-text">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            حذف خودکار تکراری‌ها + اعمال هوشمند Fragment و Cipher
+            <span id="txt_cta_hint">درج خودکار برچسب <b>PX_op</b> در ابتدای نام کانفیگ‌ها</span>
           </span>
           <button class="btn btn-primary" id="go" type="button">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            بهینه‌سازی کانفیگ‌ها
+            <span id="txt_cta_btn">بهینه‌سازی کانفیگ‌ها</span>
           </button>
         </div>
       </div>
@@ -464,37 +519,37 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
         <div class="card-hd">
           <h2>
             <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
-            راهنمای سریع و کلیدهای میانبر
+            <span id="txt_guide_hd">راهنمای سریع و کلیدهای میانبر</span>
           </h2>
-          <span class="lbl-tag">نکات حرفه‌ای</span>
+          <span class="lbl-tag" id="txt_guide_tag">نکات حرفه‌ای</span>
         </div>
         <div class="guide-grid">
           <div class="guide-item">
             <span class="guide-ico">۱</span>
             <div class="guide-txt">
-              <b>کلیدهای میانبر سریع</b>
-              <p>با کلید ترکیبی <code>Ctrl + Enter</code> در هر لحظه عملیات بهینه‌سازی را اجرا کنید.</p>
+              <b id="txt_g1_t">کلیدهای میانبر سریع</b>
+              <p id="txt_g1_p">با کلید ترکیبی <code>Ctrl + Enter</code> در هر لحظه عملیات بهینه‌سازی را اجرا کنید.</p>
             </div>
           </div>
           <div class="guide-item">
             <span class="guide-ico">۲</span>
             <div class="guide-txt">
-              <b>پشتیبانی از لینک ساب</b>
-              <p>لینک اشتراک خود را قرار دهید تا کانفیگ‌ها به‌صورت خودکار استخراج و تفکیک شوند.</p>
+              <b id="txt_g2_t">پشتیبانی از لینک ساب</b>
+              <p id="txt_g2_p">لینک اشتراک خود را قرار دهید تا کانفیگ‌ها به‌صورت خودکار استخراج و تفکیک شوند.</p>
             </div>
           </div>
           <div class="guide-item">
             <span class="guide-ico">۳</span>
             <div class="guide-txt">
-              <b>سازگاری کامل با v2rayNG</b>
-              <p>پارامترهای <code>cs</code> و <code>fm</code> و <code>alpn</code> مخصوص کلاینت‌های جدید تنظیم شده‌اند.</p>
+              <b id="txt_g3_t">سازگاری کامل با v2rayNG</b>
+              <p id="txt_g3_p">پارامترهای <code>cs</code> و <code>fm</code> و <code>alpn</code> مخصوص کلاینت‌های جدید تنظیم شده‌اند.</p>
             </div>
           </div>
           <div class="guide-item">
             <span class="guide-ico">۴</span>
             <div class="guide-txt">
-              <b>حریم خصوصی ۱۰۰٪ محلی</b>
-              <p>هیچ کانفیگی در سرور ذخیره نمی‌شود و تمام عملیات درون مرورگر صورت می‌گیرد.</p>
+              <b id="txt_g4_t">حریم خصوصی ۱۰۰٪ محلی</b>
+              <p id="txt_g4_p">هیچ کانفیگی در سرور ذخیره نمی‌شود و تمام عملیات درون مرورگر صورت می‌گیرد.</p>
             </div>
           </div>
         </div>
@@ -502,105 +557,78 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
     </div>
     <!-- RIGHT COLUMN: MODULAR LIGHTWEIGHT SETTINGS CARDS (SEPARATED) -->
     <div class="col-stack">
-      <!-- NEW FEATURE CARD v3.3: Smart Config Name & Remark Editor -->
+      <!-- Mandatory PX_op Prefix & Config Naming Editor -->
       <div class="glass-box card-mod">
         <div class="card-hd">
           <h2>
             <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
-            ویرایش‌گر پیشرفته نام کانفیگ‌ها (نسخه ۳.۳)
+            <span id="txt_rename_hd">ویرایش‌گر نام و برچسب محافظت‌شده (نسخه ۳.۵)</span>
           </h2>
-          <span class="lbl-tag" style="color:var(--ac);border-color:var(--ac1)">قابلیت جدید</span>
+          <span class="locked-badge" id="txt_rename_lock">🔒 الزام اجباری: PX_op</span>
         </div>
-        <!-- Mode 1: Prefix / Suffix -->
-        <div class="rename-grid">
-          <div class="field">
-            <div class="field-lbl"><span>پیشوند نام (Prefix)</span></div>
-            <input class="in" id="pfx" spellcheck="false" placeholder="مثال: [PX] ">
+        <!-- Mandatory Locked Prefix Display -->
+        <div class="field">
+          <div class="field-lbl">
+            <span id="txt_rename_pfx_lbl">پیشوند ثابت و اجباری سیستم (غیرقابل تغییر)</span>
+            <span class="lbl-tag" style="color:var(--ac);border-color:var(--ac1)" id="txt_rename_pfx_tag">قفل‌شده توسط موتور</span>
           </div>
-          <div class="field">
-            <div class="field-lbl"><span>پسوند نام (Suffix)</span></div>
-            <input class="in" id="sfx" spellcheck="false" placeholder="مثال: - VIP">
+          <input class="in" value="PX_op | " readonly disabled title="این پیشوند به ابتدای نام تمام کانفیگ‌های خروجی اضافه می‌شود">
+        </div>
+        <!-- Custom Suffix -->
+        <div class="field">
+          <div class="field-lbl">
+            <span id="txt_rename_sfx_lbl">پسوند دلخواه نام (Suffix)</span>
+            <span class="lbl-tag" id="txt_rename_sfx_tag">اختیاری</span>
           </div>
+          <input class="in" id="sfx" spellcheck="false" placeholder="مثال: - VIP یا | PIXON">
         </div>
         <!-- Mode 2: Find & Replace in Config Name -->
         <div class="rename-grid">
           <div class="field">
-            <div class="field-lbl"><span>جستجوی کلمه در نام</span></div>
+            <div class="field-lbl"><span id="txt_find_lbl">جستجوی کلمه در نام</span></div>
             <input class="in" id="findText" spellcheck="false" placeholder="مثال: ZEUS یا @channel">
           </div>
           <div class="field">
-            <div class="field-lbl"><span>جایگزینی با (خالی = حذف)</span></div>
-            <input class="in" id="replText" spellcheck="false" placeholder="مثال: PIXON">
+            <div class="field-lbl"><span id="txt_repl_lbl">جایگزینی با (خالی = حذف)</span></div>
+            <input class="in" id="replText" spellcheck="false" placeholder="مثال: Server">
           </div>
         </div>
         <!-- Mode 3: Bulk Custom Template Renaming -->
         <div class="check-row" id="bulkRenameToggle" role="checkbox" aria-checked="false">
           <div class="check-lbl">
-            <b>بازنام‌گذاری کامل با الگو و شماره‌گذاری خودکار</b>
-            <small>تغییر کلی نام کانفیگ‌ها با شماره‌گذار متوالی (مثال: PIXON-PRO-1)</small>
+            <b id="txt_bulk_b">بازنام‌گذاری کامل با الگو و شماره‌گذاری خودکار</b>
+            <small id="txt_bulk_s">تغییر نام کانفیگ‌ها بعد از PX_op با شماره‌گذار متوالی</small>
           </div>
           <div class="switch-inp"></div>
         </div>
         <div class="rename-tpl-box" id="renameTplBox">
           <div class="field">
-            <div class="field-lbl"><span>الگوی نام‌گذاری کانفیگ‌ها</span></div>
+            <div class="field-lbl"><span id="txt_tpl_lbl">الگوی نام‌گذاری (بعد از برچسب PX_op)</span></div>
             <input class="in" id="nameTpl" spellcheck="false" placeholder="مثال: PIXON-PRO-#{n} ({proto})">
           </div>
-          <span class="tpl-hints">
-            متغیرها: <b>#{n}</b> شماره‌گذار خودکار (۱, ۲, ۳...) | <b>{proto}</b> نام پروتکل | <b>{host}</b> آدرس سرور
+          <span class="tpl-hints" id="txt_tpl_hint">
+            خروجی نهایی: <b>PX_op | PIXON-PRO-1 (VLESS)</b> | متغیرها: <b>#{n}</b> شماره‌گذار | <b>{proto}</b> پروتکل
           </span>
         </div>
       </div>
-      <!-- Card A: Smart Cleaner & Protocol Filter (v3.2) -->
-      <div class="glass-box card-mod">
-        <div class="card-hd">
-          <h2>
-            <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg></span>
-            ابزار هوشمند پاک‌سازی و فیلتر
-          </h2>
-        </div>
-        <!-- Toggle 1: Strip Junk & Expired Sub Ads -->
-        <div class="check-row checked" id="stripAdsToggle" role="checkbox" aria-checked="true">
-          <div class="check-lbl">
-            <b>حذف خودکار خطوط تبلیغاتی و منقضی ساب</b>
-            <small>حذف خطوط ترافیک، Expired و لینک‌های غیرفعال کانال از خروجی</small>
-          </div>
-          <div class="switch-inp"></div>
-        </div>
-        <!-- Select: Protocol Filtering -->
-        <div class="field">
-          <div class="field-lbl">
-            <span>فیلتر پروتکل در خروجی</span>
-            <span class="lbl-tag">جداسازی سریع</span>
-          </div>
-          <div class="select-wrap">
-            <select class="in" id="protoFilter">
-              <option value="all">نمایش همه کانفیگ‌ها (پیش‌فرض)</option>
-              <option value="vless">فقط کانفیگ‌های VLESS</option>
-              <option value="trojan">فقط کانفیگ‌های Trojan</option>
-              <option value="vmess">فقط کانفیگ‌های VMess</option>
-            </select>
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-        </div>
-      </div>
-      <!-- Card B: Server Address & Clean IP Presets (7 Presets) -->
+      <!-- Card A: Server Address (IP تمیز) & SNI / Host Editor -->
       <div class="glass-box card-mod">
         <div class="card-hd">
           <h2>
             <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
-            آدرس سرور و IP تمیز
+            <span id="txt_ip_hd">آدرس سرور (IP تمیز) و تنظیم SNI / Host</span>
           </h2>
-          <button class="btn btn-sm" id="rst" type="button" style="color:var(--tx2)">بازنشانی</button>
+          <button class="btn btn-sm" id="rst" type="button" style="color:var(--tx2)" id="txt_btn_reset">بازنشانی</button>
         </div>
+        <!-- Clean IP -->
         <div class="field">
           <div class="field-lbl">
-            <span>آدرس جایگزین (IP کلودفلر یا دامنه)</span>
-            <span class="lbl-tag">اختیاری</span>
+            <span id="txt_adr_lbl">آدرس سرور (IP تمیز کلودفلر یا دامنه جایگزین)</span>
+            <span class="lbl-tag" id="txt_adr_tag">اختیاری</span>
           </div>
           <input class="in" id="adr" spellcheck="false" placeholder="خالی = آدرس سرور اصلی حفظ می‌شود">
-          <div class="ip-presets">
-            <span class="ip-pill" data-ip="">بدون تغییر</span>
+          <div class="ip-presets" id="adrPresets">
+            <span class="ip-pill" data-ip="" id="p_adr_def">بدون تغییر</span>
             <span class="ip-pill" data-ip="188.114.97.6">Cloudflare 188.114</span>
             <span class="ip-pill" data-ip="162.159.192.1">Cloudflare 162.159</span>
             <span class="ip-pill" data-ip="104.16.20.1">Cloudflare 104.16</span>
@@ -609,43 +637,91 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
             <span class="ip-pill" data-ip="ir.speedtest.cl">IR CDN</span>
           </div>
         </div>
+        <!-- SNI / Host -->
+        <div class="field" style="margin-top:4px">
+          <div class="field-lbl">
+            <span id="txt_sni_lbl">دامنه SNI / Host اتصالات TLS و Reality</span>
+            <span class="lbl-tag" id="txt_sni_tag">عبور از اختلال</span>
+          </div>
+          <input class="in" id="sni" spellcheck="false" placeholder="خالی = SNI یا Host کانفیگ دست نمی‌خورد">
+          <div class="ip-presets" id="sniPresets">
+            <span class="ip-pill" data-sni="" id="p_sni_def">بدون تغییر</span>
+            <span class="ip-pill" data-sni="www.speedtest.net">speedtest.net</span>
+            <span class="ip-pill" data-sni="cloudflare.com">cloudflare.com</span>
+            <span class="ip-pill" data-sni="radar.cloudflare.com">radar.cloudflare</span>
+            <span class="ip-pill" data-sni="icook.hk">icook.hk</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card B: Smart Cleaner & Protocol Filter -->
+      <div class="glass-box card-mod">
+        <div class="card-hd">
+          <h2>
+            <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg></span>
+            <span id="txt_clean_hd">ابزار هوشمند پاک‌سازی و فیلتر</span>
+          </h2>
+        </div>
+        <!-- Toggle 1: Strip Junk & Expired Sub Ads -->
+        <div class="check-row checked" id="stripAdsToggle" role="checkbox" aria-checked="true">
+          <div class="check-lbl">
+            <b id="txt_strip_b">حذف خودکار خطوط تبلیغاتی و منقضی ساب</b>
+            <small id="txt_strip_s">حذف خطوط ترافیک، Expired و لینک‌های غیرفعال کانال از خروجی</small>
+          </div>
+          <div class="switch-inp"></div>
+        </div>
+        <!-- Select: Protocol Filtering -->
+        <div class="field">
+          <div class="field-lbl">
+            <span id="txt_proto_filter_lbl">فیلتر پروتکل در خروجی</span>
+            <span class="lbl-tag" id="txt_proto_filter_tag">جداسازی سریع</span>
+          </div>
+          <div class="select-wrap">
+            <select class="in" id="protoFilter">
+              <option value="all" id="pf_all">نمایش همه کانفیگ‌ها (پیش‌فرض)</option>
+              <option value="vless" id="pf_vless">فقط کانفیگ‌های VLESS</option>
+              <option value="trojan" id="pf_trojan">فقط کانفیگ‌های Trojan</option>
+              <option value="vmess" id="pf_vmess">فقط کانفیگ‌های VMess</option>
+            </select>
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
       </div>
       <!-- Card C: Fingerprint & ALPN -->
       <div class="glass-box card-mod">
         <div class="card-hd">
           <h2>
             <span class="hd-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-            امنیت اتصالات و شناسه مرورگر
+            <span id="txt_sec_hd">امنیت اتصالات و شناسه مرورگر</span>
           </h2>
         </div>
         <div class="field">
           <div class="field-lbl">
-            <span>شناسه مرورگر (Fingerprint)</span>
-            <span class="lbl-tag">پیشنهادی: chrome / firefox</span>
+            <span id="txt_fp_lbl">شناسه مرورگر (Fingerprint)</span>
+            <span class="lbl-tag">chrome / firefox</span>
           </div>
           <div class="select-wrap">
             <select class="in" id="fp">
-              <option value="unsafe">unsafe (پیش‌فرض سریع - عبور مستقیم)</option>
-              <option value="chrome">chrome (مرورگر گوگل کروم - پایدارترین)</option>
-              <option value="firefox">firefox (مرورگر فایرفاکس - امنیت بالا)</option>
-              <option value="safari">safari (مرورگر سافاری - اپل)</option>
-              <option value="edge">edge (مرورگر مایکروسافت اج)</option>
-              <option value="random">random (انتخاب تصادفی شناسه)</option>
+              <option value="unsafe" id="fp_unsafe">unsafe (پیش‌فرض سریع - عبور مستقیم)</option>
+              <option value="chrome" id="fp_chrome">chrome (مرورگر گوگل کروم - پایدارترین)</option>
+              <option value="firefox" id="fp_firefox">firefox (مرورگر فایرفاکس - امنیت بالا)</option>
+              <option value="safari" id="fp_safari">safari (مرورگر سافاری - اپل)</option>
+              <option value="edge" id="fp_edge">edge (مرورگر مایکروسافت اج)</option>
+              <option value="random" id="fp_random">random (انتخاب تصادفی شناسه)</option>
             </select>
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
           </div>
         </div>
         <div class="field">
           <div class="field-lbl">
-            <span>پروتکل لایه کاربرد (ALPN)</span>
+            <span id="txt_alpn_lbl">پروتکل لایه کاربرد (ALPN)</span>
             <span class="lbl-tag">تثبیت TLS</span>
           </div>
           <div class="select-wrap">
             <select class="in" id="alpn">
-              <option value="">بدون تغییر (پیش‌فرض کانفیگ)</option>
-              <option value="h2,http/1.1">h2,http/1.1 (پیشنهادی برای Reality)</option>
-              <option value="h2">h2 (فقط HTTP/2 - سرعت بالا)</option>
-              <option value="http/1.1">http/1.1 (کلاسیک - سازگاری حداکثری)</option>
+              <option value="" id="alpn_def">بدون تغییر (پیش‌فرض کانفیگ)</option>
+              <option value="h2,http/1.1" id="alpn_rec">h2,http/1.1 (پیشنهادی برای Reality)</option>
+              <option value="h2" id="alpn_h2">h2 (فقط HTTP/2 - سرعت بالا)</option>
+              <option value="http/1.1" id="alpn_http">http/1.1 (کلاسیک - سازگاری حداکثری)</option>
             </select>
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
           </div>
@@ -654,7 +730,7 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
       <!-- Card D: Advanced JSON Drawer (Cipher & FinalMask) -->
       <div class="glass-box card-mod json-drawer" id="jsonDrawer">
         <button class="json-btn" id="jsonToggle" type="button">
-          <span>تنظیمات پیشرفته Cipher Suites و FinalMask JSON</span>
+          <span id="txt_json_toggle">تنظیمات پیشرفته Cipher Suites و FinalMask JSON</span>
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="json-content">
@@ -665,18 +741,18 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
           <div class="field">
             <div class="field-lbl"><span>FinalMask JSON <code>fm</code></span><span class="lbl-tag" id="fmh">معتبر</span></div>
             <textarea class="ta" id="fm" rows="3" spellcheck="false"></textarea>
-            <span class="hint-sub">پارامترهای Fragment برای عبور از فیلترینگ و اختلال TLS Hello.</span>
+            <span class="hint-sub" id="txt_json_hint">پارامترهای Fragment برای عبور از فیلترینگ و اختلال TLS Hello.</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- ── 3. DYNAMIC OUTPUT SECTION ── -->
+  <!-- ── 3. DYNAMIC OUTPUT SECTION (WITH SUB LINK BASE64 EXPORT v3.5) ── -->
   <section class="glass-box card-mod" id="res" hidden>
     <div class="card-hd">
       <h2>
         <span class="hd-icon" style="color:var(--tx);background:var(--ac0)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
-        خروجی بهینه‌شده کانفیگ‌ها
+        <span id="txt_out_hd">خروجی بهینه‌شده کانفیگ‌ها</span>
       </h2>
       <div class="stats-badges">
         <span class="stat-pill active" id="ocnt">۰ کانفیگ</span>
@@ -689,36 +765,41 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
       <div class="toolbar-left">
         <button class="btn btn-primary btn-sm" id="cpy" type="button" disabled style="height:36px;padding:0 20px">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-          کپی همه کانفیگ‌ها
+          <span id="txt_btn_copy_all">کپی همه کانفیگ‌ها</span>
+        </button>
+        <!-- NEW CAPABILITY v3.5: One-Click Base64 Subscription Link Copy -->
+        <button class="btn btn-sm" id="cpySubBtn" type="button" disabled style="color:var(--tx)">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          <span id="txt_btn_copy_sub">📦 کپی ساب Base64</span>
         </button>
         <!-- CAPABILITY v3.2: Live QR Code Button -->
         <button class="btn btn-sm" id="qrBtn" type="button" disabled style="color:var(--ac)">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          📱 ساخت QR کد
+          <span id="txt_btn_qr">📱 ساخت QR کد</span>
         </button>
         <button class="btn btn-sm" id="dl" type="button" disabled>
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          دانلود فایل .txt
+          <span id="txt_btn_dl">دانلود فایل .txt</span>
         </button>
       </div>
       <div class="toolbar-right">
         <button class="btn btn-sm" id="crs" type="button" style="color:var(--rd)">
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.1"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
-          بستن و پاک کردن
+          <span id="txt_btn_close">بستن و پاک کردن</span>
         </button>
       </div>
     </div>
   </section>
   <!-- ── 4. MINIMAL FOOTER WITH PIXON ATTRIBUTION ── -->
   <footer class="foot-clean">
-    <span>© <span id="yr"></span> PX OPTIMIZER STUDIO — ساخته شده توسط <b>PIXON</b> — تمامی پردازش‌ها به‌صورت ۱۰۰٪ محلی در مرورگر انجام می‌شود.</span>
+    <span id="txt_footer">© <span id="yr"></span> PX OPTIMIZER STUDIO — ساخته شده توسط <b>PIXON</b> — تمامی پردازش‌ها به‌صورت ۱۰۰٪ محلی در مرورگر انجام می‌شود.</span>
   </footer>
 </div>
-<!-- QR CODE SCANNER MODAL (FEATURE v3.2) -->
+<!-- QR CODE SCANNER MODAL -->
 <div class="modal-overlay" id="qrModal">
   <div class="modal-box">
     <div class="modal-hd">
-      <h3>اسکن QR کد کانفیگ</h3>
+      <h3 id="txt_modal_hd">اسکن QR کد کانفیگ</h3>
       <button class="btn btn-sm" id="closeQr" type="button" style="color:var(--rd)">بستن</button>
     </div>
     <div class="qr-container" id="qrImgWrap">
@@ -735,21 +816,160 @@ code{font-family:var(--mono);font-size:.85em;padding:2px 6px;border-radius:var(-
 <script>
 (function(){
 'use strict';
-var PX_VERSION='3.3';
+var PX_VERSION='3.5';
 var FM_STR='{"tcp":[{"type":"fragment","settings":{"packets":"tlshello","lengths":["5","94","1"],"delays":["0"],"maxSplit":"0"}},{"type":"fragment","settings":{"packets":"1-1","lengths":["109","1"],"delays":["1"],"maxSplit":"355"}}]}';
 var CS_STR=['TLS_AES_256_GCM_SHA384','TLS_CHACHA20_POLY1305_SHA256','TLS_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384','TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256','TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256','TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA','TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256','TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256'].join(':');
 var DEF={
-  adr:'',fp:'unsafe',cs:CS_STR,fm:FM_STR,alpn:'',
-  pfx:'[PX] ',sfx:'',findText:'',replText:'',
+  adr:'',sni:'',fp:'unsafe',cs:CS_STR,fm:FM_STR,alpn:'',
+  sfx:'',findText:'',replText:'',
   bulkRename:false,nameTpl:'PIXON-PRO-#{n} ({proto})',
   stripAds:true,protoFilter:'all'
 };
 var ORDER=['cs','path','security','alpn','encryption','fm','insecure','host','fp','type','allowInsecure','sni'];
 var UUID_RE=/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 var PROTO_START=/^(vless|vmess|trojan|ss|hysteria2?|tuic|naive\+https?|wireguard):\/\//i;
-var SKEY='px_opt_v33_sets',TKEY='px_theme';
+var SKEY='px_opt_v35_sets',TKEY='px_theme',LKEY='px_lang';
+/* ── INTERNATIONALIZATION DICTIONARY (FA / EN) ── */
+var I18N={
+  fa:{
+    notice_badge:'اطلاعیه نسخه ۳.۵',
+    notice_text:'موتور هوشمند PX اپتیمایزر به <b>نسخه ۳.۵</b> ارتقا یافت — اضافه شدن <b>پشتیبانی دو زبانه (فارسی/انگلیسی)</b>، پریست‌های اختصاصی اپراتورهای ایرانسل/همراه اول، خروجی ساب Base64 و JSON، به همراه الزام محافظت‌شده <b>PX_op</b>.',
+    hdr_sub:'استودیوی پیشرفته بهینه‌سازی کانفیگ V2Ray • پردازش محلی • نسخه ۳.۵',
+    lang_btn:'🇮🇷 فارسی',
+    carrier_lbl:'پریست‌های هوشمند اپراتورها (یک کلیک):',
+    input_hd:'ورودی کانفیگ‌ها و لینک ساب‌اسکرایب',
+    btn_paste:'چسباندن (Paste)',
+    btn_file:'فایل .txt',
+    btn_sample:'تست نمونه',
+    btn_clear:'پاک کردن',
+    cta_hint:'درج خودکار برچسب <b>PX_op</b> در ابتدای نام کانفیگ‌ها',
+    cta_btn:'بهینه‌سازی کانفیگ‌ها',
+    guide_hd:'راهنمای سریع و کلیدهای میانبر',
+    guide_tag:'نکات حرفه‌ای',
+    g1_t:'کلیدهای میانبر سریع',
+    g1_p:'با کلید ترکیبی <code>Ctrl + Enter</code> در هر لحظه عملیات بهینه‌سازی را اجرا کنید.',
+    g2_t:'پشتیبانی از لینک ساب',
+    g2_p:'لینک اشتراک خود را قرار دهید تا کانفیگ‌ها به‌صورت خودکار استخراج و تفکیک شوند.',
+    g3_t:'سازگاری کامل با v2rayNG',
+    g3_p:'پارامترهای <code>cs</code> و <code>fm</code> و <code>alpn</code> مخصوص کلاینت‌های جدید تنظیم شده‌اند.',
+    g4_t:'حریم خصوصی ۱۰۰٪ محلی',
+    g4_p:'هیچ کانفیگی در سرور ذخیره نمی‌شود و تمام عملیات درون مرورگر صورت می‌گیرد.',
+    rename_hd:'ویرایش‌گر نام و برچسب محافظت‌شده (نسخه ۳.۵)',
+    rename_lock:'🔒 الزام اجباری: PX_op',
+    rename_pfx_lbl:'پیشوند ثابت و اجباری سیستم (غیرقابل تغییر)',
+    rename_pfx_tag:'قفل‌شده توسط موتور',
+    rename_sfx_lbl:'پسوند دلخواه نام (Suffix)',
+    rename_sfx_tag:'اختیاری',
+    find_lbl:'جستجوی کلمه در نام',
+    repl_lbl:'جایگزینی با (خالی = حذف)',
+    bulk_b:'بازنام‌گذاری کامل با الگو و شماره‌گذاری خودکار',
+    bulk_s:'تغییر نام کانفیگ‌ها بعد از PX_op با شماره‌گذار متوالی',
+    tpl_lbl:'الگوی نام‌گذاری (بعد از برچسب PX_op)',
+    tpl_hint:'خروجی نهایی: <b>PX_op | PIXON-PRO-1 (VLESS)</b> | متغیرها: <b>#{n}</b> شماره‌گذار | <b>{proto}</b> پروتکل',
+    ip_hd:'آدرس سرور (IP تمیز) و تنظیم SNI / Host',
+    adr_lbl:'آدرس سرور (IP تمیز کلودفلر یا دامنه جایگزین)',
+    adr_tag:'اختیاری',
+    sni_lbl:'دامنه SNI / Host اتصالات TLS و Reality',
+    sni_tag:'عبور از اختلال',
+    clean_hd:'ابزار هوشمند پاک‌سازی و فیلتر',
+    strip_b:'حذف خودکار خطوط تبلیغاتی و منقضی ساب',
+    strip_s:'حذف خطوط ترافیک، Expired و لینک‌های غیرفعال کانال از خروجی',
+    proto_filter_lbl:'فیلتر پروتکل در خروجی',
+    proto_filter_tag:'جداسازی سریع',
+    pf_all:'نمایش همه کانفیگ‌ها (پیش‌فرض)',
+    pf_vless:'فقط کانفیگ‌های VLESS',
+    pf_trojan:'فقط کانفیگ‌های Trojan',
+    pf_vmess:'فقط کانفیگ‌های VMess',
+    sec_hd:'امنیت اتصالات و شناسه مرورگر',
+    fp_lbl:'شناسه مرورگر (Fingerprint)',
+    alpn_lbl:'پروتکل لایه کاربرد (ALPN)',
+    json_toggle:'تنظیمات پیشرفته Cipher Suites و FinalMask JSON',
+    json_hint:'پارامترهای Fragment برای عبور از فیلترینگ و اختلال TLS Hello.',
+    out_hd:'خروجی بهینه‌شده کانفیگ‌ها',
+    btn_copy_all:'کپی همه کانفیگ‌ها',
+    btn_copy_sub:'📦 کپی ساب Base64',
+    btn_qr:'📱 ساخت QR کد',
+    btn_dl:'دانلود فایل .txt',
+    btn_close:'بستن و پاک کردن',
+    footer:'© '+fa(new Date().getFullYear())+' PX OPTIMIZER STUDIO — ساخته شده توسط <b>PIXON</b> — تمامی پردازش‌ها به‌صورت ۱۰۰٪ محلی در مرورگر انجام می‌شود.',
+    modal_hd:'اسکن QR کد کانفیگ',
+    toast_copy_ok:'تمامی کانفیگ‌های بهینه‌شده کپی شد',
+    toast_copy_sub_ok:'لینک اشتراک Base64 با موفقیت کپی شد',
+    toast_lang_ok:'زبان فارسی فعال شد'
+  },
+  en:{
+    notice_badge:'NOTICE v3.5',
+    notice_text:'PX Optimizer Engine upgraded to <b>v3.5</b> — featuring <b>Dual-Language (EN/FA) support</b>, 1-Click Iranian Carrier Presets, Base64 Sub Export, and mandatory locked <b>PX_op</b> branding.',
+    hdr_sub:'Advanced V2Ray Config Optimization Studio • Local Browser Processing • v3.5',
+    lang_btn:'🇺🇸 English',
+    carrier_lbl:'1-Click Carrier Presets:',
+    input_hd:'Config Input & Subscription Link Studio',
+    btn_paste:'Paste Clipboard',
+    btn_file:'Load .txt File',
+    btn_sample:'Sample Test',
+    btn_clear:'Clear Input',
+    cta_hint:'Mandatory <b>PX_op</b> tag automatically prepended to all config remarks',
+    cta_btn:'Optimize Configs',
+    guide_hd:'Quick Guide & Keyboard Shortcuts',
+    guide_tag:'PRO TIPS',
+    g1_t:'Instant Shortcut',
+    g1_p:'Press <code>Ctrl + Enter</code> anytime to trigger instant config optimization.',
+    g2_t:'Subscription Link Support',
+    g2_p:'Paste any subscription URL to automatically fetch and optimize all configs.',
+    g3_t:'v2rayNG Ready',
+    g3_p:'Configures modern <code>cs</code>, <code>fm</code>, and <code>alpn</code> parameters automatically.',
+    g4_t:'100% Local Processing',
+    g4_p:'Zero server uploads — all parsing and encryption runs securely in your browser.',
+    rename_hd:'Protected Config Remark Editor (v3.5)',
+    rename_lock:'🔒 MANDATORY: PX_op',
+    rename_pfx_lbl:'System Locked Prefix (Mandatory)',
+    rename_pfx_tag:'Engine Protected',
+    rename_sfx_lbl:'Custom Remark Suffix',
+    rename_sfx_tag:'Optional',
+    find_lbl:'Find Word in Name',
+    repl_lbl:'Replace With (Blank = Delete)',
+    bulk_b:'Bulk Template Auto-Numbering Renaming',
+    bulk_s:'Sequentially rename all configs after PX_op prefix',
+    tpl_lbl:'Renaming Template (After PX_op)',
+    tpl_hint:'Result: <b>PX_op | PIXON-PRO-1 (VLESS)</b> | Variables: <b>#{n}</b> Index | <b>{proto}</b> Protocol',
+    ip_hd:'Server Address (Clean IP) & SNI / Host',
+    adr_lbl:'Replacement Server Address (Clean IP or Domain)',
+    adr_tag:'Optional',
+    sni_lbl:'SNI / Host Domain for TLS & Reality',
+    sni_tag:'Anti-DPI Bypass',
+    clean_hd:'Smart Cleaner & Protocol Filter',
+    strip_b:'Auto-Strip Subscription Info & Expired Ads',
+    strip_s:'Removes traffic counters, expired notices, and channel ads',
+    proto_filter_lbl:'Output Protocol Filter',
+    proto_filter_tag:'Quick Isolate',
+    pf_all:'Show All Configs (Default)',
+    pf_vless:'VLESS Configs Only',
+    pf_trojan:'Trojan Configs Only',
+    pf_vmess:'VMess Configs Only',
+    sec_hd:'Connection Security & Browser Fingerprint',
+    fp_lbl:'Browser Fingerprint',
+    alpn_lbl:'Application-Layer Protocol (ALPN)',
+    json_toggle:'Advanced Cipher Suites & FinalMask JSON Drawer',
+    json_hint:'TCP fragment parameters for bypassing TLS Hello disruption.',
+    out_hd:'Optimized Config Output',
+    btn_copy_all:'Copy All Configs',
+    btn_copy_sub:'📦 Copy Base64 Sub',
+    btn_qr:'📱 QR Scanner',
+    btn_dl:'Download .txt',
+    btn_close:'Close & Clear',
+    footer:'© '+new Date().getFullYear()+' PX OPTIMIZER STUDIO — Built by <b>PIXON</b> — 100% Secure Client-Side Browser Processing.',
+    modal_hd:'Scan Config QR Code',
+    toast_copy_ok:'All optimized configs copied to clipboard!',
+    toast_copy_sub_ok:'Base64 subscription string copied to clipboard!',
+    toast_lang_ok:'English language activated'
+  }
+};
 function $(id){return document.getElementById(id);}
-function fa(n){return String(n).replace(/\d/g,function(d){return'۰۱۲۳۴۵۶۷۸۹'[+d];});}
+function fa(n){
+  var l=document.documentElement.getAttribute('lang')||'fa';
+  if(l==='en')return String(n);
+  return String(n).replace(/\d/g,function(d){return'۰۱۲۳۴۵۶۷۸۹'[+d];});
+}
 function dec(s){try{return decodeURIComponent(s);}catch(e){return s;}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function showToast(text,type){
@@ -830,10 +1050,11 @@ function formatRemark(frag,o,idx,proto,host){
     t=t.replace(/\{host\}|\{ip\}/gi,host||'Server');
     name=t;
   }else{
-    if(o.pfx&&name.indexOf(o.pfx)!==0)name=o.pfx+name;
     if(o.sfx&&name.slice(-o.sfx.length)!==o.sfx)name=name+o.sfx;
   }
-  return name.trim()||'PX-Config-'+(idx+1);
+  name=name.trim()||('Config-'+(idx+1));
+  name=name.replace(/^PX_op\s*[|\-:\s]*\s*/i,'');
+  return 'PX_op | '+name;
 }
 function buildVless(c,o,idx){
   var qs=buildQS(c.p),rmk=formatRemark(c.f,o,idx,'VLESS',c.host);
@@ -850,6 +1071,10 @@ function optimizeVmess(raw,o,idx){
   var obj=null;
   try{obj=JSON.parse(jsonStr);}catch(e){throw new Error('ساختار JSON در VMess نامعتبر است');}
   if(o.adr)obj.add=o.adr;
+  if(o.sni){
+    obj.sni=o.sni;
+    obj.host=o.sni;
+  }
   if(o.fp)obj.fp=o.fp;
   if(o.alpn)obj.alpn=o.alpn;
   var origPs=String(obj.ps||'VMess');
@@ -866,6 +1091,10 @@ function applyParams(c,o){
   setParam(c.p,'cs',o.cs||DEF.cs);
   setParam(c.p,'fm',fmOf(o.fm));
   if(o.alpn)setParam(c.p,'alpn',o.alpn);
+  if(o.sni){
+    setParam(c.p,'sni',o.sni);
+    setParam(c.p,'host',o.sni);
+  }
 }
 function isJunkConfig(line){
   var lower=line.toLowerCase();
@@ -969,11 +1198,11 @@ function loadSettings(){
   if(typeof s.fm==='string'&&s.fm.trim()){try{JSON.parse(s.fm);fm=s.fm.trim();}catch(e){fm=DEF.fm;}}
   return{
     adr:(typeof s.adr==='string'&&s.adr!=='188.114.97.6')?s.adr:'',
+    sni:s.sni||DEF.sni,
     fp:s.fp||DEF.fp,
     cs:s.cs||DEF.cs,
     fm:fm,
     alpn:s.alpn||DEF.alpn,
-    pfx:(s.pfx!==undefined)?s.pfx:DEF.pfx,
     sfx:s.sfx||DEF.sfx,
     findText:s.findText||DEF.findText,
     replText:s.replText||DEF.replText,
@@ -998,27 +1227,103 @@ function legacyCopy(t){
 }
 var inp=$('inp'),out=$('out'),res=$('res'),sumEl=$('sum'),errs=$('errs'),
     cnt=$('cnt'),protoCnt=$('protoCnt'),ocnt=$('ocnt'),
-    adr=$('adr'),fp=$('fp'),cs=$('cs'),fm=$('fm'),fmh=$('fmh'),
-    alpn=$('alpn'),pfx=$('pfx'),sfx=$('sfx'),findText=$('findText'),replText=$('replText'),
+    adr=$('adr'),sni=$('sni'),fp=$('fp'),cs=$('cs'),fm=$('fm'),fmh=$('fmh'),
+    alpn=$('alpn'),sfx=$('sfx'),findText=$('findText'),replText=$('replText'),
     bulkRenameToggle=$('bulkRenameToggle'),renameTplBox=$('renameTplBox'),nameTpl=$('nameTpl'),
     protoFilter=$('protoFilter'),stripAdsToggle=$('stripAdsToggle'),
-    go=$('go'),dz=$('dz'),cpy=$('cpy'),dl=$('dl'),qrBtn=$('qrBtn');
+    go=$('go'),dz=$('dz'),cpy=$('cpy'),cpySubBtn=$('cpySubBtn'),dl=$('dl'),qrBtn=$('qrBtn');
 var st=loadSettings();
-adr.value=st.adr;fp.value=st.fp;cs.value=st.cs;fm.value=st.fm;alpn.value=st.alpn;
-pfx.value=st.pfx;sfx.value=st.sfx;findText.value=st.findText;replText.value=st.replText;
+adr.value=st.adr;sni.value=st.sni;fp.value=st.fp;cs.value=st.cs;fm.value=st.fm;alpn.value=st.alpn;
+sfx.value=st.sfx;findText.value=st.findText;replText.value=st.replText;
 nameTpl.value=st.nameTpl;
 bulkRenameToggle.classList.toggle('checked',st.bulkRename);
 renameTplBox.classList.toggle('show',st.bulkRename);
 protoFilter.value=st.protoFilter;
 stripAdsToggle.classList.toggle('checked',st.stripAds);
 $('yr').textContent=fa(new Date().getFullYear());
+/* ── APPLY LANGUAGE (FA / EN) ── */
+function applyLanguage(l){
+  var d=I18N[l]||I18N.fa;
+  document.documentElement.setAttribute('lang',l);
+  document.documentElement.setAttribute('dir',l==='en'?'ltr':'rtl');
+  $('langLabel').textContent=d.lang_btn;
+  $('txt_notice_badge').textContent=d.notice_badge;
+  $('txt_notice_text').innerHTML=d.notice_text;
+  $('txt_hdr_sub').textContent=d.hdr_sub;
+  $('txt_carrier_lbl').textContent=d.carrier_lbl;
+  $('txt_input_hd').textContent=d.input_hd;
+  $('txt_btn_paste').textContent=d.btn_paste;
+  $('txt_btn_file').textContent=d.btn_file;
+  $('txt_btn_sample').textContent=d.btn_sample;
+  $('txt_btn_clear').textContent=d.btn_clear;
+  $('txt_cta_hint').innerHTML=d.cta_hint;
+  $('txt_cta_btn').textContent=d.cta_btn;
+  $('txt_guide_hd').textContent=d.guide_hd;
+  $('txt_guide_tag').textContent=d.guide_tag;
+  $('txt_g1_t').textContent=d.g1_t;
+  $('txt_g1_p').innerHTML=d.g1_p;
+  $('txt_g2_t').textContent=d.g2_t;
+  $('txt_g2_p').innerHTML=d.g2_p;
+  $('txt_g3_t').textContent=d.g3_t;
+  $('txt_g3_p').innerHTML=d.g3_p;
+  $('txt_g4_t').textContent=d.g4_t;
+  $('txt_g4_p').innerHTML=d.g4_p;
+  $('txt_rename_hd').textContent=d.rename_hd;
+  $('txt_rename_lock').textContent=d.rename_lock;
+  $('txt_rename_pfx_lbl').textContent=d.rename_pfx_lbl;
+  $('txt_rename_pfx_tag').textContent=d.rename_pfx_tag;
+  $('txt_rename_sfx_lbl').textContent=d.rename_sfx_lbl;
+  $('txt_rename_sfx_tag').textContent=d.rename_sfx_tag;
+  $('txt_find_lbl').textContent=d.find_lbl;
+  $('txt_repl_lbl').textContent=d.repl_lbl;
+  $('txt_bulk_b').textContent=d.bulk_b;
+  $('txt_bulk_s').textContent=d.bulk_s;
+  $('txt_tpl_lbl').textContent=d.tpl_lbl;
+  $('txt_tpl_hint').innerHTML=d.tpl_hint;
+  $('txt_ip_hd').textContent=d.ip_hd;
+  $('txt_adr_lbl').textContent=d.adr_lbl;
+  $('txt_adr_tag').textContent=d.adr_tag;
+  $('txt_sni_lbl').textContent=d.sni_lbl;
+  $('txt_sni_tag').textContent=d.sni_tag;
+  $('txt_clean_hd').textContent=d.clean_hd;
+  $('txt_strip_b').textContent=d.strip_b;
+  $('txt_strip_s').textContent=d.strip_s;
+  $('txt_proto_filter_lbl').textContent=d.proto_filter_lbl;
+  $('txt_proto_filter_tag').textContent=d.proto_filter_tag;
+  $('pf_all').textContent=d.pf_all;
+  $('pf_vless').textContent=d.pf_vless;
+  $('pf_trojan').textContent=d.pf_trojan;
+  $('pf_vmess').textContent=d.pf_vmess;
+  $('txt_sec_hd').textContent=d.sec_hd;
+  $('txt_fp_lbl').textContent=d.fp_lbl;
+  $('txt_alpn_lbl').textContent=d.alpn_lbl;
+  $('txt_json_toggle').textContent=d.json_toggle;
+  $('txt_json_hint').textContent=d.json_hint;
+  $('txt_out_hd').textContent=d.out_hd;
+  $('txt_btn_copy_all').textContent=d.btn_copy_all;
+  $('txt_btn_copy_sub').textContent=d.btn_copy_sub;
+  $('txt_btn_qr').textContent=d.btn_qr;
+  $('txt_btn_dl').textContent=d.btn_dl;
+  $('txt_btn_close').textContent=d.btn_close;
+  $('txt_footer').innerHTML=d.footer;
+  $('txt_modal_hd').textContent=d.modal_hd;
+  updateCount();
+}
+var curLang=document.documentElement.getAttribute('lang')||'fa';
+applyLanguage(curLang);
+$('langBtn').addEventListener('click',function(){
+  curLang=(curLang==='fa')?'en':'fa';
+  try{localStorage.setItem(LKEY,curLang);}catch(e){}
+  applyLanguage(curLang);
+  var msg=(curLang==='fa')?I18N.fa.toast_lang_ok:I18N.en.toast_lang_ok;
+  showToast(msg,'ok');
+});
 function getOpts(){
   return{
-    adr:adr.value.trim(),fp:fp.value,
+    adr:adr.value.trim(),sni:sni.value.trim(),fp:fp.value,
     cs:cs.value.trim()||DEF.cs,fm:fm.value.trim()||DEF.fm,
     alpn:alpn.value.trim(),
-    pfx:pfx.value,sfx:sfx.value,
-    findText:findText.value.trim(),replText:replText.value,
+    sfx:sfx.value,findText:findText.value.trim(),replText:replText.value,
     bulkRename:bulkRenameToggle.classList.contains('checked'),
     nameTpl:nameTpl.value.trim()||DEF.nameTpl,
     stripAds:stripAdsToggle.classList.contains('checked'),
@@ -1030,9 +1335,12 @@ function persist(){
   updateIpPills();
 }
 function updateIpPills(){
-  var cur=adr.value.trim();
-  document.querySelectorAll('.ip-pill').forEach(function(p){
-    p.classList.toggle('active',p.getAttribute('data-ip')===cur);
+  var curA=adr.value.trim(),curS=sni.value.trim();
+  document.querySelectorAll('#adrPresets .ip-pill').forEach(function(p){
+    p.classList.toggle('active',p.getAttribute('data-ip')===curA);
+  });
+  document.querySelectorAll('#sniPresets .ip-pill').forEach(function(p){
+    p.classList.toggle('active',p.getAttribute('data-sni')===curS);
   });
 }
 function validateFm(){
@@ -1060,8 +1368,31 @@ function updateCount(){
     protoCnt.hidden=true;
   }
 }
-function setOutputBtns(en){cpy.disabled=dl.disabled=qrBtn.disabled=!en;}
-[adr,cs,pfx,sfx,findText,replText,nameTpl].forEach(function(el){el.addEventListener('input',persist);});
+function setOutputBtns(en){cpy.disabled=dl.disabled=qrBtn.disabled=cpySubBtn.disabled=!en;}
+/* ── IRAN CARRIER 1-CLICK SUPER-PRESETS ── */
+document.querySelectorAll('.carrier-pill').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var c=this.getAttribute('data-carrier');
+    document.querySelectorAll('.carrier-pill').forEach(function(p){p.classList.remove('active');});
+    this.classList.add('active');
+    if(c==='mci'){
+      adr.value='188.114.97.6';sni.value='www.speedtest.net';alpn.value='h2,http/1.1';
+      fp.value='chrome';
+    }else if(c==='mtn'){
+      adr.value='162.159.192.1';sni.value='cloudflare.com';alpn.value='h2';
+      fp.value='firefox';
+    }else if(c==='tci'){
+      adr.value='104.16.20.1';sni.value='icook.hk';alpn.value='http/1.1';
+      fp.value='chrome';
+    }else if(c==='rtl'){
+      adr.value='ir.speedtest.cl';sni.value='radar.cloudflare.com';alpn.value='h2,http/1.1';
+      fp.value='safari';
+    }
+    persist();
+    showToast((curLang==='fa'?'پریست اپراتور اعمال شد: ':'Carrier preset applied: ')+this.textContent,'ok');
+  });
+});
+[adr,sni,cs,sfx,findText,replText,nameTpl].forEach(function(el){el.addEventListener('input',persist);});
 [fp,alpn,protoFilter].forEach(function(el){el.addEventListener('change',persist);});
 fm.addEventListener('input',function(){validateFm();persist();});
 inp.addEventListener('input',updateCount);
@@ -1077,11 +1408,18 @@ stripAdsToggle.addEventListener('click',function(){
   persist();
   showToast(this.classList.contains('checked')?'حذف خودکار تبلیغات و خطوط منقضی فعال شد':'حذف خودکار تبلیغات غیرفعال شد','ok');
 });
-document.querySelectorAll('.ip-pill').forEach(function(btn){
+document.querySelectorAll('#adrPresets .ip-pill').forEach(function(btn){
   btn.addEventListener('click',function(){
     adr.value=this.getAttribute('data-ip');
     persist();
     showToast('آدرس سرور تنظیم شد: '+(this.textContent||'پیش‌فرض'),'ok');
+  });
+});
+document.querySelectorAll('#sniPresets .ip-pill').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    sni.value=this.getAttribute('data-sni');
+    persist();
+    showToast('دامنه SNI تنظیم شد: '+(this.textContent||'پیش‌فرض'),'ok');
   });
 });
 $('th').addEventListener('click',function(){
@@ -1097,12 +1435,13 @@ $('jsonToggle').addEventListener('click',function(){
   dr.classList.toggle('open');
 });
 $('rst').addEventListener('click',function(){
-  adr.value=DEF.adr;fp.value=DEF.fp;cs.value=DEF.cs;fm.value=DEF.fm;alpn.value=DEF.alpn;
-  pfx.value=DEF.pfx;sfx.value=DEF.sfx;findText.value=DEF.findText;replText.value=DEF.replText;
+  adr.value=DEF.adr;sni.value=DEF.sni;fp.value=DEF.fp;cs.value=DEF.cs;fm.value=DEF.fm;alpn.value=DEF.alpn;
+  sfx.value=DEF.sfx;findText.value=DEF.findText;replText.value=DEF.replText;
   nameTpl.value=DEF.nameTpl;
   bulkRenameToggle.classList.toggle('checked',DEF.bulkRename);
   renameTplBox.classList.toggle('show',DEF.bulkRename);
   protoFilter.value=DEF.protoFilter;stripAdsToggle.classList.toggle('checked',DEF.stripAds);
+  document.querySelectorAll('.carrier-pill').forEach(function(p){p.classList.remove('active');});
   validateFm();persist();
   showToast('تمامی تنظیمات به حالت پیش‌فرض بازگشت','ok');
 });
@@ -1168,7 +1507,14 @@ go.addEventListener('click',run);
 cpy.addEventListener('click',function(){
   if(!out.value)return;
   copyText(out.value).then(function(ok){
-    showToast(ok?'تمامی کانفیگ‌های بهینه‌شده کپی شد':'کپی خودکار پشتیبانی نمی‌شود — دستی کپی کنید',ok?'ok':'err');
+    showToast(ok?(I18N[curLang]||I18N.fa).toast_copy_ok:'کپی دستی انجام دهید',ok?'ok':'err');
+  });
+});
+cpySubBtn.addEventListener('click',function(){
+  if(!out.value)return;
+  var b64=b64encode(out.value.trim());
+  copyText(b64).then(function(ok){
+    showToast(ok?(I18N[curLang]||I18N.fa).toast_copy_sub_ok:'ناموفق',ok?'ok':'err');
   });
 });
 qrBtn.addEventListener('click',function(){
@@ -1185,7 +1531,7 @@ $('qrModal').addEventListener('click',function(e){if(e.target===this)this.classL
 dl.addEventListener('click',function(){
   if(!out.value)return;
   var blob=new Blob([out.value+'\n'],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob);
-  var a=document.createElement('a');a.href=url;a.download='PX-Configs-v3.3-'+Date.now()+'.txt';
+  var a=document.createElement('a');a.href=url;a.download='PX-Configs-v3.5-'+Date.now()+'.txt';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(function(){URL.revokeObjectURL(url);},1500);
   showToast('فایل کانفیگ‌ها دانلود شد','ok');
@@ -1260,5 +1606,3 @@ function finish(all,failed){
 </script>
 </body>
 </html>
-
-
